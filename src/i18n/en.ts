@@ -1,4 +1,7 @@
+import { productEn } from "./product-en.ts";
+
 export const en = {
+  product: productEn,
   language: "English",
   otherLanguage: "简体中文",
   skip: "Skip to content",
@@ -7,8 +10,8 @@ export const en = {
   ourPrinciples: "Our principles",
   start: "Check your usage",
   eyebrow: "FOR HOUSEHOLDS IN AOTEAROA NEW ZEALAND",
-  heroTitle: "Less on bills.\nMore for everyday life.",
-  heroDescription: "A clearer way to understand your household bills. OpenBill is building independent comparisons, starting with electricity.",
+  heroTitle: "Less on bills.\nMore for life.",
+  heroDescription: "OpenBill helps New Zealand households understand everyday expenses, explore better options and find practical ways to save. Free, independent, open source and built around your interests.",
   heroNote: "No ads. No commissions. Your interests come first.",
   illustrationLabel: "A home with a sun above it and a small garden",
   illustrationCaption: "A little more room in the household budget.",
@@ -53,8 +56,8 @@ export const en = {
   principlesTitle: "Your household. Your decision.",
   principles: [
     { title: "Independent by design", body: "A public-interest project, without advertising or commission-driven recommendations." },
-    { title: "Evidence before estimates", body: "Traceable official prices, clear dates and honest explanations of what we do and do not know." },
-    { title: "Privacy from the start", body: "Calculations happen in your browser. No account, tracking or bill uploads." },
+    { title: "Evidence before estimates", body: "Prices will need official sources and independent verification. We will explain coverage and limitations." },
+    { title: "Privacy from the start", body: "Use the calculator without an OpenBill account. Your entries stay in your browser, without tracking or uploads." },
   ],
   futureTitle: "Starting with electricity. Thinking beyond it.",
   futureBody: "One household budget, many recurring bills. Broadband, mobile and insurance are planned for future versions.",
@@ -65,8 +68,8 @@ export const en = {
   footerMission: "Open source. Independent. Made for New Zealand households.",
   footerStatus: "An early project. Supplier comparisons are not available yet.",
   noScript: "JavaScript is needed for the local usage calculator. Your inputs are never submitted to a server.",
-  metaTitle: "OpenBill — Understand your household bills",
-  metaDescription: "An independent, public-interest project for New Zealand households. Check electricity usage locally, in English or Simplified Chinese, without uploading a bill.",
+  metaTitle: "OpenBill — Less on bills. More for life.",
+  metaDescription: "A free, independent household expense project for New Zealand. Explore the vision and roadmap, and check electricity usage locally in English or Simplified Chinese.",
 };
 
 export type Messages = typeof en;

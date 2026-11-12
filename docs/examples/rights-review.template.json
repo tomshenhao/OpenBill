@@ -1,0 +1,8 @@
+{
+  "evidenceId": "REPLACE-WITH-CAPTURE-ID",
+  "evidenceManifestSha256": "REPLACE_WITH_ACTUAL_MANIFEST_SHA256",
+  "reviewerId": "REPLACE-WITH-INDEPENDENT-PUBLIC-HANDLE",
+  "reviewedAt": "REPLACE_WITH_ACTUAL_REVIEW_UTC_TIMESTAMP",
+  "permissionReference": "REPLACE_WITH_ACTUAL_WRITTEN_REDISTRIBUTION_PERMISSION_REFERENCE",
+  "publicNonPersonalSourceConfirmed": false
+}

@@ -1,0 +1,5 @@
+* text=auto
+# Review hashes bind exact record bytes; keep JSON stable across Windows/Linux.
+data/electricity/** text eol=lf
+*.png -text
+*.pdf -text

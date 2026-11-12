@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "networks": [
+    { "id": "vector", "regionCodes": ["NZ-AUK"], "sourceUrl": "https://www.genesisenergy.co.nz/help/outages" },
+    { "id": "orion", "regionCodes": ["NZ-CAN"], "sourceUrl": "https://www.genesisenergy.co.nz/help/outages" }
+  ]
+}

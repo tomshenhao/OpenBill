@@ -1,6 +1,8 @@
 import type { Messages } from "./en";
+import { productZh } from "./product-zh.ts";
 
 export const zh: Messages = {
+  product: productZh,
   language: "简体中文",
   otherLanguage: "English",
   skip: "跳转到主要内容",
@@ -9,8 +11,8 @@ export const zh: Messages = {
   ourPrinciples: "我们的原则",
   start: "查看用电量",
   eyebrow: "为新西兰普通家庭而建",
-  heroTitle: "账单少一点，\n生活从容一点。",
-  heroDescription: "让家庭账单更容易看懂。OpenBill 正在打造独立、透明的比价工具，从电费开始。",
+  heroTitle: "让账单更轻，\n让生活更自由。",
+  heroDescription: "OpenBill 希望帮助新西兰家庭看懂日常开支、了解更合适的选择，并找到实用的省钱方法。免费、独立、开源，以您的利益为先。",
   heroNote: "无广告，无佣金。以您的利益为先。",
   illustrationLabel: "阳光下的房屋和一座小花园",
   illustrationCaption: "为家庭预算，多留一点余地。",
@@ -55,8 +57,8 @@ export const zh: Messages = {
   principlesTitle: "您的家庭，您来决定。",
   principles: [
     { title: "坚持独立", body: "以公共利益为出发点，不依靠广告，也不根据佣金推荐供应商。" },
-    { title: "先有依据，再做估算", body: "价格可追溯至官方来源，核实日期清楚，并坦诚说明已知信息和局限。" },
-    { title: "从一开始就保护隐私", body: "计算在浏览器中完成。无需注册，不设追踪，也不上传账单。" },
+    { title: "先有依据，再做估算", body: "价格必须有官方来源并经过独立核实。我们会清楚说明信息的适用范围和局限。" },
+    { title: "从一开始就保护隐私", body: "使用计算器无需 OpenBill 账户。输入仅保留在浏览器中，不设追踪，也不上传账单。" },
   ],
   futureTitle: "从电费开始，逐步覆盖更多账单。",
   futureBody: "一个家庭，要面对多种固定开支。宽带、手机和保险比较将在未来版本中逐步推出。",
@@ -67,6 +69,6 @@ export const zh: Messages = {
   footerMission: "开源、独立，为新西兰家庭而建。",
   footerStatus: "项目处于起步阶段，暂未提供供应商比价。",
   noScript: "本地用电量计算需要启用 JavaScript。输入内容绝不会提交至服务器。",
-  metaTitle: "OpenBill — 看懂您的家庭账单",
-  metaDescription: "面向新西兰家庭的独立公益项目。支持英文和简体中文，在本地计算用电量，无需上传账单。",
+  metaTitle: "OpenBill — 让账单更轻，让生活更自由。",
+  metaDescription: "面向新西兰家庭的免费、独立开支优化项目。了解愿景与开发路线图，以英文或简体中文在本地计算用电量。",
 };

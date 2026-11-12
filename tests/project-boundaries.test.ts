@@ -35,6 +35,7 @@ describe("project boundaries", () => {
     for (const file of files) {
       const source = readFileSync(resolve(file.parentPath, file.name), "utf8");
       expect(source, file.name).not.toMatch(/\b(fetch|XMLHttpRequest|WebSocket|EventSource|sendBeacon|localStorage|sessionStorage|indexedDB)\b|document\.cookie|console\.|["']use server["']/);
+      expect(source, file.name).not.toMatch(/from\s+["'][^"']*(?:tools\/|node:|\.local-data|electricity\/records|electricity\/reviews)/);
     }
   });
 });

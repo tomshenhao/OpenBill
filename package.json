@@ -1,11 +1,13 @@
 {
   "name": "openbill",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "Independent, privacy-first bill comparisons for New Zealand households.",
   "license": "MIT",
-  "engines": { "node": ">=24.14.0 <25" },
+  "engines": {
+    "node": ">=24.14.0 <25"
+  },
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
@@ -15,12 +17,20 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "check": "npm run lint && npm run typecheck && npm test"
+    "check": "npm run lint && npm run typecheck && npm test && npm run data:validate",
+    "data:validate": "node tools/electricity/cli.ts validate",
+    "data:archive": "node tools/electricity/cli.ts archive",
+    "data:import": "node tools/electricity/cli.ts import",
+    "data:review": "node tools/electricity/cli.ts review",
+    "data:query": "node tools/electricity/cli.ts query",
+    "data:capture": "node tools/electricity/cli.ts capture",
+    "data:stage-evidence": "node tools/electricity/cli.ts stage-evidence"
   },
   "dependencies": {
     "next": "16.4.6",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

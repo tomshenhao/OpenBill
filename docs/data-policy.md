@@ -31,55 +31,91 @@ form inputs. Framework development/build telemetry is disabled by the supplied
 
 ## Public supplier pricing
 
-Public supplier pricing is separate from household input, UI components,
-translations, and calculation logic. The initial catalogue is intentionally empty;
-there are no verified prices, provider rankings, or savings claims in this release.
+Public supplier data is separate from household input, UI, translations and
+calculations. v0.2 stores structured records and immutable reviews as JSON in
+`data/electricity/`. The consumer catalogue remains empty: no real prices,
+rankings or savings are displayed. Source-availability research is not a tariff.
 
-Every future record must include:
+The runtime contract and workflow are documented in
+[electricity data infrastructure](electricity-data.md). Required fields include
+retailer/plan, network/region, meter/registers, eligibility, conditions, decimal
+prices with NZD units, GST, effective dates, original official URL, UTC collection
+time, source revision, evidence ID and SHA-256 hashes. Source bytes, screenshot
+and manifest are independently hashed. Reviews bind the tariff record hash and
+record the actual verification time and reviewer handle. They do not authenticate
+human identity.
 
-| Field | Required meaning |
-| --- | --- |
-| `id`, `provider`, `plan` | Stable record identifier and exact public provider/plan identity |
-| `region`, `eligibility` | Geographic coverage and applicable customer/meter conditions |
-| `dailyChargeNzd` | Source-accurate daily charge, as a decimal string in NZD |
-| `usageRateNzdPerKwh` | Source-accurate per-kWh rate, as a decimal string in NZD |
-| `gstIncluded` | This initial contract requires GST-inclusive values |
-| `additionalFeesAndConditions` | Applicable extras, discounts, exclusions, and term conditions |
-| `source.url` | HTTPS URL of the official provider source showing the applicable price |
-| `source.verifiedOn` | Actual verification date in `YYYY-MM-DD` format, never an invented date |
-| `source.evidenceScreenshot` | Repository-relative PNG under `evidence/electricity/` |
-| `source.verifiedBy` | Public reviewer handle, with no customer information |
+Flat, time-of-use and tiered structures can be represented without pretending
+they are interchangeable. Unsupported structures and unresolved eligibility,
+discount, fee or GST assumptions cannot enter eligible results. Never infer a
+numeric tariff from marketing discounts, export rates or a missing rate card.
+Synthetic records belong only in labelled tests/examples and are rejected by the
+production importer. Do not fabricate a real tariff to demonstrate the pipeline.
 
-The initial contract supports flat tariffs only. Time-of-use, stepped rates,
-controlled meters, export rates, bundled plans, and other structures require their
-own model before inclusion. Do not flatten complex tariffs into misleading rates.
-Do not insert illustrative prices into the real catalogue, even with a disclaimer.
+## Collection, evidence and redistribution
 
-## Verification gate before comparisons
+Only official retailer or relevant government/regulator sources may support a
+price. Search snippets, comparison/affiliate sites, advertisements and memory are
+not evidence. Approved URLs must be HTTPS and contain no credentials, query
+parameters or fragments. Never enter an address or ICP or use a personalised quote.
 
-1. Use an official provider pricing page or official public rate document. Search
-   snippets, advertisements, affiliate sites, inferred values, and memory are not
-   evidence. Do not send household information to obtain a quote.
-2. Match the source to plan, region, meter, units, GST, effective dates, fees,
-   eligibility, and discounts. If a public applicable price is unavailable, leave
-   the record out and explain the coverage gap.
-3. Capture a readable PNG of the relevant public evidence. Exclude customer data,
-   logged-in content, tokens, and personalised quotes. Use a stable reference such
-   as `evidence/electricity/<record-id>/<verification-date>.png`. Retain attribution
-   and respect the original source's rights; the MIT code licence does not relicense
-   supplier materials.
-4. Have a maintainer independently review the record, evidence, exact values,
-   conditions, and date. A type annotation is not verification.
-5. Implement automated checks for parseable dates, valid decimal values, official
-   source references, existing readable evidence files, duplicate IDs, missing
-   conditions, and freshness before enabling any consumer of tariff records.
-   **These runtime publication checks are future work, not implemented guarantees.**
-6. Define a documented freshness window and effective-date policy before launch.
-   Recheck on announced changes, expire stale records, and suppress estimates when
-   evidence is missing, stale, contradictory, or outside the household's eligibility.
-   Do not represent a verification date as a guarantee that a price is still current.
+Respect terms, robots policies and rate limits. Do not bypass protections, log in,
+solve CAPTCHAs, or assume robots permission overrides website terms. Mercury's
+adapter is manual-only because of its website terms. No live retailer automation
+is enabled. See [official-source research](official-source-research.md) for references.
 
-Future comparisons must disclose catalogue coverage, excluded charges, assumptions,
-and verification dates. Never claim to cover the whole market without evidence.
-Any data-policy change needs explicit review before new code is enabled. There is
-no deployment or external data collection in this scaffold.
+Raw source files, screenshots, capture metadata and rate-limit state live under
+ignored `.local-data/`, outside public assets. Never overwrite prior captures.
+Missing screenshots require a reason and keep records pending/manual verification.
+A hash proves byte consistency, not accuracy, permission or authenticity. Never
+archive customer bills, logged-in pages, quotes, tokens or secrets.
+
+Screenshots are **not public by default**. Staging requires recorded permission and
+an independent, manifest-bound rights review. It writes only a PNG and attribution
+to ignored `evidence/published/`; it does not commit, upload or deploy. MIT applies
+to code, not supplier materials. Any later public addition needs explicit approval
+and review of the actual permission and capture contents.
+
+## Verification and applicability gate
+
+Imports are `collected` or `pending-verification`. Schema validation never creates
+`verified` status. A separately recorded independent review must check official
+source, prices/units, geographic/meter scope, eligibility/contract, GST/dates and
+the matching screenshot. Reject, expire or append replacement reviews; never
+edit existing reviews or tariffs to erase history.
+
+The repository checks fields, dates, non-negative prices, units, GST, weekly/tier
+conflicts, duplicates, history and integrity. The future-data eligibility gate
+requires a valid review, current effective dates, capture and review less than
+30 days old, complete evidence, supported assumptions and an exact supported
+query scope. Any catalogue integrity failure blocks all eligible results. Known
+effective replacements suppress ancestors even before replacement verification.
+Missing/stale/rejected data must not silently revive an old price.
+
+Thirty days is a project maximum, not a promise of price stability. Recheck on
+announced changes. Future comparisons require an independently validated calculator
+and coverage; passing this data gate alone does not enable savings. Disclose
+exclusions, coverage, assumptions and dates. Never claim whole-market coverage
+without evidence. No new external services, secrets, household input collection
+or deployment are introduced by this infrastructure.
+
+## Public community feedback
+
+OpenBill links to the existing public GitHub Issues page for general ideas.
+GitHub is a separate third-party website, has its own service/privacy policies,
+requires an account to post and makes contributions public. The homepage explains
+that before navigation. This does not introduce an OpenBill account or submission
+endpoint. No GitHub scripts, tracking embeds or background requests are added.
+
+Never prefill an issue URL/body from calculator state, send household inputs to
+GitHub, or request financial details, account numbers, addresses or uploaded bills.
+The static link has no input/query parameters and suppresses referrer information.
+The bilingual issue template requests only general needs and value. GitHub may
+still allow attachments; the template is guidance, not a technical guarantee
+against accidental disclosure. Do not copy any exposed personal information into
+logs/tests/issues. See [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+Product growth and impact measurement do not relax these rules. The 15-category
+vision is not permission to collect household financial histories or introduce
+tracking. Future category tools need their own evidence/calculation review and
+must preserve local processing and explicit expense boundaries.
