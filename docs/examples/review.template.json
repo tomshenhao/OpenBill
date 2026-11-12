@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REPLACE-WITH-UNIQUE-REVIEW-ID",
+  "recordId": "REPLACE-WITH-RECORD-ID",
+  "previousReviewId": null,
+  "recordSha256": "REPLACE_WITH_ACTUAL_RECORD_SHA256_FROM_QUERY",
+  "status": "verified",
+  "reviewedAt": "REPLACE_WITH_ACTUAL_REVIEW_UTC_TIMESTAMP",
+  "reviewerId": "REPLACE-WITH-INDEPENDENT-PUBLIC-HANDLE",
+  "rationale": "REPLACE_WITH_ACTUAL_REVIEW_FINDINGS",
+  "checks": {
+    "officialSource": false,
+    "exactPricesAndUnits": false,
+    "geographyAndMetering": false,
+    "eligibilityAndConditions": false,
+    "gstAndDates": false,
+    "screenshotMatchesSource": false
+  }
+}

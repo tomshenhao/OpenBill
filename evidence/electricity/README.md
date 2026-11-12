@@ -1,9 +1,15 @@
 # Official electricity price evidence
 
-No supplier prices have been verified for this scaffold, so there are no screenshots here.
+No real tariffs or third-party screenshots are included in v0.2.
 
-Future evidence must be a PNG capture of a public, official provider pricing page, with
-enough context to identify the plan, region, units, GST treatment, and conditions. Use a
-stable path such as `evidence/electricity/<record-id>/<verification-date>.png` and reference
-it from the corresponding record. Review captures for personal information before adding
-them. Never add a household bill or a personalised quote. See `docs/data-policy.md`.
+Raw evidence belongs in ignored
+`.local-data/evidence/electricity/<retailer>/<capture UUID>/`, with source bytes,
+optional PNG and immutable manifest. Never archive household bills or quotes.
+Missing screenshots keep a record pending.
+
+Evidence is local-only by default. A permission-backed independent rights review
+can stage a PNG and attribution under ignored `evidence/published/`, without any
+commit or upload. The code's MIT licence does not cover supplier material.
+
+See [the data guide](../../docs/electricity-data.md) and
+[data policy](../../docs/data-policy.md) for retention, verification and staging.

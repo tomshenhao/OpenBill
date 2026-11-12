@@ -1,0 +1,55 @@
+name: "Share an idea / 提出建议"
+description: "Suggest a useful household-expense tool without sharing personal information. / 分享工具建议，请勿提供个人信息。"
+title: "[Idea / 建议] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help shape OpenBill. General ideas in English or Simplified Chinese are welcome.
+        This issue and your GitHub contribution are public. Do not include personal financial
+        details, account numbers, addresses or uploaded bills. Do not paste calculator entries.
+
+        欢迎用英文或简体中文一起完善 OpenBill。本议题和您的 GitHub 贡献将公开可见。
+        请勿提供个人财务信息、账户号码、地址或上传账单，也不要粘贴计算器中的输入。
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Bill or expense / 账单或开支类别"
+      options:
+        - "Electricity / 电费"
+        - "Water / 水费"
+        - "Mortgage / 房贷"
+        - "Insurance / 保险"
+        - "Broadband / 宽带"
+        - "Mobile / 手机"
+        - "Gas & LPG / 燃气与液化气"
+        - "Council rates / 地方政府地税"
+        - "Rent / 房租"
+        - "Transport & vehicles / 交通与车辆"
+        - "Waste & recycling / 垃圾与回收"
+        - "Subscriptions & memberships / 订阅与会员"
+        - "Education & childcare / 教育与托育"
+        - "Healthcare & dental / 医疗与牙科"
+        - "Groceries & essentials / 食品与日用品"
+        - "Another category / 其他类别"
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: "What would you like help with? / 您希望获得哪方面的帮助？"
+      description: "Describe the general problem or idea, without household details. / 请描述一般性问题或建议，不要提供个人家庭信息。"
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: "How could this be useful? / 这会带来什么帮助？"
+      description: "Explain the practical value. No personal costs, financial documents or private examples are needed. / 请说明实际用途，无需个人费用、财务文件或私人案例。"
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: "Public feedback / 公开反馈"
+      options:
+        - label: "I understand this is public and have not included personal financial details, account numbers, addresses or uploaded bills. / 我明白内容将公开，并未提供个人财务信息、账户号码、地址或上传账单。"
+          required: true

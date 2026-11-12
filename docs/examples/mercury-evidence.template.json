@@ -1,0 +1,20 @@
+{
+  "retailerId": "mercury",
+  "plan": "REPLACE_WITH_EXACT_OFFICIAL_PLAN_NAME",
+  "sourceUrl": "https://www.mercury.co.nz/electricity/flex-rates",
+  "collectedAt": "REPLACE_WITH_ACTUAL_UTC_TIMESTAMP",
+  "collectedBy": "REPLACE-WITH-PUBLIC-HANDLE",
+  "sourceRevision": "REPLACE_WITH_OFFICIAL_REVISION_OR_ACTUAL_CONTENT_HASH",
+  "sourceFile": ".local-data/incoming/REPLACE_WITH_PERMITTED_ORIGINAL_SOURCE.html",
+  "screenshotFile": null,
+  "screenshotUnavailableReason": "Mercury image permission has not been obtained; manual verification required.",
+  "captureMethod": "manual",
+  "terms": {
+    "url": "https://www.mercury.co.nz/media/MCY00013%20-%20Terms-Website%20Terms%20Of%20Use-190623.pdf",
+    "reviewedAt": "REPLACE_WITH_ACTUAL_TERMS_REVIEW_UTC_TIMESTAMP",
+    "reviewedBy": "REPLACE-WITH-PUBLIC-HANDLE",
+    "notes": "REPLACE_WITH_ACTUAL_PERMISSION_AND_LOCAL_ARCHIVAL_ASSESSMENT; do not infer permission from this template."
+  },
+  "rights": { "redistribution": "local-only", "permissionReference": null },
+  "publicNonPersonalSourceConfirmed": false
+}

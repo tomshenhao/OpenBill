@@ -2,6 +2,9 @@ import { messages, type Locale } from "@/i18n";
 import { HomeIllustration } from "./home-illustration";
 import { Icon } from "./icon";
 import { UsageForm } from "./usage-form";
+import { CoreCategorySection, MoreWaysToSave } from "./category-sections";
+import { RoadmapSection } from "./roadmap-section";
+import { CommunitySection } from "./community-section";
 
 export function HomePage({ locale }: { locale: Locale }) {
   const t = messages[locale];
@@ -14,8 +17,9 @@ export function HomePage({ locale }: { locale: Locale }) {
             <span className="brand-mark"><Icon name="leaf" /></span>OpenBill<span className="brand-period">.</span>
           </a>
           <nav aria-label={t.navigation} className="flex flex-wrap items-center gap-4 sm:gap-8">
-            <a href="#how-it-works" className="nav-link hidden md:inline-flex">{t.howItWorks}</a>
-            <a href="#principles" className="nav-link hidden md:inline-flex">{t.ourPrinciples}</a>
+            <a href="#categories" className="nav-link hidden md:inline-flex">{t.product.categoriesNav}</a>
+            <a href="#roadmap" className="nav-link hidden md:inline-flex">{t.product.roadmapNav}</a>
+            <a href="#community" className="nav-link hidden lg:inline-flex">{t.product.communityNav}</a>
             <a href={locale === "en" ? "/zh/" : "/"} hrefLang={locale === "en" ? "zh-Hans" : "en-NZ"} lang={locale === "en" ? "zh-Hans" : "en-NZ"} className="language-link"><Icon name="globe" className="size-4" />{t.otherLanguage}</a>
           </nav>
         </div>
@@ -26,7 +30,11 @@ export function HomePage({ locale }: { locale: Locale }) {
             <p className="eyebrow"><span className="status-dot" aria-hidden="true" />{t.eyebrow}</p>
             <h1 className="hero-title">{t.heroTitle}</h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-muted">{t.heroDescription}</p>
-            <a className="button-primary mt-8" href="#usage">{t.start}<Icon name="arrow" /></a>
+            <p className="mt-4 max-w-lg text-sm leading-7 text-muted">{t.product.growthNote}</p>
+            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a className="button-primary" href="#categories">{t.product.explore}<Icon name="arrow" /></a>
+              <a className="text-action" href="#usage">{t.product.checkElectricity}</a>
+            </div>
             <p className="mt-5 flex items-start gap-2 text-sm leading-6 text-muted"><Icon name="check" className="mt-0.5 size-5 shrink-0" />{t.heroNote}</p>
           </div>
           <figure className="hero-figure">
@@ -34,6 +42,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <figcaption className="text-center text-sm text-muted">{t.illustrationCaption}</figcaption>
           </figure>
         </section>
+        <CoreCategorySection locale={locale} />
         <section id="usage" className="usage-section section-anchor">
           <div className="page-width grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <div className="lg:pt-9">
@@ -49,20 +58,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <UsageForm locale={locale} />
           </div>
         </section>
-        <section id="how-it-works" className="page-width section-spacing section-anchor">
-          <p className="eyebrow">{t.howEyebrow}</p>
-          <h2 className="section-title mt-4">{t.howTitle}</h2>
-          <ol className="mt-10 grid gap-8 md:grid-cols-3 md:gap-12">
-            {t.steps.map((step, index) => (
-              <li key={step.title} className="step">
-                <span className="step-number" aria-hidden="true">0{index + 1}</span>
-                <h3 className="mt-5 text-lg font-semibold">{step.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted">{step.body}</p>
-              </li>
-            ))}
-          </ol>
-        </section>
-        <section id="principles" className="principles-section section-anchor">
+        <section id="principles" className="section-spacing section-anchor">
           <div className="page-width">
             <p className="eyebrow">{t.principlesEyebrow}</p>
             <h2 className="section-title mt-4">{t.principlesTitle}</h2>
@@ -77,16 +73,9 @@ export function HomePage({ locale }: { locale: Locale }) {
             </div>
           </div>
         </section>
-        <section className="page-width section-spacing">
-          <div className="future-layout">
-            <div><h2 className="text-2xl font-semibold tracking-tight">{t.futureTitle}</h2><p className="mt-3 max-w-xl text-sm leading-7 text-muted">{t.futureBody}</p></div>
-            <ul className="future-categories">
-              {([{ name: t.broadband, icon: "wifi" }, { name: t.mobile, icon: "phone" }, { name: t.insurance, icon: "shield" }] as const).map((category) => (
-                <li key={category.name}><Icon name={category.icon} /><span className="mt-2 text-sm font-medium">{category.name}</span><span className="mt-1 text-xs text-muted">{t.planned}</span></li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        <MoreWaysToSave locale={locale} />
+        <RoadmapSection locale={locale} />
+        <CommunitySection locale={locale} />
       </main>
       <footer className="border-t border-line">
         <div className="page-width flex flex-col justify-between gap-5 py-8 sm:flex-row sm:items-center">
