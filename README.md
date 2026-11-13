@@ -18,6 +18,28 @@ the [official-source research](docs/official-source-research.md) before collecti
 
 ## What works now
 
+Task 004.2 puts regional comparisons directly after the bill breakdown, adds inclusive
+billing dates and opt-in approximate dated references, and links to Billy as an external
+service. See the [consumer results and unsent retailer request drafts](docs/task004-2.md).
+
+Task 004.1 improves monthly selection, regional middle-50% context and nonblocking
+price-unit warnings. Household-size peers remain unavailable. See the
+[research, pilot retailer request template and intake workflow](docs/task004-1.md).
+
+Task 004 adds **[electricity bill analysis, official monthly benchmarks and tips](docs/task004-electricity.md)**
+at `/electricity/` and `/zh/electricity/`. Inputs stay in browser memory. The
+benchmark contains 320 official aggregate observations across 16 regions for
+January 2025–August 2026; only exact whole-month matches are compared. No invented
+household-size peers or percentile rankings. The comparison engine is tested with
+synthetic fixtures; the actual supplier catalogue remains empty.
+
+任务 004 新增 `/zh/electricity/` 电费分析、同期官方地区用电均值及实用建议，全部在浏览器内处理。
+基准覆盖 16 个地区、2025 年 1 月至 2026 年 8 月。真实供应商比价仍未开放。
+参阅[双语功能说明](docs/task004-electricity.md)及 [EIEP14A 研究与导入](docs/eiep14a-research.md)。
+
+The [Task 004 implementation report](docs/task004-report.md) records the architecture,
+file inventory, validation results, commands and remaining verification work.
+
 - English at `/` and Simplified Chinese at `/zh/`, including metadata, errors,
   document language, and accessible labels.
 - A household-wide mission, six core category cards, nine progressively disclosed
@@ -32,7 +54,7 @@ the [official-source research](docs/official-source-research.md) before collecti
 ## Complete vision, incremental delivery
 
 The six core categories are **electricity, water, mortgage, insurance, broadband
-and mobile**. Only the electricity usage check is available; the remaining core
+and mobile**. Electricity analysis, usage benchmarks and tips are available; the remaining core
 tools are labelled “Coming soon / 即将推出”, with no fake comparison links.
 
 Nine longer-term categories are gas/LPG, council rates, rent, transport/vehicles,
@@ -53,7 +75,7 @@ Share general needs through the existing [GitHub Issues page](https://github.com
 GitHub is a separate public website; posting requires an account and contributions
 are public. Do not include personal financial details, account numbers, addresses,
 uploaded bills or calculator entries. Nothing from the calculator is attached.
-The bilingual issue template is local until these changes are approved and published.
+The bilingual issue template requests general needs without household information.
 See [CONTRIBUTING.md](CONTRIBUTING.md) for English/Chinese participation guidance.
 
 ## Run locally
@@ -81,6 +103,15 @@ npm run dev
 Open [English](http://127.0.0.1:3000/) or
 [简体中文](http://127.0.0.1:3000/zh/). Stop with Ctrl+C. On Windows, if PowerShell
 blocks npm/npx scripts, use `npm.cmd` and `npx.cmd` instead; no policy change is needed.
+
+For access from another device on a trusted LAN, set `OPENBILL_DEV_ORIGINS` in
+ignored `.env.local` to the **server's exact LAN IP/hostname used in the browser**
+(no scheme, port, path or wildcard), then run `npm run dev:lan`. Restart after
+changing the allowlist. Default `npm run dev` and the production preview remain
+loopback-only. See [LAN troubleshooting and regression checks](docs/local-network.md).
+
+局域网访问：在不入库的 `.env.local` 中设置 `OPENBILL_DEV_ORIGINS` 为浏览器使用的服务器实际 IP／主机名，
+再运行 `npm run dev:lan`。不填写协议、端口、路径或通配符，修改后须重启。默认开发及生产预览仍仅监听本机。
 
 For a production-mode local preview:
 
@@ -123,16 +154,16 @@ screen-reader, zoom, or translation review.
 
 | Path | Responsibility |
 | --- | --- |
-| `src/app/[[...locale]]/` | Statically generated `/` and `/zh/` pages and document metadata |
-| `src/components/` | Responsive presentation and temporary usage input state |
+| `src/app/[[...locale]]/` | English/Chinese home and electricity pages with document metadata |
+| `src/components/` | Responsive presentation and temporary browser input state |
 | `src/i18n/` | English and Simplified Chinese copy |
 | `src/config/` | Category capabilities, genuine roadmap statuses and static community destination |
 | `src/domain/categories.ts` | Product category IDs, separate from implemented tariff schemas |
 | `src/domain/electricity/usage.ts` | Pure validation and daily usage calculation |
-| `src/domain/electricity/` | Tariff schema, rate-period quality checks and exact money primitives |
+| `src/domain/electricity/` | Bill, benchmark, tips, guarded comparison, tariff checks and exact money |
 | `src/domain/provenance.ts` | Shared source, evidence and hash contracts |
-| `data/electricity/` | Registries, immutable records/reviews and empty consumer catalogue |
-| `tools/electricity/` | Node-only manual adapter, capture/archive, repository and CLI |
+| `data/electricity/` | Registries, immutable records/reviews, official aggregate benchmark and empty supplier catalogues |
+| `tools/electricity/` | Node-only archive/review, EIEP14A import, benchmark reproduction and publication gates |
 | `.local-data/` | Ignored evidence, source captures and permission reviews |
 | `tests/` | Unit, privacy regression, accessibility, and browser tests |
 | `scripts/serve.mjs` | Dependency-free local static preview |
@@ -150,8 +181,9 @@ supplier evidence remains subject to its original source's rights.
 3. Use the implemented provenance/evidence gate with permitted official sources and
    independent reviewers. Schema validation never verifies a price. No complete
    privacy-compatible rate card was obtained in the initial six-retailer research.
-4. Add reviewed official-source records, then implement auditable exact-decimal cost
-   calculations. Explain assumptions and coverage before showing any savings.
+4. Add permitted, reviewed official-source records and independently validate the
+   tested exact-money comparison engine on real coverage, then implement and review
+   consumer profile entry/results. Explain assumptions before showing any savings.
 5. Introduce water, mortgage, insurance, broadband and mobile one category at a time,
    with their own evidence/calculations and community priorities. Keep wider plans
    separate from implemented functionality.

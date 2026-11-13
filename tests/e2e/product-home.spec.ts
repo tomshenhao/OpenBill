@@ -20,8 +20,9 @@ for (const locale of ["en", "zh"] as const) {
       if (category.route === null) { await expect(card.locator("a, button")).toHaveCount(0); }
     }
     await page.locator('#categories [data-category="electricity"] a').click();
-    await expect(page).toHaveURL(new RegExp(`${path}#usage$`));
-    await expect(page.getByRole("heading", { name: copy.formTitle })).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(`${path}electricity/$`));
+    await expect(page.getByRole("heading", { name: copy.analysis.formTitle })).toBeVisible();
+    await page.goto(path);
     const details = page.locator("#more-ways details"); const summary = details.locator("summary");
     await expect(details).not.toHaveAttribute("open", "");
     await expect(details.locator("[data-category]").first()).toBeHidden();

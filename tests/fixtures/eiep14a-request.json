@@ -1,0 +1,10 @@
+{
+  "sourceFile": "tests/fixtures/eiep14a.json",
+  "retailerId": "synthetic",
+  "officialSourceUrl": "https://retailer.example/tariffs",
+  "collectedAt": "2026-11-12T00:01:00.000Z",
+  "collectedBy": "synthetic-collector",
+  "receiptReference": "SYNTHETIC parser demonstration only. Not received from a retailer.",
+  "publicNonPersonalProductFileConfirmed": true,
+  "dataKind": "synthetic"
+}

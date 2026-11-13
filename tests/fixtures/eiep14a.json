@@ -1,0 +1,34 @@
+{
+  "FileType": "PRCSCHD",
+  "Version": 1.1,
+  "Sender": "SYNTHETIC_TEST_ONLY",
+  "RunDateTime": "2026-11-12T00:00:00Z",
+  "UtilType": "E",
+  "FileStatus": "I",
+  "RecordCount": 2,
+  "Retailers": [{
+    "TraderId": "TEST",
+    "RetailerId": "TEST",
+    "RetailerBrandName": "SYNTHETIC TEST ONLY - NOT A RETAIL OFFER",
+    "Attributes": [{ "AttributeId": "TEST_CONDITION", "Attribute": "DISCOUNT_OTHER", "NumValue": 2, "TextValue": "%", "Description": "SYNTHETIC condition requiring manual interpretation" }],
+    "Schedules": [],
+    "TariffTypes": [
+      { "TariffTypeId": "FIXED", "Description": "SYNTHETIC daily charge", "FixedVariable": "F", "Unit": "Day" },
+      { "TariffTypeId": "ENERGY", "Description": "SYNTHETIC consumption", "FixedVariable": "V", "Unit": "kWh", "FlowDirection": "X", "RCC-POA": [["UN", 24]] }
+    ],
+    "TariffRegions": [{ "TariffRegionId": "TEST_REGION", "Description": "SYNTHETIC area", "Networks": [{ "Network": "TEST", "DistributorPriceCategory": ["SYNTHETIC"] }] }],
+    "CustomerGroups": [{
+      "CustomerGroup": "SYNTHETIC residential eligibility, unresolved",
+      "Plans": [{
+        "PlanId": "SYNTHETIC_NOT_AN_OFFER",
+        "Description": "SYNTHETIC TEST ONLY",
+        "StartDate": "2026-11-01", "EndDate": null, "CloseDate": null,
+        "LowFixedCharge": "N", "AttributeIds": ["TEST_CONDITION"],
+        "Tariffs": [
+          { "Tariff": "TEST_DAILY", "TariffRegionId": "TEST_REGION", "TariffTypeId": "FIXED", "Rate": 1.234567 },
+          { "Tariff": "TEST_KWH", "TariffRegionId": "TEST_REGION", "TariffTypeId": "ENERGY", "Rate": 0.123456 }
+        ]
+      }]
+    }]
+  }]
+}

@@ -8,6 +8,7 @@ import { JsonTariffRepository } from "../tools/electricity/repository.ts";
 import { jsonBytes, sha256, writeOnce } from "../tools/electricity/files.ts";
 import { mercuryManualAdapter } from "../tools/electricity/adapters/mercury.ts";
 import { png, syntheticReview, syntheticTariff, testNow, testPolicy } from "./fixtures/electricity.ts";
+import { validateComparisonPublication } from "../tools/electricity/comparison-publication.ts";
 
 const temporaryRoots: string[] = [];
 afterEach(async () => {
@@ -17,7 +18,7 @@ afterEach(async () => {
   }
 });
 
-async function fixture(options: { screenshot?: boolean; permission?: boolean; importRecord?: boolean } = {}) {
+async function fixture(options: { screenshot?: boolean; permission?: boolean; importRecord?: boolean; officialClassificationSimulation?: boolean } = {}) {
   const root = await mkdtemp(resolve(tmpdir(), "openbill-v02-")); temporaryRoots.push(root);
   const dataRoot = resolve(root, "data"); const evidenceRoot = resolve(root, "archive");
   await mkdir(resolve(dataRoot, "records"), { recursive: true }); await mkdir(resolve(dataRoot, "reviews"));
@@ -32,6 +33,8 @@ async function fixture(options: { screenshot?: boolean; permission?: boolean; im
   const adapter = { retailerId: "synthetic", validate() { /* Synthetic adapter, no remote collection. */ } };
   const manifest = await archiveEvidence(request, evidenceRoot, testPolicy, testNow, adapter);
   const record = syntheticTariff();
+  // Test-only classification simulation; source, plan and values remain explicitly synthetic.
+  if (options.officialClassificationSimulation) record.dataKind = "official";
   record.provenance.evidenceId = manifest.evidenceId; record.provenance.sourceContentSha256 = manifest.sourceContent.sha256; record.provenance.screenshotSha256 = manifest.screenshot?.sha256 ?? null;
   record.provenance.evidenceManifestSha256 = await evidenceManifestDigest(evidenceRoot, record.retailerId, manifest.evidenceId);
   const repository = new JsonTariffRepository({ dataRoot, evidenceRoot, policy: testPolicy, allowSynthetic: true });
@@ -39,7 +42,40 @@ async function fixture(options: { screenshot?: boolean; permission?: boolean; im
   return { root, dataRoot, evidenceRoot, request, adapter, manifest, record, repository };
 }
 
+describe("comparison publication binds existing evidence and independent reviews", () => {
+  it("permits an empty catalogue without claiming prices", async () => {
+    const f = await fixture({ importRecord: false });
+    await expect(validateComparisonPublication({ schemaVersion: 1, entries: [] }, f.repository, testNow)).resolves.toEqual({ schemaVersion: 1, entries: [] });
+  });
+  it.each([false, true])("requires redistribution rights in addition to a valid price review (permission=%s)", async (permission) => {
+    const f = await fixture({ permission, officialClassificationSimulation: true });
+    const digest = sha256(await readFile(resolve(f.dataRoot, "records/synthetic/synthetic-plan/r1.json")));
+    const review = syntheticReview(f.record.recordId, digest); await f.repository.appendReview(review, testNow);
+    const bundle = { schemaVersion: 1, entries: [{ record: f.record, recordSha256: digest, review, rights: { recordId: f.record.recordId, recordSha256: digest, permissionReference: "SYNTHETIC permission", reviewedBy: "rights-reviewer", reviewedAt: "2026-11-12T12:00:00.000Z" } }] };
+    if (permission) {
+      await expect(validateComparisonPublication(bundle, f.repository, testNow)).resolves.toEqual(bundle);
+      bundle.entries[0].record.charges.daily[0].price.amount = "9";
+      await expect(validateComparisonPublication(bundle, f.repository, testNow)).rejects.toThrow("does not match");
+    } else await expect(validateComparisonPublication(bundle, f.repository, testNow)).rejects.toThrow("redistribution permission");
+  });
+  it("refuses synthetic records even with complete review and rights receipts", async () => {
+    const f = await fixture({ permission: true });
+    const digest = sha256(await readFile(resolve(f.dataRoot, "records/synthetic/synthetic-plan/r1.json")));
+    const review = syntheticReview(f.record.recordId, digest); await f.repository.appendReview(review, testNow);
+    const entries = [{ record: f.record, recordSha256: digest, review, rights: { recordId: f.record.recordId, recordSha256: digest, permissionReference: "SYNTHETIC permission", reviewedBy: "rights-reviewer", reviewedAt: "2026-11-12T12:00:00.000Z" } }];
+    await expect(validateComparisonPublication({ schemaVersion: 1, entries }, f.repository, testNow)).rejects.toThrow("eligible official record");
+  });
+});
+
 describe("evidence archive - synthetic local files only", () => {
+  it.each(["genesis", "contact"])("supports manual pilot intake for %s without enabling automation", async (retailerId) => {
+    const f = await fixture({ importRecord: false });
+    const policy = { ...testPolicy, retailers: [{ ...testPolicy.retailers[0], id: retailerId }] };
+    const manifest = await archiveEvidence({ ...f.request, retailerId }, f.evidenceRoot, policy, testNow);
+    expect(manifest.verificationStatus).toBe("pending-verification");
+    expect(manifest.rights.redistribution).toBe("local-only");
+    await expect(archiveEvidence({ ...f.request, retailerId, captureMethod: "playwright" }, f.evidenceRoot, policy, testNow)).rejects.toThrow("manual");
+  });
   it("hashes the original bytes, uses versioned directories and never overwrites", async () => {
     const f = await fixture(); const original = await readFile(resolve(f.evidenceRoot, f.manifest.sourceContent.path));
     expect(sha256(original)).toBe(f.manifest.sourceContent.sha256);

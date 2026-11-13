@@ -6,9 +6,10 @@ import "../globals.css";
 type Props = { children: React.ReactNode; params: Promise<{ locale?: string[] }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const locale = localeFromPath((await params).locale);
+  const segments = (await params).locale;
+  const locale = localeFromPath(segments);
   if (!locale) notFound();
-  const t = messages[locale];
+  const t = segments?.at(-1) === "electricity" ? messages[locale].analysis : messages[locale];
   return { title: t.metaTitle, description: t.metaDescription, robots: { index: false, follow: false } };
 }
 
@@ -19,7 +20,9 @@ export default async function RootLayout({ children, params }: Props) {
     <html lang={languageTags[locale]}>
       <head>
         <meta name="referrer" content="no-referrer" />
-        {process.env.NODE_ENV === "production" && <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'" />}
+        <meta httpEquiv="Content-Security-Policy" content={process.env.NODE_ENV === "production"
+          ? "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'"
+          : "form-action 'none'"} />
       </head>
       <body>{children}</body>
     </html>

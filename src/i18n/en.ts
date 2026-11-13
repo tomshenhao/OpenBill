@@ -1,6 +1,8 @@
 import { productEn } from "./product-en.ts";
+import { electricityEn } from "./electricity-en.ts";
 
 export const en = {
+  analysis: electricityEn,
   product: productEn,
   language: "English",
   otherLanguage: "简体中文",

@@ -24,6 +24,8 @@ describe("project boundaries", () => {
     expect(localeFromPath(undefined)).toBe("en");
     expect(localeFromPath([])).toBe("en");
     expect(localeFromPath(["zh"])).toBe("zh");
+    expect(localeFromPath(["electricity"])).toBe("en");
+    expect(localeFromPath(["zh", "electricity"])).toBe("zh");
     expect(localeFromPath(["fr"])).toBeNull();
     expect(localeFromPath(["zh", "unexpected"])).toBeNull();
   });

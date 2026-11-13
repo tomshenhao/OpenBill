@@ -10,11 +10,11 @@ export const productEn = {
   growthNote: "We’re building this gradually and in the open, starting with one useful electricity usage tool.",
   coreEyebrow: "ONE HOUSEHOLD. MANY EVERYDAY BILLS.",
   coreTitle: "A bigger picture of your household costs",
-  coreDescription: "These six areas are our starting point. Only the electricity usage check is available today; comparisons and the other tools are still to come.",
-  categoryStatus: { available: "Usage check available", "coming-soon": "Coming soon", planned: "Planned" },
-  electricityLimit: "Usage only. Supplier comparisons are not available yet.",
+  coreDescription: "These six areas are our starting point. Electricity bill analysis, regional usage benchmarks and practical tips are available today; supplier comparisons and the other tools are still to come.",
+  categoryStatus: { available: "Bill analysis available", "coming-soon": "Coming soon", planned: "Planned" },
+  electricityLimit: "Local analysis, official monthly benchmarks and tips. Supplier comparisons are not available yet.",
   categories: {
-    electricity: { name: "Electricity", description: "Understand your usage. Plan and tariff comparisons will follow verified data." },
+    electricity: { name: "Electricity", description: "Understand your bill, compare regional usage and find practical saving tips." },
     water: { name: "Water", description: "Explore water charges, consumption and practical ways to use less." },
     mortgage: { name: "Mortgage", description: "Understand rates, repayments, fees and refinancing scenarios." },
     insurance: { name: "Insurance", description: "Consider premiums alongside excesses, cover, exclusions and eligibility." },
@@ -43,6 +43,7 @@ export const productEn = {
   milestones: {
     v01: { title: "v0.1 · Bilingual website & usage calculator", description: "English and Simplified Chinese pages, plus a local electricity usage check with no bill uploads." },
     v02: { title: "v0.2 · Official electricity data foundation", description: "Evidence archiving, validation and review tools are built and tested. No verified supplier tariffs or comparisons are available yet." },
+    "electricity-analysis": { title: "Electricity bill analysis & usage context", description: "Local bill calculations, matching official monthly regional averages, contextual tips and a local EIEP14A JSON importer. The comparison engine uses synthetic tests; supplier offers remain unavailable." },
     "verified-electricity": { title: "Verified electricity comparisons", description: "Obtain permitted official rate cards, check their coverage and independently validate cost calculations before comparing plans." },
     "core-bills": { title: "More core household bills", description: "Develop water, mortgage, insurance, broadband and mobile tools one category at a time, each with its own evidence and calculation rules." },
     "wider-expenses": { title: "Community-led household tools", description: "Prioritise the wider expense categories around practical community needs and reliable information." },

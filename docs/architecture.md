@@ -11,8 +11,9 @@ are required. The house illustration and brand mark are source-controlled SVGs.
 The homepage introduces the household-wide mission, six core categories, a usable
 electricity form, progressively disclosed future categories, a public roadmap and
 community participation. It retains the green identity and house illustration.
-Only the electricity usage calculator is available; there are no supplier prices
-or other category comparison interfaces.
+Electricity bill analysis, exact-month official regional benchmarks and contextual
+tips are available on separate bilingual pages. There are no supplier offers or
+other category comparison interfaces. See [Task 004](task004-electricity.md).
 
 ## Boundaries and data flow
 
@@ -22,7 +23,7 @@ Permitted official public sources (no live retailer automation enabled)
   -> .local-data/evidence/ (local source files and screenshots)
   -> data/electricity/records/ + reviews/ (append-only JSON)
   -> schema, integrity, freshness, verification and scope gates
-  -> developer repository queries (no consumer comparison engine)
+  -> developer repository queries + rights-bound comparison publication gate
 
 data/electricity/published.json (empty)
   -> src/data/electricity/tariffs.ts (consumer boundary)
@@ -31,12 +32,29 @@ Household types two numbers
   -> UsageForm React state in the current tab
   -> pure domain/electricity/usage.ts validation/calculation
   -> local result rendered from state
+
+Official EA aggregate CSV (CC BY 4.0, raw bytes + SHA-256 retained)
+  -> offline benchmark transform -> versioned regional-monthly.json
+  -> src/data/electricity/analysis-data.ts -> pure monthly benchmark
+
+Household enters days/kWh/period total and optional context
+  -> ElectricityAnalysis temporary React state -> pure bill/benchmark/tips modules
+  -> locally rendered analysis; no household data path to Node tools
+
+Permitted EIEP14A product receipt -> offline strict JSON subset parser
+  -> .local-data/imports/eiep14a/<retailer>/<hash>/ pending candidates
+  -> manual interpretation/evidence/independent reviews (never auto-published)
+
+Eligible repository records + stored reviews + explicit rights receipts
+  -> Node comparison-publication validation -> comparison-plans.json (currently empty)
+  -> pure guarded comparison engine (synthetic tests; consumer offers UI gated)
 ```
 
 There is no path from household input to public supplier data or to a server.
 Server-rendered pages contain blank inputs; values are not serialized into HTML,
 React Server Component payloads, URLs, or static files. No tariffs are imported by
-the usage form. The usage calculation cannot produce a dollar amount or savings.
+the original usage form. New bill arithmetic uses only user-entered charges and
+does not produce supplier savings. Runtime code has no source-file or network access.
 
 v0.2's [electricity data guide](electricity-data.md) describes the implemented
 model, storage, manual Mercury workflow, evidence staging, review states and CLI.
@@ -72,8 +90,8 @@ there is no feedback backend, automatic issue submission or third-party embed.
 
 ## Internationalisation
 
-`src/app/[[...locale]]/` statically generates only `/` (English) and `/zh/`
-(Simplified Chinese). Unsupported paths return 404. The root layout sets `en-NZ`
+`src/app/[[...locale]]/` statically generates `/`, `/zh/`, `/electricity/` and
+`/zh/electricity/`. Unsupported paths return 404. The root layout sets `en-NZ`
 or `zh-Hans-NZ` on the actual HTML document and provides translated metadata.
 No locale-detection middleware, cookie, browser-language collection, or third-party
 translation service is used.
@@ -83,7 +101,7 @@ type and a key-parity test. Number formatting uses the active document language.
 Native document navigation between languages clears inputs and avoids client router
 prefetch or background fetches. Every user-facing feature must ship in both languages.
 
-## Usage and numeric rules
+## Original homepage usage rules
 
 - Accept kWh as a non-negative decimal, up to 3 decimal places and at most 100,000.
   Zero is a valid input. Require a leading digit; reject currency, commas, exponent
@@ -95,8 +113,9 @@ prefetch or background fetches. Every user-facing feature must ship in both lang
   and disclose rounding. No annualisation, cost, tariff matching, or savings estimate.
 - Editing inputs invalidates the previous result. Validation identifies the field,
   supplies a translated explanation, and moves focus to the first invalid input.
-- Future money calculations need a reviewed exact-decimal/integer strategy; do not
-  repurpose floating-point usage averages as financial arithmetic.
+- Task 004 bill and comparison arithmetic use integer money primitives. See its
+  [numeric, benchmark and comparison rules](task004-electricity.md), including GST,
+  conservative annualisation and complete measured TOU profiles.
 
 ## Privacy and accessibility
 
@@ -109,6 +128,11 @@ build; this is a documented limitation, not a complete security guarantee. The l
 preview also sends `frame-ancestors 'none'`, `nosniff`, and `no-referrer` headers.
 Any future host must preserve the policies and avoid input collection; nothing is
 deployed now. Framework development live reload is allowed only in dev mode.
+Native form navigation is blocked in development too, even before hydration or
+if JavaScript fails. Development does not use production's connection-blocking
+policy, which would prevent Next.js HMR. Explicit development host exceptions
+come from local configuration; they do not change production CSP or create a
+household-data endpoint. See [LAN development](local-network.md).
 
 Use native labels, buttons and headings; a skip link; visible focus indicators;
 field descriptions and `aria-invalid`; a live result region; reduced motion; and
@@ -131,7 +155,8 @@ The source tripwire is not a substitute for review or browser observations.
 CI runs lint, types, unit tests, production build, and browser tests. Browser traces,
 video, and screenshots are disabled. Tests use synthetic numbers only. A future
 release still needs manual screen-reader, zoom, browser, and native-language review.
-No comparison accuracy can be claimed while tariffs and a comparison engine are absent.
+The comparison engine has synthetic arithmetic/eligibility tests; real comparison
+accuracy still requires actual tariffs, independent coverage review and a pilot.
 `npm run check` also runs local data validation; CI never collects external data.
 
 ## Dependency maintenance
