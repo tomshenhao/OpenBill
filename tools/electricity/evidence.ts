@@ -6,6 +6,7 @@ import { evidenceSchema, idSchema, officialUrlSchema, utcSchema, type EvidenceMa
 import type { DataPolicy } from "../../src/domain/electricity/validation.ts";
 import { archiveFile, jsonBytes, readJson, sha256, writeOnce } from "./files.ts";
 import { mercuryManualAdapter, type ManualCollectionAdapter } from "./adapters/mercury.ts";
+import { parseEiep14a, readProductJson } from "./adapters/eiep14a.ts";
 
 export const archiveRequestSchema = evidenceSchema.omit({ schemaVersion: true, category: true, evidenceId: true, archivedAt: true, sourceContent: true, screenshot: true, collectionStatus: true, verificationStatus: true }).extend({
   sourceFile: z.string().min(1), screenshotFile: z.string().min(1).nullable(),
@@ -21,8 +22,14 @@ export function assertOfficialSource(retailerId: string, url: string, policy: Da
   if (!retailer || !retailer.officialHosts.includes(new URL(url).hostname) || !retailer.sourceUrls.includes(url)) throw new Error("Source is not an approved public official URL");
 }
 
-export async function archiveEvidence(input: unknown, root: string, policy: DataPolicy, now = new Date(), adapter: ManualCollectionAdapter = mercuryManualAdapter): Promise<EvidenceManifest> {
+export async function archiveEvidence(input: unknown, root: string, policy: DataPolicy, now = new Date(), suppliedAdapter?: ManualCollectionAdapter): Promise<EvidenceManifest> {
   const request = archiveRequestSchema.parse(input);
+  const adapter = suppliedAdapter ?? (request.retailerId === "mercury" ? mercuryManualAdapter : {
+    retailerId: request.retailerId,
+    validate(manifest: EvidenceManifest) {
+      if (!["genesis", "contact"].includes(manifest.retailerId) || manifest.captureMethod !== "manual") throw new Error("Only reviewed manual pilot source imports are supported");
+    },
+  });
   assertOfficialSource(request.retailerId, request.sourceUrl, policy);
   const retailer = policy.retailers.find((entry) => entry.id === request.retailerId)!;
   if (adapter.retailerId !== request.retailerId || !retailer.officialHosts.includes(new URL(request.terms.url).hostname) || (retailer.termsUrl && request.terms.url !== retailer.termsUrl)) throw new Error("Adapter or terms source does not match the retailer policy");
@@ -32,8 +39,9 @@ export async function archiveEvidence(input: unknown, root: string, policy: Data
   if (request.screenshotFile && request.screenshotUnavailableReason) throw new Error("Screenshot status is contradictory");
   if (request.rights.redistribution === "permission-granted" && !request.rights.permissionReference) throw new Error("Permission reference is required");
   const suffix = extname(request.sourceFile).toLowerCase();
-  if (![".html", ".pdf", ".txt"].includes(suffix)) throw new Error("Archive an original HTML, PDF or text source");
+  if (![".html", ".pdf", ".txt", ".json"].includes(suffix)) throw new Error("Archive an original HTML, PDF, text or EIEP14A JSON source");
   const source = await readFile(request.sourceFile);
+  if (suffix === ".json") parseEiep14a(readProductJson(source.toString("utf8")));
   const screenshot = request.screenshotFile ? await readFile(request.screenshotFile) : null;
   if (!source.length || source.length > 25_000_000 || (screenshot && (screenshot.length > 25_000_000 || !isPng(screenshot)))) throw new Error("Empty, oversized or invalid source/screenshot");
   const evidenceId = randomUUID();

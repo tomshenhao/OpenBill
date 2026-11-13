@@ -18,19 +18,20 @@ The status key describes possible states; a phase is not marked in progress unti
 | --- | --- | --- |
 | v0.1 · Bilingual website & usage calculator<br>v0.1 · 双语网站与用电量计算 | Completed / 已完成 | English and Simplified Chinese pages, plus a local electricity usage check with no bill uploads.<br>提供英文和简体中文页面，以及无需上传账单、在本地运行的用电量计算。 |
 | v0.2 · Official electricity data foundation<br>v0.2 · 官方电价数据基础设施 | Completed / 已完成 | Evidence archiving, validation and review tools are built and tested. No verified supplier tariffs or comparisons are available yet.<br>证据归档、数据校验和审核工具已实现并经过测试。目前仍无已核实的供应商电价，也未提供比价。 |
+| Electricity bill analysis & usage context<br>电费账单分析与用电参考 | Completed / 已完成 | Local bill calculations, matching official monthly regional averages, contextual tips and a local EIEP14A JSON importer. The comparison engine uses synthetic tests; supplier offers remain unavailable.<br>本地账单计算、同期官方地区月度均值、相关建议及本地 EIEP14A JSON 导入。比价引擎使用合成数据测试，供应商报价仍未开放。 |
 | Verified electricity comparisons<br>经过核实的电费比较 | Planned / 计划中 | Obtain permitted official rate cards, check their coverage and independently validate cost calculations before comparing plans.<br>先取得获准使用的官方价目表，核实适用范围，再独立验证费用计算，之后才开展套餐比较。 |
 | More core household bills<br>逐步覆盖更多核心账单 | Planned / 计划中 | Develop water, mortgage, insurance, broadband and mobile tools one category at a time, each with its own evidence and calculation rules.<br>依次开发水费、房贷、保险、宽带和手机工具。每类开支都有各自的数据依据和计算规则。 |
 | Community-led household tools<br>由社区需求推动的家庭工具 | Planned / 计划中 | Prioritise the wider expense categories around practical community needs and reliable information.<br>根据实际需求和可靠信息，确定更多家庭开支类别的开发顺序。 |
 
 ## Six core categories / 六类核心账单
 
-These six areas are our starting point. Only the electricity usage check is available today; comparisons and the other tools are still to come.
+These six areas are our starting point. Electricity bill analysis, regional usage benchmarks and practical tips are available today; supplier comparisons and the other tools are still to come.
 
-我们将从这六类开支逐步做起。目前仅开放用电量计算；比价功能和其他工具尚未推出。
+我们将从这六类开支逐步做起。目前已开放电费分析、地区用电基准及实用建议；供应商比价和其他工具尚未推出。
 
 | Category / 类别 | Status / 状态 | Scope / 范围 |
 | --- | --- | --- |
-| Electricity / 电费 | Usage check available / 用电量计算已开放 | Understand your usage. Plan and tariff comparisons will follow verified data.<br>先了解用电量，再以经过核实的数据逐步开展电价和套餐比较。 |
+| Electricity / 电费 | Bill analysis available / 电费分析已开放 | Understand your bill, compare regional usage and find practical saving tips.<br>了解账单、对照地区用电水平，并查看实用省电建议。 |
 | Water / 水费 | Coming soon / 即将推出 | Explore water charges, consumption and practical ways to use less.<br>了解水费构成、用水量，以及实用的节水方法。 |
 | Mortgage / 房贷 | Coming soon / 即将推出 | Understand rates, repayments, fees and refinancing scenarios.<br>了解利率、还款、费用，以及转贷情景。 |
 | Insurance / 保险 | Coming soon / 即将推出 | Consider premiums alongside excesses, cover, exclusions and eligibility.<br>结合保费、自付额、保障范围、除外责任和适用条件进行分析。 |

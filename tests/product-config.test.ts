@@ -19,8 +19,8 @@ describe("household product scope and truthful availability", () => {
     const available = categoryCatalog.filter((entry) => entry.status === "available");
     expect(available.map((entry) => entry.id)).toEqual(["electricity"]);
     const electricity = available[0];
-    expect(electricity.route).toEqual({ en: "/#usage", zh: "/zh/#usage" });
-    expect(electricity.supportedFeatures).toEqual(["daily-usage-average"]);
+    expect(electricity.route).toEqual({ en: "/electricity/", zh: "/zh/electricity/" });
+    expect(electricity.supportedFeatures).toEqual(["daily-usage-average", "bill-analysis", "regional-monthly-benchmark", "contextual-saving-tips"]);
     expect(existsSync(resolve(electricity.calculation!.module))).toBe(true);
     for (const category of categoryCatalog.filter((entry) => entry.status !== "available")) {
       expect(category.route).toBeNull(); expect(category.calculation).toBeNull(); expect(category.supportedFeatures).toHaveLength(0);

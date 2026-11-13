@@ -1,7 +1,9 @@
 import type { Messages } from "./en";
 import { productZh } from "./product-zh.ts";
+import { electricityZh } from "./electricity-zh.ts";
 
 export const zh: Messages = {
+  analysis: electricityZh,
   product: productZh,
   language: "简体中文",
   otherLanguage: "English",

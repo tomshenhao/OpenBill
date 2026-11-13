@@ -20,18 +20,19 @@ charitable status.
 - Gradual development based on practical needs and community participation.
 - Simple bilingual interfaces accessible to ordinary internet users.
 
-Current functionality is the English/Simplified Chinese site and browser-only
-electricity usage average. The v0.2 official-data foundation is implemented and
+Current functionality is the English/Simplified Chinese site, browser-only bill
+analysis, official monthly regional usage benchmarks and contextual tips. The
+original daily-usage check is retained. The v0.2 official-data foundation is implemented and
 tested, including manual import, evidence, validation and review tools. It contains
 no verified tariffs and enables no consumer comparison. All other categories,
-plan comparisons and cost optimisation are planned. Roadmap completion describes
+consumer plan comparisons and further cost optimisation are planned. Roadmap completion describes
 the named work, not a published GitHub release or permission to publish local work.
 
 ## Six core categories
 
 | Category | Planned scope beyond current functionality |
 | --- | --- |
-| Electricity | Plans/tariffs; fixed daily and usage charges; time-of-use; provider comparison; usage and cost optimisation. Only the usage average is available now. |
+| Electricity | Verified supplier comparisons and measured time-of-use profile entry remain planned. Local bill analysis, monthly regional usage benchmarks and contextual tips are available. |
 | Water | Consumption, fixed/variable charges, regional authorities, leak guidance and water-saving recommendations. |
 | Mortgage | Interest rates, fixed/floating options, repayment scenarios, fees/cashback conditions, refinancing/break costs and long-term interest. |
 | Insurance | Home, contents, vehicle, health and other household cover; premiums, excesses, coverage differences, exclusions, eligibility and cost-versus-cover analysis. |

@@ -1,0 +1,1953 @@
+{
+  "schemaVersion": 1,
+  "dataKind": "official-aggregate",
+  "source": {
+    "reportUrl": "https://www.emi.ea.govt.nz/Retail/Reports/0YUCE0",
+    "downloadUrl": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/0YUCE0?DateFrom=20250101&DateTo=20260831&RegionType=REG_COUNCIL&Show=Avg&TempAdj=N",
+    "collectedAt": "2026-11-12T22:41:41.000Z",
+    "sourceSha256": "d2a434b10e164ab2679ee0791750c3f40a21eebb74987031e57ff1dd5e4fa347",
+    "sourceFile": "source/emi-2025-01-2026-08.csv",
+    "attribution": "Electricity Authority (New Zealand), EMI residential consumption trends. Mean and coverage columns extracted by OpenBill; original CSV retained.",
+    "licence": "CC-BY-4.0",
+    "licenceUrl": "https://www.ea.govt.nz/copyright-disclaimer-transparency/",
+    "verification": "source-checked-not-independently-reviewed",
+    "checkedAt": "2026-11-12T22:41:41.000Z",
+    "checkedBy": "openbill-task004-research",
+    "geography": "Regional council (2013 boundaries)",
+    "unit": "kWh/ICP/calendar-month",
+    "population": "Cleaned residential electricity connection (ICP) sample, including holiday homes; all household sizes. Not a census of occupied households.",
+    "caveats": [
+      "Monthly grid offtake, excluding self-consumed solar; no loss adjustment or temperature adjustment.",
+      "Source cleaning excludes annual usage below 1,000 or above 30,000 kWh and monthly usage above 5,000 kWh, with smoothing and residential classification exclusions.",
+      "Sample coverage varies by region and month. Household size, heating, climate and occupancy are not controlled.",
+      "Regional location uses ICP information, with NSP fallback where missing; means are rounded by the source.",
+      "No individual household percentile or assessment of necessary consumption can be inferred from a mean."
+    ],
+    "householdSizeStratified": false,
+    "temperatureAdjusted": false,
+    "from": "2025-01",
+    "through": "2026-08"
+  },
+  "rows": [
+    {
+      "region": "NZ-NTL",
+      "month": "2025-01",
+      "meanKwh": 461,
+      "coveragePercent": 91.74
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-02",
+      "meanKwh": 415,
+      "coveragePercent": 91.51
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-03",
+      "meanKwh": 446,
+      "coveragePercent": 91.46
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-04",
+      "meanKwh": 477,
+      "coveragePercent": 91.94
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-05",
+      "meanKwh": 533,
+      "coveragePercent": 92.01
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-06",
+      "meanKwh": 597,
+      "coveragePercent": 92.09
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-07",
+      "meanKwh": 646,
+      "coveragePercent": 92.08
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-08",
+      "meanKwh": 666,
+      "coveragePercent": 92.12
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-09",
+      "meanKwh": 537,
+      "coveragePercent": 92.17
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-10",
+      "meanKwh": 477,
+      "coveragePercent": 91.98
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-11",
+      "meanKwh": 442,
+      "coveragePercent": 92.07
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-12",
+      "meanKwh": 459,
+      "coveragePercent": 92.17
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-01",
+      "meanKwh": 482,
+      "coveragePercent": 91.72
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-02",
+      "meanKwh": 412,
+      "coveragePercent": 91.35
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-03",
+      "meanKwh": 458,
+      "coveragePercent": 91.46
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-04",
+      "meanKwh": 480,
+      "coveragePercent": 91.95
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-05",
+      "meanKwh": 530,
+      "coveragePercent": 92.03
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-06",
+      "meanKwh": 614,
+      "coveragePercent": 91.88
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-07",
+      "meanKwh": 655,
+      "coveragePercent": 92.25
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-08",
+      "meanKwh": 639,
+      "coveragePercent": 91.8
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-01",
+      "meanKwh": 403,
+      "coveragePercent": 91.2
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-02",
+      "meanKwh": 358,
+      "coveragePercent": 91.09
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-03",
+      "meanKwh": 428,
+      "coveragePercent": 91.73
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-04",
+      "meanKwh": 456,
+      "coveragePercent": 91.96
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-05",
+      "meanKwh": 505,
+      "coveragePercent": 92
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-06",
+      "meanKwh": 560,
+      "coveragePercent": 92.1
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-07",
+      "meanKwh": 584,
+      "coveragePercent": 92.21
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-08",
+      "meanKwh": 584,
+      "coveragePercent": 92.12
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-09",
+      "meanKwh": 529,
+      "coveragePercent": 92.26
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-10",
+      "meanKwh": 516,
+      "coveragePercent": 92.3
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-11",
+      "meanKwh": 418,
+      "coveragePercent": 92.31
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-12",
+      "meanKwh": 415,
+      "coveragePercent": 92.46
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-01",
+      "meanKwh": 408,
+      "coveragePercent": 91.58
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-02",
+      "meanKwh": 361,
+      "coveragePercent": 91.44
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-03",
+      "meanKwh": 411,
+      "coveragePercent": 91.62
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-04",
+      "meanKwh": 443,
+      "coveragePercent": 91.86
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-05",
+      "meanKwh": 493,
+      "coveragePercent": 92.14
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-06",
+      "meanKwh": 519,
+      "coveragePercent": 92.32
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-07",
+      "meanKwh": 565,
+      "coveragePercent": 92.29
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-08",
+      "meanKwh": 569,
+      "coveragePercent": 92.01
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-01",
+      "meanKwh": 497,
+      "coveragePercent": 94.14
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-02",
+      "meanKwh": 451,
+      "coveragePercent": 94.45
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-03",
+      "meanKwh": 528,
+      "coveragePercent": 94.71
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-04",
+      "meanKwh": 624,
+      "coveragePercent": 95.07
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-05",
+      "meanKwh": 779,
+      "coveragePercent": 94.96
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-06",
+      "meanKwh": 940,
+      "coveragePercent": 95.18
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-07",
+      "meanKwh": 972,
+      "coveragePercent": 95
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-08",
+      "meanKwh": 933,
+      "coveragePercent": 93.94
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-09",
+      "meanKwh": 693,
+      "coveragePercent": 94.7
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-10",
+      "meanKwh": 618,
+      "coveragePercent": 94.67
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-11",
+      "meanKwh": 530,
+      "coveragePercent": 94.83
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-12",
+      "meanKwh": 491,
+      "coveragePercent": 93.99
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-01",
+      "meanKwh": 498,
+      "coveragePercent": 94.39
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-02",
+      "meanKwh": 474,
+      "coveragePercent": 94.56
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-03",
+      "meanKwh": 548,
+      "coveragePercent": 94.93
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-04",
+      "meanKwh": 586,
+      "coveragePercent": 94.94
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-05",
+      "meanKwh": 756,
+      "coveragePercent": 95.01
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-06",
+      "meanKwh": 863,
+      "coveragePercent": 95.34
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-07",
+      "meanKwh": 960,
+      "coveragePercent": 95.39
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-08",
+      "meanKwh": 878,
+      "coveragePercent": 95.19
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-01",
+      "meanKwh": 471,
+      "coveragePercent": 93.4
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-02",
+      "meanKwh": 413,
+      "coveragePercent": 93.87
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-03",
+      "meanKwh": 510,
+      "coveragePercent": 94.43
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-04",
+      "meanKwh": 588,
+      "coveragePercent": 94.85
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-05",
+      "meanKwh": 729,
+      "coveragePercent": 95.02
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-06",
+      "meanKwh": 884,
+      "coveragePercent": 94.96
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-07",
+      "meanKwh": 956,
+      "coveragePercent": 94.91
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-08",
+      "meanKwh": 932,
+      "coveragePercent": 93.82
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-09",
+      "meanKwh": 736,
+      "coveragePercent": 94.75
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-10",
+      "meanKwh": 649,
+      "coveragePercent": 94.59
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-11",
+      "meanKwh": 499,
+      "coveragePercent": 94.61
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-12",
+      "meanKwh": 491,
+      "coveragePercent": 94.74
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-01",
+      "meanKwh": 497,
+      "coveragePercent": 93.67
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-02",
+      "meanKwh": 451,
+      "coveragePercent": 93.92
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-03",
+      "meanKwh": 552,
+      "coveragePercent": 94.3
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-04",
+      "meanKwh": 606,
+      "coveragePercent": 94.66
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-05",
+      "meanKwh": 780,
+      "coveragePercent": 94.9
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-06",
+      "meanKwh": 932,
+      "coveragePercent": 94.74
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-07",
+      "meanKwh": 963,
+      "coveragePercent": 94.93
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-08",
+      "meanKwh": 887,
+      "coveragePercent": 94.65
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-01",
+      "meanKwh": 474,
+      "coveragePercent": 94.11
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-02",
+      "meanKwh": 432,
+      "coveragePercent": 94.13
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-03",
+      "meanKwh": 528,
+      "coveragePercent": 94.49
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-04",
+      "meanKwh": 607,
+      "coveragePercent": 94.87
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-05",
+      "meanKwh": 746,
+      "coveragePercent": 95.05
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-06",
+      "meanKwh": 970,
+      "coveragePercent": 95.03
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-07",
+      "meanKwh": 911,
+      "coveragePercent": 95.1
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-08",
+      "meanKwh": 878,
+      "coveragePercent": 95.02
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-09",
+      "meanKwh": 787,
+      "coveragePercent": 95.09
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-10",
+      "meanKwh": 700,
+      "coveragePercent": 95
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-11",
+      "meanKwh": 568,
+      "coveragePercent": 95.18
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-12",
+      "meanKwh": 521,
+      "coveragePercent": 95.21
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-01",
+      "meanKwh": 501,
+      "coveragePercent": 94.29
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-02",
+      "meanKwh": 490,
+      "coveragePercent": 94.36
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-03",
+      "meanKwh": 531,
+      "coveragePercent": 94.57
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-04",
+      "meanKwh": 630,
+      "coveragePercent": 94.81
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-05",
+      "meanKwh": 771,
+      "coveragePercent": 94.88
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-06",
+      "meanKwh": 832,
+      "coveragePercent": 94.86
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-07",
+      "meanKwh": 901,
+      "coveragePercent": 94.85
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-08",
+      "meanKwh": 883,
+      "coveragePercent": 94.68
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-01",
+      "meanKwh": 513,
+      "coveragePercent": 93.85
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-02",
+      "meanKwh": 449,
+      "coveragePercent": 93.89
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-03",
+      "meanKwh": 503,
+      "coveragePercent": 94.04
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-04",
+      "meanKwh": 549,
+      "coveragePercent": 94.18
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-05",
+      "meanKwh": 666,
+      "coveragePercent": 94.25
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-06",
+      "meanKwh": 759,
+      "coveragePercent": 94.22
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-07",
+      "meanKwh": 800,
+      "coveragePercent": 94.17
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-08",
+      "meanKwh": 822,
+      "coveragePercent": 93.97
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-09",
+      "meanKwh": 646,
+      "coveragePercent": 94.12
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-10",
+      "meanKwh": 578,
+      "coveragePercent": 93.81
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-11",
+      "meanKwh": 492,
+      "coveragePercent": 93.58
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-12",
+      "meanKwh": 501,
+      "coveragePercent": 93.76
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-01",
+      "meanKwh": 506,
+      "coveragePercent": 93.89
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-02",
+      "meanKwh": 455,
+      "coveragePercent": 93.69
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-03",
+      "meanKwh": 506,
+      "coveragePercent": 94.04
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-04",
+      "meanKwh": 573,
+      "coveragePercent": 94.35
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-05",
+      "meanKwh": 657,
+      "coveragePercent": 94.35
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-06",
+      "meanKwh": 732,
+      "coveragePercent": 94.47
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-07",
+      "meanKwh": 779,
+      "coveragePercent": 94.45
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-08",
+      "meanKwh": 737,
+      "coveragePercent": 94.18
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-01",
+      "meanKwh": 450,
+      "coveragePercent": 96.14
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-02",
+      "meanKwh": 394,
+      "coveragePercent": 96.33
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-03",
+      "meanKwh": 444,
+      "coveragePercent": 96.46
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-04",
+      "meanKwh": 494,
+      "coveragePercent": 96.78
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-05",
+      "meanKwh": 636,
+      "coveragePercent": 96.95
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-06",
+      "meanKwh": 758,
+      "coveragePercent": 97.09
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-07",
+      "meanKwh": 801,
+      "coveragePercent": 97.33
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-08",
+      "meanKwh": 810,
+      "coveragePercent": 97.04
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-09",
+      "meanKwh": 611,
+      "coveragePercent": 97.08
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-10",
+      "meanKwh": 529,
+      "coveragePercent": 97.02
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-11",
+      "meanKwh": 440,
+      "coveragePercent": 96.69
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-12",
+      "meanKwh": 435,
+      "coveragePercent": 96.86
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-01",
+      "meanKwh": 438,
+      "coveragePercent": 96.07
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-02",
+      "meanKwh": 397,
+      "coveragePercent": 95.97
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-03",
+      "meanKwh": 463,
+      "coveragePercent": 96.4
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-04",
+      "meanKwh": 517,
+      "coveragePercent": 96.7
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-05",
+      "meanKwh": 625,
+      "coveragePercent": 96.98
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-06",
+      "meanKwh": 737,
+      "coveragePercent": 97.1
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-07",
+      "meanKwh": 778,
+      "coveragePercent": 97.22
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-08",
+      "meanKwh": 730,
+      "coveragePercent": 97.11
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-01",
+      "meanKwh": 473,
+      "coveragePercent": 93.61
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-02",
+      "meanKwh": 431,
+      "coveragePercent": 93.78
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-03",
+      "meanKwh": 479,
+      "coveragePercent": 93.82
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-04",
+      "meanKwh": 512,
+      "coveragePercent": 94.48
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-05",
+      "meanKwh": 616,
+      "coveragePercent": 94.62
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-06",
+      "meanKwh": 740,
+      "coveragePercent": 94.76
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-07",
+      "meanKwh": 749,
+      "coveragePercent": 94.68
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-08",
+      "meanKwh": 784,
+      "coveragePercent": 94.64
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-09",
+      "meanKwh": 567,
+      "coveragePercent": 94.67
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-10",
+      "meanKwh": 509,
+      "coveragePercent": 94.63
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-11",
+      "meanKwh": 459,
+      "coveragePercent": 94.74
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-12",
+      "meanKwh": 475,
+      "coveragePercent": 95.05
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-01",
+      "meanKwh": 481,
+      "coveragePercent": 93.79
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-02",
+      "meanKwh": 422,
+      "coveragePercent": 93.96
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-03",
+      "meanKwh": 488,
+      "coveragePercent": 93.88
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-04",
+      "meanKwh": 521,
+      "coveragePercent": 94.46
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-05",
+      "meanKwh": 595,
+      "coveragePercent": 94.58
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-06",
+      "meanKwh": 652,
+      "coveragePercent": 94.76
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-07",
+      "meanKwh": 736,
+      "coveragePercent": 94.81
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-08",
+      "meanKwh": 679,
+      "coveragePercent": 94.51
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-01",
+      "meanKwh": 474,
+      "coveragePercent": 94.03
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-02",
+      "meanKwh": 445,
+      "coveragePercent": 94.17
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-03",
+      "meanKwh": 483,
+      "coveragePercent": 94.73
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-04",
+      "meanKwh": 494,
+      "coveragePercent": 95.18
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-05",
+      "meanKwh": 594,
+      "coveragePercent": 95.23
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-06",
+      "meanKwh": 689,
+      "coveragePercent": 95.45
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-07",
+      "meanKwh": 759,
+      "coveragePercent": 95.67
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-08",
+      "meanKwh": 778,
+      "coveragePercent": 95.3
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-09",
+      "meanKwh": 616,
+      "coveragePercent": 95.76
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-10",
+      "meanKwh": 547,
+      "coveragePercent": 95.37
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-11",
+      "meanKwh": 481,
+      "coveragePercent": 95.38
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-12",
+      "meanKwh": 477,
+      "coveragePercent": 95.38
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-01",
+      "meanKwh": 495,
+      "coveragePercent": 93.94
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-02",
+      "meanKwh": 449,
+      "coveragePercent": 94.38
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-03",
+      "meanKwh": 495,
+      "coveragePercent": 95.01
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-04",
+      "meanKwh": 562,
+      "coveragePercent": 95.31
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-05",
+      "meanKwh": 601,
+      "coveragePercent": 95.47
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-06",
+      "meanKwh": 678,
+      "coveragePercent": 95.61
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-07",
+      "meanKwh": 784,
+      "coveragePercent": 95.75
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-08",
+      "meanKwh": 743,
+      "coveragePercent": 95.47
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-01",
+      "meanKwh": 469,
+      "coveragePercent": 94.04
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-02",
+      "meanKwh": 428,
+      "coveragePercent": 94
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-03",
+      "meanKwh": 463,
+      "coveragePercent": 94.1
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-04",
+      "meanKwh": 487,
+      "coveragePercent": 94.41
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-05",
+      "meanKwh": 602,
+      "coveragePercent": 94.36
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-06",
+      "meanKwh": 713,
+      "coveragePercent": 94.44
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-07",
+      "meanKwh": 758,
+      "coveragePercent": 94.5
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-08",
+      "meanKwh": 758,
+      "coveragePercent": 94.45
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-09",
+      "meanKwh": 606,
+      "coveragePercent": 94.54
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-10",
+      "meanKwh": 532,
+      "coveragePercent": 94.47
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-11",
+      "meanKwh": 449,
+      "coveragePercent": 94.46
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-12",
+      "meanKwh": 483,
+      "coveragePercent": 94.39
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-01",
+      "meanKwh": 489,
+      "coveragePercent": 94.32
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-02",
+      "meanKwh": 446,
+      "coveragePercent": 94.1
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-03",
+      "meanKwh": 467,
+      "coveragePercent": 93.92
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-04",
+      "meanKwh": 507,
+      "coveragePercent": 94.41
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-05",
+      "meanKwh": 607,
+      "coveragePercent": 94.23
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-06",
+      "meanKwh": 676,
+      "coveragePercent": 94.65
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-07",
+      "meanKwh": 786,
+      "coveragePercent": 94.79
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-08",
+      "meanKwh": 718,
+      "coveragePercent": 94.5
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-01",
+      "meanKwh": 474,
+      "coveragePercent": 94.79
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-02",
+      "meanKwh": 432,
+      "coveragePercent": 94.99
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-03",
+      "meanKwh": 473,
+      "coveragePercent": 95.08
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-04",
+      "meanKwh": 510,
+      "coveragePercent": 95.57
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-05",
+      "meanKwh": 600,
+      "coveragePercent": 95.71
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-06",
+      "meanKwh": 723,
+      "coveragePercent": 95.73
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-07",
+      "meanKwh": 738,
+      "coveragePercent": 95.71
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-08",
+      "meanKwh": 730,
+      "coveragePercent": 95.41
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-09",
+      "meanKwh": 606,
+      "coveragePercent": 95.78
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-10",
+      "meanKwh": 533,
+      "coveragePercent": 95.52
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-11",
+      "meanKwh": 468,
+      "coveragePercent": 95.64
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-12",
+      "meanKwh": 490,
+      "coveragePercent": 95.55
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-01",
+      "meanKwh": 501,
+      "coveragePercent": 95.03
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-02",
+      "meanKwh": 466,
+      "coveragePercent": 95.07
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-03",
+      "meanKwh": 479,
+      "coveragePercent": 95.48
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-04",
+      "meanKwh": 517,
+      "coveragePercent": 95.37
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-05",
+      "meanKwh": 596,
+      "coveragePercent": 95.84
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-06",
+      "meanKwh": 678,
+      "coveragePercent": 95.99
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-07",
+      "meanKwh": 749,
+      "coveragePercent": 96.19
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-08",
+      "meanKwh": 714,
+      "coveragePercent": 95.61
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-01",
+      "meanKwh": 477,
+      "coveragePercent": 95.15
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-02",
+      "meanKwh": 424,
+      "coveragePercent": 95.32
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-03",
+      "meanKwh": 461,
+      "coveragePercent": 95.45
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-04",
+      "meanKwh": 501,
+      "coveragePercent": 95.73
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-05",
+      "meanKwh": 590,
+      "coveragePercent": 95.87
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-06",
+      "meanKwh": 663,
+      "coveragePercent": 95.81
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-07",
+      "meanKwh": 741,
+      "coveragePercent": 96
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-08",
+      "meanKwh": 740,
+      "coveragePercent": 96.24
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-09",
+      "meanKwh": 575,
+      "coveragePercent": 96.33
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-10",
+      "meanKwh": 485,
+      "coveragePercent": 93.7
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-11",
+      "meanKwh": 434,
+      "coveragePercent": 96.17
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-12",
+      "meanKwh": 450,
+      "coveragePercent": 96.3
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-01",
+      "meanKwh": 472,
+      "coveragePercent": 95.36
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-02",
+      "meanKwh": 449,
+      "coveragePercent": 95.17
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-03",
+      "meanKwh": 472,
+      "coveragePercent": 95.58
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-04",
+      "meanKwh": 491,
+      "coveragePercent": 95.89
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-05",
+      "meanKwh": 595,
+      "coveragePercent": 96.12
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-06",
+      "meanKwh": 654,
+      "coveragePercent": 96.29
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-07",
+      "meanKwh": 750,
+      "coveragePercent": 96.51
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-08",
+      "meanKwh": 731,
+      "coveragePercent": 96.21
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-01",
+      "meanKwh": 490,
+      "coveragePercent": 93.83
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-02",
+      "meanKwh": 437,
+      "coveragePercent": 93.95
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-03",
+      "meanKwh": 492,
+      "coveragePercent": 93.96
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-04",
+      "meanKwh": 526,
+      "coveragePercent": 94.56
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-05",
+      "meanKwh": 643,
+      "coveragePercent": 94.67
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-06",
+      "meanKwh": 734,
+      "coveragePercent": 94.81
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-07",
+      "meanKwh": 808,
+      "coveragePercent": 94.88
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-08",
+      "meanKwh": 838,
+      "coveragePercent": 94.55
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-09",
+      "meanKwh": 601,
+      "coveragePercent": 96.01
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-10",
+      "meanKwh": 522,
+      "coveragePercent": 95.55
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-11",
+      "meanKwh": 461,
+      "coveragePercent": 95.72
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-12",
+      "meanKwh": 478,
+      "coveragePercent": 95.44
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-01",
+      "meanKwh": 495,
+      "coveragePercent": 94.77
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-02",
+      "meanKwh": 458,
+      "coveragePercent": 94.81
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-03",
+      "meanKwh": 489,
+      "coveragePercent": 95.19
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-04",
+      "meanKwh": 536,
+      "coveragePercent": 95.13
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-05",
+      "meanKwh": 655,
+      "coveragePercent": 95.66
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-06",
+      "meanKwh": 705,
+      "coveragePercent": 95.75
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-07",
+      "meanKwh": 819,
+      "coveragePercent": 95.89
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-08",
+      "meanKwh": 768,
+      "coveragePercent": 95.56
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-01",
+      "meanKwh": 417,
+      "coveragePercent": 93.4
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-02",
+      "meanKwh": 378,
+      "coveragePercent": 93.64
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-03",
+      "meanKwh": 423,
+      "coveragePercent": 93.86
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-04",
+      "meanKwh": 446,
+      "coveragePercent": 94.68
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-05",
+      "meanKwh": 549,
+      "coveragePercent": 94.66
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-06",
+      "meanKwh": 693,
+      "coveragePercent": 95.01
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-07",
+      "meanKwh": 662,
+      "coveragePercent": 94.95
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-08",
+      "meanKwh": 658,
+      "coveragePercent": 94.77
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-09",
+      "meanKwh": 550,
+      "coveragePercent": 94.96
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-10",
+      "meanKwh": 517,
+      "coveragePercent": 94.65
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-11",
+      "meanKwh": 411,
+      "coveragePercent": 94.93
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-12",
+      "meanKwh": 520,
+      "coveragePercent": 94.88
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-01",
+      "meanKwh": 470,
+      "coveragePercent": 93.83
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-02",
+      "meanKwh": 490,
+      "coveragePercent": 94.05
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-03",
+      "meanKwh": 420,
+      "coveragePercent": 93.68
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-04",
+      "meanKwh": 457,
+      "coveragePercent": 94.2
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-05",
+      "meanKwh": 525,
+      "coveragePercent": 94.27
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-06",
+      "meanKwh": 658,
+      "coveragePercent": 94.77
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-07",
+      "meanKwh": 646,
+      "coveragePercent": 94.84
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-08",
+      "meanKwh": 616,
+      "coveragePercent": 94.84
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-01",
+      "meanKwh": 426,
+      "coveragePercent": 91.93
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-02",
+      "meanKwh": 377,
+      "coveragePercent": 92.09
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-03",
+      "meanKwh": 432,
+      "coveragePercent": 92.82
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-04",
+      "meanKwh": 456,
+      "coveragePercent": 93.77
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-05",
+      "meanKwh": 593,
+      "coveragePercent": 93.87
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-06",
+      "meanKwh": 700,
+      "coveragePercent": 94.1
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-07",
+      "meanKwh": 716,
+      "coveragePercent": 94.17
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-08",
+      "meanKwh": 727,
+      "coveragePercent": 94.2
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-09",
+      "meanKwh": 578,
+      "coveragePercent": 94.52
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-10",
+      "meanKwh": 520,
+      "coveragePercent": 93.38
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-11",
+      "meanKwh": 414,
+      "coveragePercent": 93.74
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-12",
+      "meanKwh": 475,
+      "coveragePercent": 93.74
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-01",
+      "meanKwh": 439,
+      "coveragePercent": 92.15
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-02",
+      "meanKwh": 435,
+      "coveragePercent": 92.19
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-03",
+      "meanKwh": 433,
+      "coveragePercent": 91.88
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-04",
+      "meanKwh": 475,
+      "coveragePercent": 93.5
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-05",
+      "meanKwh": 569,
+      "coveragePercent": 93.72
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-06",
+      "meanKwh": 642,
+      "coveragePercent": 94.08
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-07",
+      "meanKwh": 709,
+      "coveragePercent": 94.43
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-08",
+      "meanKwh": 674,
+      "coveragePercent": 94.31
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-01",
+      "meanKwh": 450,
+      "coveragePercent": 92.23
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-02",
+      "meanKwh": 391,
+      "coveragePercent": 92.72
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-03",
+      "meanKwh": 459,
+      "coveragePercent": 92.75
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-04",
+      "meanKwh": 486,
+      "coveragePercent": 95.49
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-05",
+      "meanKwh": 655,
+      "coveragePercent": 93.78
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-06",
+      "meanKwh": 760,
+      "coveragePercent": 96.03
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-07",
+      "meanKwh": 790,
+      "coveragePercent": 96.14
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-08",
+      "meanKwh": 811,
+      "coveragePercent": 96.03
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-09",
+      "meanKwh": 628,
+      "coveragePercent": 96.15
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-10",
+      "meanKwh": 577,
+      "coveragePercent": 95.71
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-11",
+      "meanKwh": 439,
+      "coveragePercent": 96
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-12",
+      "meanKwh": 441,
+      "coveragePercent": 93.97
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-01",
+      "meanKwh": 437,
+      "coveragePercent": 92.39
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-02",
+      "meanKwh": 420,
+      "coveragePercent": 92.74
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-03",
+      "meanKwh": 481,
+      "coveragePercent": 92.97
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-04",
+      "meanKwh": 527,
+      "coveragePercent": 95.44
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-05",
+      "meanKwh": 637,
+      "coveragePercent": 95.8
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-06",
+      "meanKwh": 701,
+      "coveragePercent": 95.61
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-07",
+      "meanKwh": 808,
+      "coveragePercent": 95.65
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-08",
+      "meanKwh": 759,
+      "coveragePercent": 95.64
+    }
+  ]
+}

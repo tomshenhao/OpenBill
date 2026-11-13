@@ -9,11 +9,11 @@ export const productZh: ProductMessages = {
   growthNote: "我们将公开、逐步地完善平台，从一个实用的用电量计算工具开始。",
   coreEyebrow: "一个家庭，多种日常开支",
   coreTitle: "更全面地了解家庭支出",
-  coreDescription: "我们将从这六类开支逐步做起。目前仅开放用电量计算；比价功能和其他工具尚未推出。",
-  categoryStatus: { available: "用电量计算已开放", "coming-soon": "即将推出", planned: "计划中" },
-  electricityLimit: "目前仅计算用电量，暂不提供供应商比价。",
+  coreDescription: "我们将从这六类开支逐步做起。目前已开放电费分析、地区用电基准及实用建议；供应商比价和其他工具尚未推出。",
+  categoryStatus: { available: "电费分析已开放", "coming-soon": "即将推出", planned: "计划中" },
+  electricityLimit: "本地账单分析、官方月度基准及建议。暂不提供供应商比价。",
   categories: {
-    electricity: { name: "电费", description: "先了解用电量，再以经过核实的数据逐步开展电价和套餐比较。" },
+    electricity: { name: "电费", description: "了解账单、对照地区用电水平，并查看实用省电建议。" },
     water: { name: "水费", description: "了解水费构成、用水量，以及实用的节水方法。" },
     mortgage: { name: "房贷", description: "了解利率、还款、费用，以及转贷情景。" },
     insurance: { name: "保险", description: "结合保费、自付额、保障范围、除外责任和适用条件进行分析。" },
@@ -42,6 +42,7 @@ export const productZh: ProductMessages = {
   milestones: {
     v01: { title: "v0.1 · 双语网站与用电量计算", description: "提供英文和简体中文页面，以及无需上传账单、在本地运行的用电量计算。" },
     v02: { title: "v0.2 · 官方电价数据基础设施", description: "证据归档、数据校验和审核工具已实现并经过测试。目前仍无已核实的供应商电价，也未提供比价。" },
+    "electricity-analysis": { title: "电费账单分析与用电参考", description: "本地账单计算、同期官方地区月度均值、相关建议及本地 EIEP14A JSON 导入。比价引擎使用合成数据测试，供应商报价仍未开放。" },
     "verified-electricity": { title: "经过核实的电费比较", description: "先取得获准使用的官方价目表，核实适用范围，再独立验证费用计算，之后才开展套餐比较。" },
     "core-bills": { title: "逐步覆盖更多核心账单", description: "依次开发水费、房贷、保险、宽带和手机工具。每类开支都有各自的数据依据和计算规则。" },
     "wider-expenses": { title: "由社区需求推动的家庭工具", description: "根据实际需求和可靠信息，确定更多家庭开支类别的开发顺序。" },

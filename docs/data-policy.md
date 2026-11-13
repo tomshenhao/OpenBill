@@ -3,9 +3,11 @@
 ## Household information
 
 Do not collect, store, log, or transmit personal household bill information.
-The initial tool asks only for electricity usage in kWh and the number of billing
-days. These values are processed in temporary browser memory solely to show an
-average. They are not saved or sent anywhere by OpenBill.
+The original homepage tool asks for kWh and billing days. The electricity analysis
+page adds the period total, separately labelled tax/rates and optional region,
+calendar month, household size, heating/hot-water context and plan labels. All
+values stay in temporary browser memory for calculations and advice. They are not
+saved or sent anywhere by OpenBill. No household inputs enter data archives.
 
 Do not add bill uploads, names, addresses, ICP numbers, account numbers, meter
 identifiers, contact details, supplier login credentials, or personalised quote

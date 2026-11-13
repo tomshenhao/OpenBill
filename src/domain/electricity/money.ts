@@ -1,6 +1,6 @@
 import { decimalSchema, type Price } from "./tariff.ts";
 
-// Exact arithmetic primitives only; there is no consumer comparison engine.
+// Exact arithmetic shared by bill diagnostics and the guarded comparison engine.
 export function nzdToMicros(amount: string): bigint {
   decimalSchema.parse(amount);
   const [whole, fraction = ""] = amount.split(".");

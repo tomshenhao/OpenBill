@@ -1,5 +1,7 @@
 * text=auto
 # Review hashes bind exact record bytes; keep JSON stable across Windows/Linux.
 data/electricity/** text eol=lf
+# Preserve the downloaded CSV bytes exactly for cross-platform SHA-256 checks.
+data/electricity/benchmarks/source/*.csv -text
 *.png -text
 *.pdf -text
