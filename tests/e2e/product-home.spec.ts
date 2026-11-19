@@ -12,12 +12,19 @@ for (const locale of ["en", "zh"] as const) {
   test(`${locale}: honest categories, keyboard disclosure and roadmap navigation`, async ({ page }) => {
     await page.goto(path);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(copy.heroTitle.replace("\n", " "));
+    await expect(page.getByRole("link", { name: t.electricityTool, exact: true })).toHaveAttribute("href", `${path}electricity/`);
+    await expect(page.getByRole("link", { name: t.waterTool, exact: true })).toHaveAttribute("href", `${path}water/`);
+    await expect(page.getByRole("link", { name: copy.start, exact: true })).toHaveAttribute("href", "#usage");
     await expect(page.locator("#categories [data-category]")).toHaveCount(6);
     for (const category of coreCategories) {
       const card = page.locator(`#categories [data-category="${category.id}"]`);
       await expect(card.getByRole("heading", { name: t.categories[category.id].name, exact: true })).toBeVisible();
       await expect(card).toContainText(t.categoryStatus[category.status]);
+      await expect(card).toContainText(t.categories[category.id].description);
+      await expect(card).toContainText(t.coreProgress[category.id].current ?? t.noTool);
+      await expect(card).toContainText(t.coreProgress[category.id].next);
       if (category.route === null) { await expect(card.locator("a, button")).toHaveCount(0); }
+      else { await expect(card.getByRole("link")).toHaveAttribute("href", category.route[locale]); }
     }
     await page.locator('#categories [data-category="electricity"] a').click();
     await expect(page).toHaveURL(new RegExp(`${path}electricity/$`));

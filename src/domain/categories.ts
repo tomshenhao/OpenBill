@@ -4,3 +4,4 @@ export const coreCategoryIds = ["electricity", "water", "mortgage", "insurance",
 export const futureCategoryIds = ["gas-lpg", "council-rates", "rent", "transport", "waste-recycling", "subscriptions", "education-childcare", "healthcare-dental", "groceries"] as const;
 export const categoryIds = [...coreCategoryIds, ...futureCategoryIds] as const;
 export type BillCategory = typeof categoryIds[number];
+export type CoreCategory = typeof coreCategoryIds[number];

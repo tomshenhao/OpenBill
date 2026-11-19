@@ -6,7 +6,7 @@ import { communityFeedbackUrl } from "@/config/community";
 import { roadmapMilestones } from "@/config/roadmap";
 import { categoryIds, coreCategoryIds, futureCategoryIds } from "@/domain/categories";
 import { messages } from "@/i18n";
-import { renderRoadmap } from "../scripts/roadmap-content.ts";
+import { renderRoadmap, updateReadmeModules } from "../scripts/roadmap-content.ts";
 
 describe("household product scope and truthful availability", () => {
   it("covers the six core and nine future categories exactly once", () => {
@@ -15,13 +15,15 @@ describe("household product scope and truthful availability", () => {
     expect(categoryCatalog).toHaveLength(15);
     expect(new Set(categoryCatalog.map((entry) => entry.id))).toEqual(new Set(categoryIds));
   });
-  it("exposes only the implemented electricity usage route and calculator", () => {
+  it("exposes the implemented electricity and Auckland water routes and calculators", () => {
     const available = categoryCatalog.filter((entry) => entry.status === "available");
-    expect(available.map((entry) => entry.id)).toEqual(["electricity"]);
-    const electricity = available[0];
+    expect(available.map((entry) => entry.id)).toEqual(["electricity", "water"]);
+    const [electricity, water] = available;
     expect(electricity.route).toEqual({ en: "/electricity/", zh: "/zh/electricity/" });
-    expect(electricity.supportedFeatures).toEqual(["daily-usage-average", "bill-analysis", "regional-monthly-benchmark", "contextual-saving-tips"]);
-    expect(existsSync(resolve(electricity.calculation!.module))).toBe(true);
+    expect(electricity.supportedFeatures).toEqual(["daily-usage-average", "bill-analysis", "regional-monthly-benchmark", "regional-usage-rating", "progressive-usage-inputs", "contextual-saving-tips"]);
+    expect(water.route).toEqual({ en: "/water/", zh: "/zh/water/" });
+    expect(water.supportedFeatures).toContain("manual-rate-bill-check");
+    for (const category of available) expect(existsSync(resolve(category.calculation.module))).toBe(true);
     for (const category of categoryCatalog.filter((entry) => entry.status !== "available")) {
       expect(category.route).toBeNull(); expect(category.calculation).toBeNull(); expect(category.supportedFeatures).toHaveLength(0);
       expect(category.dataSources.every((source) => source.readiness === "planned")).toBe(true);
@@ -35,6 +37,14 @@ describe("household product scope and truthful availability", () => {
       }
       expect(category.futureFeatures.length).toBeGreaterThan(0); expect(category.dataSources.length).toBeGreaterThan(0);
     }
+    for (const { id, status } of coreCategories) {
+      for (const locale of ["en", "zh"] as const) {
+        const { current, next } = messages[locale].product.coreProgress[id];
+        expect(next.length).toBeGreaterThan(0);
+        if (status === "available") expect(current?.length).toBeGreaterThan(0);
+        else expect(current).toBeNull();
+      }
+    }
   });
   it("assigns expense ownership once and excludes important bundled duplicates", () => {
     const owned = categoryCatalog.flatMap((category) => [...category.accounting.owns]);
@@ -47,13 +57,18 @@ describe("household product scope and truthful availability", () => {
     expect(new Set(roadmapMilestones.map((entry) => entry.id)).size).toBe(roadmapMilestones.length);
     expect(roadmapMilestones.find((entry) => entry.id === "v02")!.status).toBe("completed");
     expect(roadmapMilestones.find((entry) => entry.id === "verified-electricity")!.status).toBe("planned");
+    expect(roadmapMilestones.find((entry) => entry.id === "electricity-comparison-framework")!.status).toBe("completed");
+    expect(roadmapMilestones.find((entry) => entry.id === "electricity-household-data")!.status).toBe("planned");
+    expect(roadmapMilestones.find((entry) => entry.id === "water-evidence")!.status).toBe("planned");
     for (const milestone of roadmapMilestones) {
       expect(existsSync(resolve(milestone.documentation!))).toBe(true);
       for (const locale of ["en", "zh"] as const) expect(messages[locale].product.milestones[milestone.id].description.length).toBeGreaterThan(0);
     }
   });
-  it("keeps the public Markdown roadmap in sync with the homepage configuration", () => {
+  it("keeps Markdown module status in sync with the homepage configuration", () => {
     expect(readFileSync(resolve("ROADMAP.md"), "utf8")).toBe(renderRoadmap());
+    const readme = readFileSync(resolve("README.md"), "utf8");
+    expect(readme).toBe(updateReadmeModules(readme));
   });
   it("uses the existing public Issues page without templates or household parameters in the URL", () => {
     expect(communityFeedbackUrl).toBe("https://github.com/tomshenhao/OpenBill/issues");

@@ -2,8 +2,8 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
 const locales = [
-  { path: "/", lang: "en-NZ", title: "Less on bills.", usage: "Electricity used", days: "Days in this billing period", submit: "Show my daily usage", clear: "Clear inputs", switch: "简体中文", otherPath: "/zh/", priceNotice: "Verified prices come next" },
-  { path: "/zh/", lang: "zh-Hans-NZ", title: "让账单更轻，", usage: "用电量", days: "本计费周期的天数", submit: "查看日均用电量", clear: "清空输入", switch: "English", otherPath: "/", priceNotice: "核实价格后，再提供比价" },
+  { path: "/", lang: "en-NZ", title: "Less on bills.", usage: "Electricity used", days: "Days in this billing period", submit: "Show my daily usage", clear: "Clear inputs", switch: "简体中文", otherPath: "/zh/", priceNotice: "Electricity plan comparisons are pending" },
+  { path: "/zh/", lang: "zh-Hans-NZ", title: "让账单更轻，", usage: "用电量", days: "本计费周期的天数", submit: "查看日均用电量", clear: "清空输入", switch: "English", otherPath: "/", priceNotice: "电力套餐比价仍待开放" },
 ] as const;
 
 for (const locale of locales) {

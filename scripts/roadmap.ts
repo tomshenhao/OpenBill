@@ -1,13 +1,19 @@
 import { readFile, writeFile } from "node:fs/promises";
-import { renderRoadmap } from "./roadmap-content.ts";
+import { renderRoadmap, updateReadmeModules } from "./roadmap-content.ts";
 
-const content = renderRoadmap();
+const readme = await readFile("README.md", "utf8");
+const files = { "ROADMAP.md": renderRoadmap(), "README.md": updateReadmeModules(readme) };
 if (process.argv.includes("--check")) {
-  if (await readFile("ROADMAP.md", "utf8") !== content) {
-    console.error("ROADMAP.md is out of date. Run node scripts/roadmap.ts.");
-    process.exitCode = 1;
-  } else console.info("ROADMAP.md matches the typed configuration and translations.");
+  for (const [path, content] of Object.entries(files)) {
+    if (await readFile(path, "utf8") !== content) {
+      console.error(`${path} is out of date. Run node scripts/roadmap.ts.`);
+      process.exitCode = 1;
+    }
+  }
+  if (!process.exitCode) console.info("ROADMAP.md and the README module table match the configuration and translations.");
 } else {
-  await writeFile("ROADMAP.md", content);
-  console.info("Updated ROADMAP.md from the typed configuration and translations.");
+  for (const [path, content] of Object.entries(files)) {
+    if (await readFile(path, "utf8") !== content) await writeFile(path, content);
+  }
+  console.info("Generated ROADMAP.md and the README module table from the configuration and translations.");
 }

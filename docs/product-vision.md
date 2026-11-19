@@ -20,29 +20,28 @@ charitable status.
 - Gradual development based on practical needs and community participation.
 - Simple bilingual interfaces accessible to ordinary internet users.
 
-Current functionality is the English/Simplified Chinese site, browser-only bill
-analysis, official monthly regional usage benchmarks and contextual tips. The
-original daily-usage check is retained. The v0.2 official-data foundation is implemented and
-tested, including manual import, evidence, validation and review tools. It contains
-no verified tariffs and enables no consumer comparison. All other categories,
-consumer plan comparisons and further cost optimisation are planned. Roadmap completion describes
-the named work, not a published GitHub release or permission to publish local work.
+The English and Simplified Chinese site offers browser-only electricity and
+Auckland water analysis. Electricity has official monthly regional usage benchmarks
+and contextual tips alongside the original daily-usage check. The v0.2 electricity
+data foundation supports manual import, evidence, validation and review with
+verified electricity comparisons planned. Auckland water has a general usage
+reference, conservation guidance and a bill estimate using manually entered rates.
+Roadmap completion describes the scope implemented and tested in this repository.
 
 ## Six core categories
 
 | Category | Planned scope beyond current functionality |
 | --- | --- |
 | Electricity | Verified supplier comparisons and measured time-of-use profile entry remain planned. Local bill analysis, monthly regional usage benchmarks and contextual tips are available. |
-| Water | Consumption, fixed/variable charges, regional authorities, leak guidance and water-saving recommendations. |
+| Water | Auckland Watercare usage and bill analysis are available. Household-size distributions, independently reviewed tariffs and other regional authorities are planned. |
 | Mortgage | Interest rates, fixed/floating options, repayment scenarios, fees/cashback conditions, refinancing/break costs and long-term interest. |
 | Insurance | Home, contents, vehicle, health and other household cover; premiums, excesses, coverage differences, exclusions, eligibility and cost-versus-cover analysis. |
 | Broadband | Monthly costs, connection/speed, contracts, introductory/standard rates, installation and total cost over time. |
 | Mobile | Prepaid/monthly plans, data/calls/messages, family/group plans, coverage and total recurring costs. |
 
-Only electricity has an implemented route and calculator. Other core cards say
-“Coming soon / 即将推出” and have no fake buttons or comparison pages. There are no
-promised launch dates. Mortgage and insurance need their own independently reviewed
-methods and suitability/coverage context; cheapest price alone is not the product goal.
+Electricity and water have calculators. Mortgage, insurance, broadband and mobile
+are marked “Planned / 计划中”. Mortgage and insurance need their own
+independently reviewed methods and suitability or coverage context.
 
 ## Nine longer-term categories
 

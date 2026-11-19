@@ -1,8 +1,10 @@
 import { productEn } from "./product-en.ts";
+import { waterEn } from "./water-en.ts";
 import { electricityEn } from "./electricity-en.ts";
 
 export const en = {
   analysis: electricityEn,
+  water: waterEn,
   product: productEn,
   language: "English",
   otherLanguage: "简体中文",
@@ -10,14 +12,13 @@ export const en = {
   navigation: "Main navigation",
   howItWorks: "How it works",
   ourPrinciples: "Our principles",
-  start: "Check your usage",
+  start: "Quick electricity usage check",
   eyebrow: "FOR HOUSEHOLDS IN AOTEAROA NEW ZEALAND",
   heroTitle: "Less on bills.\nMore for life.",
-  heroDescription: "OpenBill helps New Zealand households understand everyday expenses, explore better options and find practical ways to save. Free, independent, open source and built around your interests.",
-  heroNote: "No ads. No commissions. Your interests come first.",
+  heroDescription: "OpenBill is a free, independent, open-source project for New Zealand households. Start with electricity or Auckland water to understand your bill and find practical ways to use less.",
+  heroNote: "Your entries stay in your browser. OpenBill has no ads or supplier commissions.",
   illustrationLabel: "A home with a sun above it and a small garden",
-  illustrationCaption: "A little more room in the household budget.",
-  stage: "OUR FIRST STEP",
+  stage: "QUICK ELECTRICITY CHECK",
   stageTitle: "Understand your electricity usage",
   stageBody: "Start with two numbers from your bill. See your average daily usage, calculated right here in your browser.",
   status: "Usage check available",
@@ -45,8 +46,8 @@ export const en = {
     daysRequired: "Enter the number of days in this billing period.",
     daysInvalid: "Enter a whole number of days from 1 to 366.",
   },
-  noPricesTitle: "Verified prices come next",
-  noPricesBody: "We are not showing supplier prices, rankings or savings yet. Every published tariff will need an official source, a verification date and screenshot evidence.",
+  noPricesTitle: "Electricity plan comparisons are pending",
+  noPricesBody: "A comparison needs official retailer rates, an independent review and permission to publish. This quick check uses your usage and billing days.",
   howEyebrow: "SMALL STEPS, CLEAR INFORMATION",
   howTitle: "A comparison you can understand",
   steps: [
@@ -68,10 +69,9 @@ export const en = {
   insurance: "Insurance",
   planned: "Planned",
   footerMission: "Open source. Independent. Made for New Zealand households.",
-  footerStatus: "An early project. Supplier comparisons are not available yet.",
   noScript: "JavaScript is needed for the local usage calculator. Your inputs are never submitted to a server.",
   metaTitle: "OpenBill — Less on bills. More for life.",
-  metaDescription: "A free, independent household expense project for New Zealand. Explore the vision and roadmap, and check electricity usage locally in English or Simplified Chinese.",
+  metaDescription: "Understand electricity and Auckland water bills privately with OpenBill, a free, independent project in English and Simplified Chinese.",
 };
 
 export type Messages = typeof en;

@@ -12,8 +12,9 @@ The homepage introduces the household-wide mission, six core categories, a usabl
 electricity form, progressively disclosed future categories, a public roadmap and
 community participation. It retains the green identity and house illustration.
 Electricity bill analysis, exact-month official regional benchmarks and contextual
-tips are available on separate bilingual pages. There are no supplier offers or
-other category comparison interfaces. See [Task 004](task004-electricity.md).
+tips are available on separate bilingual pages. Auckland Watercare has bilingual
+usage analysis, conservation guidance and a manual-rate bill check. See
+[electricity analysis](task004-electricity.md) and [Auckland water](task006-water.md).
 
 ## Boundaries and data flow
 

@@ -4,79 +4,78 @@
 
 **让账单更轻，让生活更自由。**
 
-OpenBill is a free, open-source, privacy-first household expense project, initially
-serving New Zealand. We aim to help households understand recurring expenses,
-identify unnecessary costs and make informed decisions. The project is independent
-and public-interest oriented, without advertising or supplier commissions.
-Electricity is our first working tool, not the limit of the vision.
+OpenBill is a free, independent, non-commercial open-source project that helps
+households understand recurring bills, compare suitable options as reliable data
+becomes available, and cut avoidable costs. It starts with Aotearoa New Zealand.
+Communities elsewhere can fork the MIT-licensed code and adapt it to their own
+languages, providers and official sources.
 
-v0.2 adds [official electricity data infrastructure](docs/electricity-data.md):
-strict schemas, exact money/unit primitives, append-only JSON records/reviews,
-SHA-256 evidence validation, a manual Mercury adapter and a permission-gated
-Playwright helper. No live retailer automation or actual tariff is enabled. Read
-the [official-source research](docs/official-source-research.md) before collecting.
+OpenBill has no advertising, paid placement or supplier commissions. Calculations
+run in temporary browser memory. OpenBill does not save or send household entries
+and has no account, bill upload or tracking.
 
-## What works now
+## Core modules
 
-Task 004.2 puts regional comparisons directly after the bill breakdown, adds inclusive
-billing dates and opt-in approximate dated references, and links to Billy as an external
-service. See the [consumer results and unsent retailer request drafts](docs/task004-2.md).
+The tools below describe the features implemented in this repository. A production
+build can serve the listed routes. Public deployment, independent evidence review
+and permission to redistribute source material each have their own approval steps.
 
-Task 004.1 improves monthly selection, regional middle-50% context and nonblocking
-price-unit warnings. Household-size peers remain unavailable. See the
-[research, pilot retailer request template and intake workflow](docs/task004-1.md).
+<!-- BEGIN GENERATED MODULE STATUS -->
 
-Task 004 adds **[electricity bill analysis, official monthly benchmarks and tips](docs/task004-electricity.md)**
-at `/electricity/` and `/zh/electricity/`. Inputs stay in browser memory. The
-benchmark contains 320 official aggregate observations across 16 regions for
-January 2025–August 2026; only exact whole-month matches are compared. No invented
-household-size peers or percentile rankings. The comparison engine is tested with
-synthetic fixtures; the actual supplier catalogue remains empty.
+| Module | Status | Purpose | What works | Next milestone |
+| --- | --- | --- | --- | --- |
+| Electricity | Available in this build | Understand what you use, find ways to use less and eventually compare suitable retail plans. | Start with usage, region and billing period. Get bill calculations, tips and an Electricity Authority usage reference for an exact full month, with all household sizes combined. | Find reliable household-size data, starting with BRANZ HEEP2. Plan comparisons need official rates from retailers such as Genesis, Mercury and Contact, independent review and permission to publish. |
+| Water | Available in this build | Understand water use, look for leaks and check how charges add up. | Auckland Watercare only. See daily household and per-person use, a general reference of 140–170 litres per person per day, leak checks and saving tips. Estimate water and wastewater charges with rates you enter. | Independently review seven archived schedules and seek Auckland usage statistics by household size. The general reference gives no household-size percentiles. Other regions are planned. |
+| Mortgage | Planned | Compare interest rates, repayment costs, refinancing options and fees. | — | Define how to compare repayments and refinancing across rates, fees and loan terms. |
+| Insurance | Planned | Compare premiums alongside cover, excesses, exclusions and eligibility. | — | Identify reliable policy documents and decide which cover details can be compared. |
+| Broadband | Planned | Compare speed, cost, service availability and contract conditions. | — | Identify official sources for plan terms, typical speeds and service availability. |
+| Mobile | Planned | Find plans that suit your data and calling needs at a reasonable cost. | — | Identify official sources and define a comparison based on data, calls and recurring cost. |
 
-任务 004 新增 `/zh/electricity/` 电费分析、同期官方地区用电均值及实用建议，全部在浏览器内处理。
-基准覆盖 16 个地区、2025 年 1 月至 2026 年 8 月。真实供应商比价仍未开放。
-参阅[双语功能说明](docs/task004-electricity.md)及 [EIEP14A 研究与导入](docs/eiep14a-research.md)。
+<!-- END GENERATED MODULE STATUS -->
 
-The [Task 004 implementation report](docs/task004-report.md) records the architecture,
-file inventory, validation results, commands and remaining verification work.
+The [English homepage](http://127.0.0.1:3000/) and
+[简体中文首页](http://127.0.0.1:3000/zh/) link to both tools in a local preview.
+Electricity analysis uses `/electricity/` and `/zh/electricity/`. Auckland water
+analysis uses `/water/` and `/zh/water/`. The homepages also retain the original
+two-number daily electricity check.
 
-- English at `/` and Simplified Chinese at `/zh/`, including metadata, errors,
-  document language, and accessible labels.
-- A household-wide mission, six core category cards, nine progressively disclosed
-  future ideas, a typed public roadmap and a public GitHub community invitation.
-- A mobile-friendly electricity usage form: enter kWh and billing days to see
-  average daily usage. Zero consumption is valid. This is not a cost estimate.
-- Calculations run entirely in browser memory. No upload, account, analytics,
-  cookies, input persistence, API routes, or server actions.
-- **No supplier prices, savings, or rankings.** The tariff catalogue is empty
-  until public official-source evidence has been verified and reviewed.
+### Evidence and limits
 
-## Complete vision, incremental delivery
+- **Electricity usage.** Published P75 and P95 thresholds come from the archived
+  Electricity Authority EMI dataset. A rating requires an exact full calendar
+  month and a matching region. The thresholds combine all household sizes and
+  independent source review is pending. See the [rating rules](docs/task005-1-ratings.md)
+  and [simplified inputs](docs/task005-2-input-journey.md).
+- **Electricity prices.** The local comparison framework is tested with synthetic
+  data. The production catalogue is empty. The repository records the Genesis,
+  Mercury and Contact EIEP14A requests as drafts and has no verified tariff
+  receipts. BRANZ HEEP2 is a lead for household-size statistics. The maintainer
+  needs to confirm outreach status. See the [retailer requests](docs/retailer-requests/README.md),
+  [tariff workflow](docs/task005-tariff-workflow.md) and [household-size research](docs/task004-1.md).
+- **Auckland water.** The 140–170 L/person/day Watercare range is a general
+  reference. Representative Auckland P25, P50, P75 and P95 data by household size
+  are unavailable in the reviewed sources. Seven official schedules are archived
+  locally for independent review. The bill check links to the applicable schedule
+  and uses rates the user enters. See the [water module report](docs/task006-water.md).
 
-The six core categories are **electricity, water, mortgage, insurance, broadband
-and mobile**. Electricity analysis, usage benchmarks and tips are available; the remaining core
-tools are labelled “Coming soon / 即将推出”, with no fake comparison links.
+Before OpenBill publishes a rate, it requires an official provider URL, a
+verification date and a reviewed screenshot reference. An independent reviewer
+checks the source, scope and price. Archive contents stay local pending any
+applicable permission and independent rights review. See the [data policy](docs/data-policy.md).
 
-Nine longer-term categories are gas/LPG, council rates, rent, transport/vehicles,
-waste/recycling, subscriptions/memberships, education/childcare, healthcare/dental,
-and groceries/essentials. They are plans, not working functionality. Useful future
-guidance may address usage, payment options or unnecessary costs when switching
-providers is not possible or meaningful. No savings are promised without evidence.
+## Roadmap and participation
 
-See the [product vision](docs/product-vision.md) for the full scope and expense
-ownership rules, and [ROADMAP.md](ROADMAP.md) for bilingual progress. Category and
-milestone configuration are typed and shared with the homepage. Completed v0.2
-means its data foundation is implemented/tested, not that prices are verified or
-comparisons are available. There are no invented launch dates or percentages.
+The [bilingual roadmap](ROADMAP.md) lists milestones and the nine longer-term
+categories: gas/LPG, council rates, rent, transport and vehicles, rubbish and
+recycling, subscriptions, education and childcare, healthcare and dental, and
+groceries and everyday essentials. See the [product vision](docs/product-vision.md)
+for expense ownership and principles for expanding coverage.
 
-## Help shape OpenBill
-
-Share general needs through the existing [GitHub Issues page](https://github.com/tomshenhao/OpenBill/issues).
-GitHub is a separate public website; posting requires an account and contributions
-are public. Do not include personal financial details, account numbers, addresses,
-uploaded bills or calculator entries. Nothing from the calculator is attached.
-The bilingual issue template requests general needs without household information.
-See [CONTRIBUTING.md](CONTRIBUTING.md) for English/Chinese participation guidance.
+Ideas, translation and accessibility reviews, official-source research and tested
+code are welcome. Share general suggestions on [GitHub Issues](https://github.com/tomshenhao/OpenBill/issues).
+Posting requires a GitHub account and your contribution is public. Keep names,
+addresses, account numbers, bills and calculator entries out of posts. Read the
+[bilingual contribution guide](CONTRIBUTING.md) for ways to help.
 
 ## Run locally
 
@@ -154,44 +153,29 @@ screen-reader, zoom, or translation review.
 
 | Path | Responsibility |
 | --- | --- |
-| `src/app/[[...locale]]/` | English/Chinese home and electricity pages with document metadata |
+| `src/app/[[...locale]]/` | Bilingual homepage, electricity and water routes with document metadata |
 | `src/components/` | Responsive presentation and temporary browser input state |
 | `src/i18n/` | English and Simplified Chinese copy |
 | `src/config/` | Category capabilities, genuine roadmap statuses and static community destination |
 | `src/domain/categories.ts` | Product category IDs, separate from implemented tariff schemas |
 | `src/domain/electricity/usage.ts` | Pure validation and daily usage calculation |
 | `src/domain/electricity/` | Bill, benchmark, tips, guarded comparison, tariff checks and exact money |
+| `src/domain/water/` | Auckland household usage and metered charge estimates |
 | `src/domain/provenance.ts` | Shared source, evidence and hash contracts |
 | `data/electricity/` | Registries, immutable records/reviews, official aggregate benchmark and empty supplier catalogues |
+| `data/water/` | Watercare source references and dated schedule links |
 | `tools/electricity/` | Node-only archive/review, EIEP14A import, benchmark reproduction and publication gates |
 | `.local-data/` | Ignored evidence, source captures and permission reviews |
 | `tests/` | Unit, privacy regression, accessibility, and browser tests |
 | `scripts/serve.mjs` | Dependency-free local static preview |
-| `scripts/roadmap.ts` | Generates/checks the bilingual public roadmap from shared configuration |
+| `scripts/roadmap.ts` | Generates and checks the bilingual roadmap and README module table |
 
 Read [AGENTS.md](AGENTS.md), [architecture](docs/architecture.md), and
 [data policy](docs/data-policy.md) before contributing. Code is MIT licensed;
 supplier evidence remains subject to its original source's rights.
 
-## Next steps
-
-1. Review both languages with household users, including keyboard and screen-reader users.
-2. Define geographic coverage, meter configurations, eligibility, GST, fees, and price
-   freshness rules with electricity-domain reviewers.
-3. Use the implemented provenance/evidence gate with permitted official sources and
-   independent reviewers. Schema validation never verifies a price. No complete
-   privacy-compatible rate card was obtained in the initial six-retailer research.
-4. Add permitted, reviewed official-source records and independently validate the
-   tested exact-money comparison engine on real coverage, then independently review
-   the prepared flat-plan consumer scope entry/results against those sources.
-   Explain assumptions before showing any savings.
-5. Introduce water, mortgage, insurance, broadband and mobile one category at a time,
-   with their own evidence/calculations and community priorities. Keep wider plans
-   separate from implemented functionality.
-
 Setup follows the official [Next.js installation guidance](https://nextjs.org/docs/app/getting-started/installation)
 and [Tailwind CSS Next.js guide](https://tailwindcss.com/docs/installation/framework-guides/nextjs).
-No deployment, external registration, or purchase is part of this scaffold.
 
 ## Data commands (official public sources only)
 
@@ -207,43 +191,12 @@ templates, permission prerequisites, the 30-day freshness policy and v0.3 priori
 Do not provide household data to these tools. Artifacts stay local and ignored;
 screenshots are not redistributed by default.
 
-After changing category/roadmap configuration or translations, run
-`node scripts/roadmap.ts` to regenerate ROADMAP.md. `node scripts/roadmap.ts --check`
-and the unit suite detect drift. New product scope does not change the v0.2
-tariff schemas or allow a universal calculator for unrelated expenses.
+After changing category or roadmap configuration or translations, run
+`node scripts/roadmap.ts` to regenerate `ROADMAP.md` and the module table above.
+`node scripts/roadmap.ts --check` and the unit suite detect drift.
 
-## Task 005: first real tariff readiness
-
-The [receipt runbook](docs/task005-tariff-workflow.md) gives the exact local
-check/import/evidence/review/rights/staging steps. [Six retailer drafts and verified
-general contact routes](docs/retailer-requests/README.md) are prepared and unsent.
-No official product file has been received and the production catalogue remains
-empty. Supplier offers need independent price and publication-rights reviews.
+To check the EIEP14A importer with synthetic data, use this non-writing command:
 
 ```sh
 npm run data:eiep14a -- tests/fixtures/eiep14a-request.json --check
 ```
-
-This dry run uses labelled synthetic test data and writes nothing. The bilingual
-consumer interface is ready for eligible single-register flat offers with explicit
-scope confirmation and equivalent-period costs. It makes no short-bill annual
-savings forecast and always discloses partial market coverage.
-
-## Task 005.1: separate usage and price ratings
-
-Electricity results now start with two independent, bilingual traffic-light cards.
-An exact region/month match uses published P75/P95 consumption thresholds from the
-existing official CSV, across all household sizes. Approximate periods stay neutral.
-Price ratings need verified comparable plans, a verified current baseline and an
-independent coverage receipt; with the empty tariff catalogue they remain neutral.
-Bill calculations remain available in an expandable section. See the
-[rating rules, data limits and review workflow](docs/task005-1-ratings.md).
-
-## Task 005.2: usage first, prices second
-
-The current electricity journey asks for kWh, region and either exact dates or a
-confirmed full month. Usage ratings update immediately without a bill total.
-A separate price step explains when supplier data is missing; extra fields cannot
-unlock unavailable offers. Original bill calculations and technical details remain
-under a clearly labelled advanced section. See the
-[input journey and regression report](docs/task005-2-input-journey.md).

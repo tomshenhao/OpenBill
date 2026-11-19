@@ -6,12 +6,12 @@ export function CoreCategorySection({ locale }: { locale: Locale }) {
   const t = messages[locale].product;
   return (
     <section id="categories" aria-labelledby="categories-heading" className="page-width section-spacing section-anchor categories-section">
-      <p className="eyebrow">{t.coreEyebrow}</p>
-      <h2 id="categories-heading" className="section-title mt-4">{t.coreTitle}</h2>
+      <h2 id="categories-heading" className="section-title">{t.coreTitle}</h2>
       <p className="mt-4 max-w-2xl leading-7 text-muted">{t.coreDescription}</p>
       <ul className="category-grid mt-9">
         {coreCategories.map((category) => {
           const copy = t.categories[category.id];
+          const progress = t.coreProgress[category.id];
           return (
             <li key={category.id} className={`category-card${category.status === "available" ? " category-available" : ""}`} data-category={category.id} data-status={category.status}>
               <div className="flex flex-wrap items-center justify-between gap-3">
@@ -20,10 +20,19 @@ export function CoreCategorySection({ locale }: { locale: Locale }) {
               </div>
               <h3 className="mt-5 text-xl font-semibold">{copy.name}</h3>
               <p className="mt-3 text-sm leading-7 text-muted">{copy.description}</p>
+              <dl className="mt-4 space-y-3 text-sm leading-6">
+                <div>
+                  <dt className="font-semibold">{t.currentLabel}</dt>
+                  <dd className="text-muted">{progress.current ?? t.noTool}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold">{t.nextLabel}</dt>
+                  <dd className="text-muted">{progress.next}</dd>
+                </div>
+              </dl>
               {category.route && (
                 <div className="mt-auto pt-5">
-                  <a href={category.route[locale]} className="text-action">{t.checkElectricity}<Icon name="arrow" className="size-4" /></a>
-                  <p className="mt-2 text-xs leading-5 text-muted">{t.electricityLimit}</p>
+                  <a href={category.route[locale]} className="text-action">{category.id === "water" ? t.checkWater : t.checkElectricity}<Icon name="arrow" className="size-4" /></a>
                 </div>
               )}
             </li>
