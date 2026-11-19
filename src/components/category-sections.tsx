@@ -4,6 +4,7 @@ import { Icon } from "./icon";
 
 export function CoreCategorySection({ locale }: { locale: Locale }) {
   const t = messages[locale].product;
+  const toolLabels = { electricity: t.checkElectricity, water: t.checkWater, mortgage: t.checkMortgage };
   return (
     <section id="categories" aria-labelledby="categories-heading" className="page-width section-spacing section-anchor categories-section">
       <h2 id="categories-heading" className="section-title">{t.coreTitle}</h2>
@@ -32,7 +33,7 @@ export function CoreCategorySection({ locale }: { locale: Locale }) {
               </dl>
               {category.route && (
                 <div className="mt-auto pt-5">
-                  <a href={category.route[locale]} className="text-action">{category.id === "water" ? t.checkWater : t.checkElectricity}<Icon name="arrow" className="size-4" /></a>
+                  <a href={category.route[locale]} className="text-action">{toolLabels[category.id]}<Icon name="arrow" className="size-4" /></a>
                 </div>
               )}
             </li>

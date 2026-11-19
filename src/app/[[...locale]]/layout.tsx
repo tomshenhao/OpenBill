@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!locale) notFound();
   const page = segments?.at(-1);
   const copy = messages[locale];
-  const t = page === "water" ? copy.water : page === "electricity" ? copy.analysis : copy;
+  const t = page === "mortgage" ? copy.mortgage : page === "water" ? copy.water : page === "electricity" ? copy.analysis : copy;
   return { title: t.metaTitle, description: t.metaDescription, robots: { index: false, follow: false } };
 }
 

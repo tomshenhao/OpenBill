@@ -10,7 +10,7 @@ export function localeFromPath(segments: string[] | undefined): Locale | null {
   if (!segments || segments.length === 0) return "en";
   if (segments.length === 1 && segments[0] === "zh") return "zh";
   const tool = segments.at(-1);
-  if (tool === "electricity" || tool === "water") {
+  if (tool === "electricity" || tool === "water" || tool === "mortgage") {
     if (segments.length === 1) return "en";
     if (segments.length === 2 && segments[0] === "zh") return "zh";
   }

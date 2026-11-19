@@ -15,14 +15,17 @@ describe("household product scope and truthful availability", () => {
     expect(categoryCatalog).toHaveLength(15);
     expect(new Set(categoryCatalog.map((entry) => entry.id))).toEqual(new Set(categoryIds));
   });
-  it("exposes the implemented electricity and Auckland water routes and calculators", () => {
+  it("exposes the implemented electricity, Auckland water and mortgage tools", () => {
     const available = categoryCatalog.filter((entry) => entry.status === "available");
-    expect(available.map((entry) => entry.id)).toEqual(["electricity", "water"]);
-    const [electricity, water] = available;
+    expect(available.map((entry) => entry.id)).toEqual(["electricity", "water", "mortgage"]);
+    const [electricity, water, mortgage] = available;
     expect(electricity.route).toEqual({ en: "/electricity/", zh: "/zh/electricity/" });
     expect(electricity.supportedFeatures).toEqual(["daily-usage-average", "bill-analysis", "regional-monthly-benchmark", "regional-usage-rating", "progressive-usage-inputs", "contextual-saving-tips"]);
     expect(water.route).toEqual({ en: "/water/", zh: "/zh/water/" });
     expect(water.supportedFeatures).toContain("manual-rate-bill-check");
+    expect(mortgage.route).toEqual({ en: "/mortgage/", zh: "/zh/mortgage/" });
+    expect(mortgage.supportedFeatures).toContain("repayment-estimates");
+    expect(mortgage.futureFeatures).toContain("independently-reviewed-bank-rates");
     for (const category of available) expect(existsSync(resolve(category.calculation.module))).toBe(true);
     for (const category of categoryCatalog.filter((entry) => entry.status !== "available")) {
       expect(category.route).toBeNull(); expect(category.calculation).toBeNull(); expect(category.supportedFeatures).toHaveLength(0);

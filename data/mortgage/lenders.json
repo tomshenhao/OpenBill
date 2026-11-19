@@ -1,0 +1,46 @@
+[
+  {
+    "id": "anz",
+    "name": "ANZ",
+    "url": "https://www.anz.co.nz/rates-fees-agreements/home-loans/"
+  },
+  {
+    "id": "asb",
+    "name": "ASB",
+    "url": "https://www.asb.co.nz/home-loans-mortgages/interest-rates-fees.html"
+  },
+  {
+    "id": "bnz",
+    "name": "BNZ",
+    "url": "https://www.bnz.co.nz/personal-banking/home-loans/compare-bnz-home-loan-rates"
+  },
+  {
+    "id": "westpac",
+    "name": "Westpac",
+    "url": "https://www.westpac.co.nz/home-loans-mortgages/interest-rates/",
+    "linkPermissionRequired": true
+  },
+  {
+    "id": "kiwibank",
+    "name": "Kiwibank",
+    "url": "https://www.kiwibank.co.nz/personal-banking/home-loans/rates-and-fees/",
+    "linkPermissionRequired": true
+  },
+  {
+    "id": "tsb",
+    "name": "TSB",
+    "url": "https://www.tsb.co.nz/rates-fees-agreements/home-loan",
+    "linkPermissionRequired": true
+  },
+  {
+    "id": "sbs",
+    "name": "SBS Bank",
+    "url": "https://www.sbsbank.co.nz/rates",
+    "linkPermissionRequired": true
+  },
+  {
+    "id": "co-operative",
+    "name": "The Co-operative Bank",
+    "url": "https://www.co-operativebank.co.nz/rates"
+  }
+]

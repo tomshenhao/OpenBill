@@ -10,6 +10,7 @@ import { CommunitySection } from "./community-section";
 export function HomePage({ locale }: { locale: Locale }) {
   const t = messages[locale];
   const alternate = locale === "en" ? "zh" : "en";
+  const toolLabels = { electricity: t.product.electricityTool, water: t.product.waterTool, mortgage: t.product.mortgageTool };
   return (
     <>
       <a className="skip-link" href="#main">{t.skip}</a>
@@ -35,7 +36,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
               {coreCategories.filter((category) => category.status === "available").map((category) => (
                 <a key={category.id} className={category.id === "electricity" ? "button-primary" : "text-action"} href={category.route[locale]}>
-                  {category.id === "water" ? t.product.waterTool : t.product.electricityTool}<Icon name="arrow" className="size-4" />
+                  {toolLabels[category.id]}<Icon name="arrow" className="size-4" />
                 </a>
               ))}
             </div>
