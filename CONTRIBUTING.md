@@ -63,9 +63,9 @@ expense ownership boundary. See the product vision for the category checklist.
 为空。新功能须支持双语和无障碍使用，具备适用的可靠官方依据，并明确费用归属。
 
 Milestone statuses live in `src/config/roadmap.ts`. After changing category or
-roadmap copy/configuration, regenerate and check the public document:
+roadmap copy/configuration, regenerate and check the roadmap and README module table:
 
-里程碑状态集中在上述配置中。修改类别、路线图或相关文案后，请重新生成并校验：
+里程碑状态集中在上述配置中。修改类别、路线图或相关文案后，请重新生成并校验路线图和 README 的模块表：
 
 ```sh
 node scripts/roadmap.ts

@@ -1,0 +1,71 @@
+{
+  "provider": "Watercare",
+  "region": "NZ-AUK",
+  "reviewedOn": "2026-11-20",
+  "sources": {
+    "faq": "https://www.watercare.co.nz/residents/help-and-support/faqs",
+    "charges": "https://www.watercare.co.nz/residents/accounts/how-residential-charges-work",
+    "billing": "https://www.watercare.co.nz/residents/accounts/higher-bill-than-usual",
+    "efficiency": "https://www.watercare.co.nz/home/about-us/sustainability-and-community/water-efficiency-plan",
+    "targets": "https://assets.watercare.co.nz/media/watercare_combined_pack_for_the_public_session_of_26_february_2025_pdf_0e1bf4cf51.pdf",
+    "leaks": "https://www.watercare.co.nz/home/faults-and-outages/how-to-check-for-leaks",
+    "saving": "https://www.watercare.co.nz/residents/learn/why-is-water-so-important/saving-water-at-home",
+    "garden": "https://www.watercare.co.nz/residents/learn/why-is-water-so-important/saving-water-in-the-garden",
+    "meters": "https://www.watercare.co.nz/residents/help-and-support/water-faqs",
+    "terms": "https://www.watercare.co.nz/home/about-us/our-organisation/terms-of-use"
+  },
+  "reference": {
+    "kind": "general-per-person-range",
+    "lowerLitres": 140,
+    "upperLitres": 170
+  },
+  "billing": {
+    "gstPercent": 15,
+    "standardWastewaterPercent": 78.5,
+    "apartmentWastewaterPercent": 95
+  },
+  "schedules": [
+    {
+      "from": "2020-07-01",
+      "until": "2021-07-01",
+      "url": "https://assets.watercare.co.nz/media/domestic_water_ww_igc_charges_2020_2021_a44f00f24e.pdf",
+      "tariffStatus": "pending-verification"
+    },
+    {
+      "from": "2021-07-01",
+      "until": "2022-07-01",
+      "url": "https://assets.watercare.co.nz/media/domestic_waterww_other_charges_2021_2022_81e6c1b88a.pdf",
+      "tariffStatus": "pending-verification"
+    },
+    {
+      "from": "2022-07-01",
+      "until": "2023-07-01",
+      "url": "https://assets.watercare.co.nz/media/domestic_charges_2022_2023_a44c780198.pdf",
+      "tariffStatus": "pending-verification"
+    },
+    {
+      "from": "2023-07-01",
+      "until": "2024-07-01",
+      "url": "https://assets.watercare.co.nz/media/domestic_charges_2023_2024_ac9880f2db.pdf",
+      "tariffStatus": "pending-verification"
+    },
+    {
+      "from": "2024-07-01",
+      "until": "2025-07-01",
+      "url": "https://assets.watercare.co.nz/media/watercare_residential_charges_3f1eca5486.pdf",
+      "tariffStatus": "pending-verification"
+    },
+    {
+      "from": "2025-07-01",
+      "until": "2026-07-01",
+      "url": "https://assets.watercare.co.nz/media/residential_other_charges_2025_2026_pdf_cf73059f20.pdf",
+      "tariffStatus": "pending-verification"
+    },
+    {
+      "from": "2026-07-01",
+      "until": "2027-07-01",
+      "url": "https://assets.watercare.co.nz/media/Residential_Water_Ww_IGC_Charges_Other_Charges_2026_2027_rev_0aa42cb042.pdf",
+      "tariffStatus": "pending-verification"
+    }
+  ]
+}

@@ -1,9 +1,11 @@
 import type { Messages } from "./en";
 import { productZh } from "./product-zh.ts";
+import { waterZh } from "./water-zh.ts";
 import { electricityZh } from "./electricity-zh.ts";
 
 export const zh: Messages = {
   analysis: electricityZh,
+  water: waterZh,
   product: productZh,
   language: "简体中文",
   otherLanguage: "English",
@@ -11,14 +13,13 @@ export const zh: Messages = {
   navigation: "主导航",
   howItWorks: "使用步骤",
   ourPrinciples: "我们的原则",
-  start: "查看用电量",
+  start: "快速查看日均用电量",
   eyebrow: "为新西兰普通家庭而建",
   heroTitle: "让账单更轻，\n让生活更自由。",
-  heroDescription: "OpenBill 希望帮助新西兰家庭看懂日常开支、了解更合适的选择，并找到实用的省钱方法。免费、独立、开源，以您的利益为先。",
-  heroNote: "无广告，无佣金。以您的利益为先。",
+  heroDescription: "OpenBill 是面向新西兰家庭的免费、独立、开源项目。您可以先从电费或奥克兰水费入手，看懂账单，找到实用的节能节水方法。",
+  heroNote: "输入仅保留在您的浏览器中。OpenBill 没有广告，也不收取供应商佣金。",
   illustrationLabel: "阳光下的房屋和一座小花园",
-  illustrationCaption: "为家庭预算，多留一点余地。",
-  stage: "从这里开始",
+  stage: "快速查询用电量",
   stageTitle: "先了解您的用电量",
   stageBody: "只需账单上的两个数字，即可查看日均用电量。计算完全在您的浏览器中进行。",
   status: "用电量计算已开放",
@@ -46,8 +47,8 @@ export const zh: Messages = {
     daysRequired: "请输入本计费周期的天数。",
     daysInvalid: "请输入 1 至 366 之间的整数天数。",
   },
-  noPricesTitle: "核实价格后，再提供比价",
-  noPricesBody: "目前不展示供应商价格、排名或节省金额。未来公布的每条电价都必须附有官方来源、核实日期和截图证据。",
+  noPricesTitle: "电力套餐比价仍待开放",
+  noPricesBody: "套餐比价需要官方费率、独立审核和发布许可。快速查询使用您的用电量和计费天数。",
   howEyebrow: "步骤简单，信息清楚",
   howTitle: "看得懂的比较，才有帮助",
   steps: [
@@ -69,8 +70,7 @@ export const zh: Messages = {
   insurance: "保险",
   planned: "计划中",
   footerMission: "开源、独立，为新西兰家庭而建。",
-  footerStatus: "项目处于起步阶段，暂未提供供应商比价。",
   noScript: "本地用电量计算需要启用 JavaScript。输入内容绝不会提交至服务器。",
   metaTitle: "OpenBill — 让账单更轻，让生活更自由。",
-  metaDescription: "面向新西兰家庭的免费、独立开支优化项目。了解愿景与开发路线图，以英文或简体中文在本地计算用电量。",
+  metaDescription: "OpenBill 是面向新西兰家庭的免费独立项目。使用英文或简体中文，在浏览器内查看电费和奥克兰水费。",
 };

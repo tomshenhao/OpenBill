@@ -9,7 +9,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const segments = (await params).locale;
   const locale = localeFromPath(segments);
   if (!locale) notFound();
-  const t = segments?.at(-1) === "electricity" ? messages[locale].analysis : messages[locale];
+  const page = segments?.at(-1);
+  const copy = messages[locale];
+  const t = page === "water" ? copy.water : page === "electricity" ? copy.analysis : copy;
   return { title: t.metaTitle, description: t.metaDescription, robots: { index: false, follow: false } };
 }
 

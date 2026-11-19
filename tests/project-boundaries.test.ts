@@ -7,7 +7,7 @@ import { localeFromPath, messages } from "@/i18n";
 function textKeys(value: object, prefix = ""): string[] {
   return Object.entries(value).flatMap(([key, entry]) => {
     const path = `${prefix}${key}`;
-    return typeof entry === "object" ? textKeys(entry, `${path}.`) : [path];
+    return entry !== null && typeof entry === "object" ? textKeys(entry, `${path}.`) : [path];
   }).sort();
 }
 
@@ -26,6 +26,8 @@ describe("project boundaries", () => {
     expect(localeFromPath(["zh"])).toBe("zh");
     expect(localeFromPath(["electricity"])).toBe("en");
     expect(localeFromPath(["zh", "electricity"])).toBe("zh");
+    expect(localeFromPath(["water"])).toBe("en");
+    expect(localeFromPath(["zh", "water"])).toBe("zh");
     expect(localeFromPath(["fr"])).toBeNull();
     expect(localeFromPath(["zh", "unexpected"])).toBeNull();
   });
