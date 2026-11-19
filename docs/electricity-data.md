@@ -1,5 +1,12 @@
 # Electricity data infrastructure (v0.2)
 
+Task 005 adds [six unsent retailer requests](retailer-requests/README.md), optional
+JSON-header compatibility, a dry-run receipt inventory and a guarded consumer
+period-cost interface. Follow the [current operational runbook](task005-tariff-workflow.md).
+The production catalogue is still empty; no real comparison is enabled. Manual
+archiving is available for all six registered retailers, subject to source/terms
+checks and Mercury's image permission rule. No automated retailer collection is enabled.
+
 This release establishes a local, auditable workflow. **It does not contain a real
 tariff, supplier recommendation, savings estimate, or enabled retailer scraper.**
 The [official-source research](official-source-research.md) records what was found

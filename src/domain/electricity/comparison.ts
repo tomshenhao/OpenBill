@@ -36,7 +36,7 @@ export function entryIsCurrent(entry: ComparisonEntry, policy: DataPolicy, now: 
     && rights.recordId === r.recordId && rights.recordSha256 === entry.recordSha256 && rights.reviewedBy !== r.provenance.collectedBy && Date.parse(rights.reviewedAt) >= Date.parse(v.reviewedAt) && Date.parse(rights.reviewedAt) <= now.getTime();
 }
 
-function matchesScope(r: ElectricityTariff, scope: ComparisonScope) {
+export function matchesScope(r: ElectricityTariff, scope: ComparisonScope) {
   return r.coverage.regionCodes.some((c) => c === scope.region) && r.coverage.networkIds.includes(scope.network)
     && r.metering.configuration === scope.metering && (r.eligibility.userCategory === "unrestricted" || r.eligibility.userCategory === scope.userCategory)
     && [...r.metering.registers].sort().join() === [...scope.registers].sort().join() && new Set(scope.registers).size === scope.registers.length;
@@ -90,14 +90,44 @@ export function annualTariffCost(record: ElectricityTariff, profile: AnnualProfi
   return roundNanoNzdToCents(total);
 }
 export type ComparisonRow = { entry: ComparisonEntry; annualCents: bigint; differenceCents: bigint | null };
-export function comparePlans(raw: unknown, policy: DataPolicy, scope: ComparisonScope, profile: AnnualProfile, options: { now: Date; asOf: string; currentRecordId?: string; allowSynthetic?: boolean }) {
+export type PeriodProfile = { days: number; registerKwh: Record<string, string> };
+// A present-day offer applied to the same measured quantity and number of days.
+// This is not a historical bill reconstruction or an annual projection.
+export function periodTariffCost(record: ElectricityTariff, profile: PeriodProfile): bigint {
+  tariffSchema.parse(record);
+  if (!Number.isInteger(profile.days) || profile.days < 1 || profile.days > 366) throw new Error("Valid billing days required");
+  if (record.gst.treatment !== "inclusive") throw new Error("Reviewed GST-inclusive prices required");
+  const registers = Object.keys(profile.registerKwh).sort();
+  if (registers.join() !== [...record.metering.registers].sort().join()) throw new Error("Exact register totals required");
+  let total = record.charges.daily.reduce((sum, c) => sum + chargeInNanoNzd(c.price, { amount: String(profile.days), unit: "day" }), 0n);
+  for (const register of registers) {
+    quantityMilli(profile.registerKwh[register]);
+    const bands = record.charges.usage.filter((b) => b.register === register);
+    if (bands.length !== 1 || bands[0].kind !== "flat") throw new Error("Measured interval profiles required for time-of-use; totals cannot be allocated");
+    total += chargeInNanoNzd(bands[0].price, { amount: profile.registerKwh[register], unit: "kWh" });
+  }
+  return roundNanoNzdToCents(total);
+}
+type ComparisonOptions = { now: Date; asOf: string; currentRecordId?: string; allowSynthetic?: boolean };
+export function comparePeriodPlans(raw: unknown, policy: DataPolicy, scope: ComparisonScope, profile: PeriodProfile, options: ComparisonOptions) {
+  const rows: { entry: ComparisonEntry; periodCents: bigint; differenceCents: bigint | null }[] = [];
+  const { entries, excluded } = applicableEntries(raw, policy, scope, options);
+  for (const entry of entries) {
+    try { rows.push({ entry, periodCents: periodTariffCost(entry.record, profile), differenceCents: null }); }
+    catch { excluded.push({ recordId: entry.record.recordId, reason: "profile" }); }
+  }
+  const baseline = rows.find((r) => r.entry.record.recordId === options.currentRecordId);
+  for (const row of rows) if (baseline) row.differenceCents = row.periodCents - baseline.periodCents;
+  // No market-wide ranking: stable retailer/plan order, with explicit costs.
+  rows.sort((a, b) => a.entry.record.retailerId.localeCompare(b.entry.record.retailerId) || a.entry.record.plan.name.localeCompare(b.entry.record.plan.name));
+  return { rows, excluded, marketCoverage: "partial" as const };
+}
+function applicableEntries(raw: unknown, policy: DataPolicy, scope: ComparisonScope, options: ComparisonOptions) {
   dateSchema.parse(options.asOf);
   const currentDate = new Intl.DateTimeFormat("en-CA", { timeZone: "Pacific/Auckland", year: "numeric", month: "2-digit", day: "2-digit" }).format(options.now);
   if (options.asOf !== currentDate) throw new Error("Consumer comparisons require today's New Zealand date");
-  if (profile.year >= Number(currentDate.slice(0, 4))) throw new Error("A completed measured calendar year is required");
   const bundle = comparisonBundleSchema.parse(raw);
   if (validateHistory(bundle.entries.map((e) => e.record)).length) throw new Error("Invalid comparison history");
-  const rows: ComparisonRow[] = [];
   const excluded: { recordId: string; reason: "unverified-or-inapplicable" | "profile" }[] = [];
   const byId = new Map(bundle.entries.map((e) => [e.record.recordId, e.record]));
   const superseded = new Set<string>();
@@ -106,8 +136,18 @@ export function comparePlans(raw: unknown, policy: DataPolicy, scope: Comparison
     let parent = record.supersedes;
     while (parent && !superseded.has(parent)) { superseded.add(parent); parent = byId.get(parent)?.supersedes ?? null; }
   }
-  for (const entry of bundle.entries) {
-    if (superseded.has(entry.record.recordId) || !entryIsCurrent(entry, policy, options.now, options.asOf, options.allowSynthetic) || !matchesScope(entry.record, scope)) { excluded.push({ recordId: entry.record.recordId, reason: "unverified-or-inapplicable" }); continue; }
+  const entries = bundle.entries.filter((entry) => {
+    if (!superseded.has(entry.record.recordId) && entryIsCurrent(entry, policy, options.now, options.asOf, options.allowSynthetic) && matchesScope(entry.record, scope)) return true;
+    excluded.push({ recordId: entry.record.recordId, reason: "unverified-or-inapplicable" }); return false;
+  });
+  return { entries, excluded };
+}
+export function comparePlans(raw: unknown, policy: DataPolicy, scope: ComparisonScope, profile: AnnualProfile, options: ComparisonOptions) {
+  const { entries, excluded } = applicableEntries(raw, policy, scope, options);
+  const currentDate = new Intl.DateTimeFormat("en-CA", { timeZone: "Pacific/Auckland", year: "numeric", month: "2-digit", day: "2-digit" }).format(options.now);
+  if (profile.year >= Number(currentDate.slice(0, 4))) throw new Error("A completed measured calendar year is required");
+  const rows: ComparisonRow[] = [];
+  for (const entry of entries) {
     try { rows.push({ entry, annualCents: annualTariffCost(entry.record, profile), differenceCents: null }); }
     catch { excluded.push({ recordId: entry.record.recordId, reason: "profile" }); }
   }

@@ -27,7 +27,7 @@ export async function archiveEvidence(input: unknown, root: string, policy: Data
   const adapter = suppliedAdapter ?? (request.retailerId === "mercury" ? mercuryManualAdapter : {
     retailerId: request.retailerId,
     validate(manifest: EvidenceManifest) {
-      if (!["genesis", "contact"].includes(manifest.retailerId) || manifest.captureMethod !== "manual") throw new Error("Only reviewed manual pilot source imports are supported");
+      if (!["genesis", "contact", "meridian", "electric-kiwi", "2degrees"].includes(manifest.retailerId) || manifest.captureMethod !== "manual") throw new Error("Only registered manual retailer source imports are supported");
     },
   });
   assertOfficialSource(request.retailerId, request.sourceUrl, policy);
@@ -41,7 +41,7 @@ export async function archiveEvidence(input: unknown, root: string, policy: Data
   const suffix = extname(request.sourceFile).toLowerCase();
   if (![".html", ".pdf", ".txt", ".json"].includes(suffix)) throw new Error("Archive an original HTML, PDF, text or EIEP14A JSON source");
   const source = await readFile(request.sourceFile);
-  if (suffix === ".json") parseEiep14a(readProductJson(source.toString("utf8")));
+  if (suffix === ".json") parseEiep14a(readProductJson(new TextDecoder("utf-8", { fatal: true }).decode(source)));
   const screenshot = request.screenshotFile ? await readFile(request.screenshotFile) : null;
   if (!source.length || source.length > 25_000_000 || (screenshot && (screenshot.length > 25_000_000 || !isPng(screenshot)))) throw new Error("Empty, oversized or invalid source/screenshot");
   const evidenceId = randomUUID();

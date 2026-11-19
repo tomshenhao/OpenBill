@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { benchmarkSchema, daysInMonth, distributionSchema } from "../../src/domain/electricity/benchmark.ts";
 import { parseCsv } from "./csv.ts";
+import { usageRatingDatasetSchema } from "../../src/domain/electricity/ratings.ts";
 
 export const regionIds: Record<string, string> = { "1": "NZ-NTL", "2": "NZ-AUK", "3": "NZ-WKO", "4": "NZ-BOP", "5": "NZ-GIS", "6": "NZ-HKB", "7": "NZ-TKI", "8": "NZ-MWT", "9": "NZ-WGN", "12": "NZ-WTC", "13": "NZ-CAN", "14": "NZ-OTA", "15": "NZ-STL", "16": "NZ-TAS", "17": "NZ-NSN", "18": "NZ-MBH" };
 export const downloadUrl = "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/0YUCE0?DateFrom=20250101&DateTo=20260831&RegionType=REG_COUNCIL&Show=Avg&TempAdj=N";
@@ -47,11 +48,23 @@ export function importDistribution(bytes: Buffer, collectedAt: string) {
     rows: csv.slice(index + 1).filter((r) => r.some(Boolean)).map((r) => ({ region: regionIds[r[2]], month: `${r[0].slice(6)}-${r[0].slice(3, 5)}`, p25Kwh: Number(r[11]), medianKwh: Number(r[12]), p75Kwh: Number(r[13]) })),
   });
 }
+export function importUsageRatings(bytes: Buffer, collectedAt: string) {
+  const mean = importBenchmark(bytes, collectedAt), csv = parseCsv(bytes.toString("utf8"));
+  const index = csv.findIndex((row) => row[0] === "Period start");
+  if (csv[index][13] !== "75th percentile (kWh)" || csv[index][14] !== "95th percentile (kWh)") throw new Error("Unexpected rating columns");
+  return usageRatingDatasetSchema.parse({ schemaVersion: 1, dataKind: "official-aggregate", source: mean.source,
+    derivation: { columns: ["75th percentile (kWh)", "95th percentile (kWh)"], method: "Exact source columns; no interpolation" },
+    rows: csv.slice(index + 1).filter((row) => row.some(Boolean)).map((row) => {
+      if (![row[13], row[14]].every((value) => /^\d+(\.\d+)?$/.test(value ?? ""))) throw new Error("Missing or invalid published percentile; never infer zero");
+      return { region: regionIds[row[2]], month: `${row[0].slice(6)}-${row[0].slice(3, 5)}`, p75Kwh: Number(row[13]), p95Kwh: Number(row[14]) };
+    }),
+  });
+}
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const target = resolve("data/electricity/benchmarks");
   const bytes = await readFile(resolve(target, "source/emi-2025-01-2026-08.csv"));
-  const result = process.argv.includes("--distribution") ? importDistribution(bytes, "2026-11-12T22:41:41.000Z") : importBenchmark(bytes, "2026-11-12T22:41:41.000Z");
-  const filename = process.argv.includes("--distribution") ? "regional-monthly-distribution.json" : "regional-monthly.json";
+  const result = process.argv.includes("--ratings") ? importUsageRatings(bytes, "2026-11-12T22:41:41.000Z") : process.argv.includes("--distribution") ? importDistribution(bytes, "2026-11-12T22:41:41.000Z") : importBenchmark(bytes, "2026-11-12T22:41:41.000Z");
+  const filename = process.argv.includes("--ratings") ? "regional-monthly-ratings.json" : process.argv.includes("--distribution") ? "regional-monthly-distribution.json" : "regional-monthly.json";
   const output = `${JSON.stringify(result, null, 2)}\n`;
   if (process.argv.includes("--check")) {
     if (await readFile(resolve(target, filename), "utf8") !== output) throw new Error("Benchmark drift");

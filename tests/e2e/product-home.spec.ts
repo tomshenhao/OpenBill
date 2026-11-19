@@ -21,7 +21,7 @@ for (const locale of ["en", "zh"] as const) {
     }
     await page.locator('#categories [data-category="electricity"] a').click();
     await expect(page).toHaveURL(new RegExp(`${path}electricity/$`));
-    await expect(page.getByRole("heading", { name: copy.analysis.formTitle })).toBeVisible();
+    await expect(page.getByRole("heading", { name: copy.analysis.journey.usageStep })).toBeVisible();
     await page.goto(path);
     const details = page.locator("#more-ways details"); const summary = details.locator("summary");
     await expect(details).not.toHaveAttribute("open", "");

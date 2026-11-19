@@ -159,6 +159,25 @@ The comparison engine has synthetic arithmetic/eligibility tests; real compariso
 accuracy still requires actual tariffs, independent coverage review and a pilot.
 `npm run check` also runs local data validation; CI never collects external data.
 
+## Dual electricity ratings
+
+Task 005.1 adds pure independent usage/price assessment in
+`src/domain/electricity/ratings.ts`. P75/P95 extraction produces a separate JSON
+derivation from the unchanged original CSV; the consumer boundary checks it against
+the same regional snapshot. The UI renders two responsive cards and retains bill
+arithmetic in a native disclosure. It never passes household input to data tools.
+Price coverage receipts add a human review gate on top of existing price/rights
+gates; local immutable receipts must match the active consumer index. See
+[rating architecture and workflow](task005-1-ratings.md).
+
+Task 005.2 separates live usage assessment from optional bill submission. A pure
+input adapter selects either exact dates or a confirmed month and derives days;
+inactive period inputs cannot affect results. The price step is progressively
+revealed, with no extra questions for an empty eligible catalogue. Technical
+diagnostics and legacy bill arithmetic stay in an advanced disclosure. Existing
+rating, source, independent review and publication gates are unchanged. See
+[the two-step input guide](task005-2-input-journey.md).
+
 ## Dependency maintenance
 
 The lockfile is included for reproducible installs. ESLint 9.39.5 matches the peer

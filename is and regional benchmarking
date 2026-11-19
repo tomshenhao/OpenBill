@@ -1,0 +1,284 @@
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:1: trailing whitespace.
+[32m+[m[32mResidential consumption trends[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:2: trailing whitespace.
+[32m+[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:3: trailing whitespace.
+[32m+[m[32mFrom www.emi.ea.govt.nz provided by the Electricity Authority (New Zealand)[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:4: trailing whitespace.
+[32m+[m[32mRun at: 20261113113533[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:5: trailing whitespace.
+[32m+[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:6: trailing whitespace.
+[32m+[m[32mParameters[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:7: trailing whitespace.
+[32m+[m[32mDate range,01 Jan 2025 - 31 Aug 2026[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:8: trailing whitespace.
+[32m+[m[32mRegion type,Regional council[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:9: trailing whitespace.
+[32m+[m[32mTemperature adjusted,No[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:10: trailing whitespace.
+[32m+[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:11: trailing whitespace.
+[32m+[m[32mPeriod start,Period end,Region ID,Region,Est. Total consumption (GWh),Est. Total demand (GWh),Est. proportion of regional demand,Est. proportion of national demand,Average consumption (kWh),Average daily consumption (kWh),5th percentile (kWh),25th percentile (kWh),50th percentile (kWh),75th percentile (kWh),95th percentile (kWh),Coverage %[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:12: trailing whitespace.
+[32m+[m[32m01/01/2025,31/01/2025,1,Northland,37.862,41.425,1.295,1.295,461,14.9,131,260,400,587,998,91.74[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:13: trailing whitespace.
+[32m+[m[32m01/02/2025,28/02/2025,1,Northland,34.168,37.383,1.169,1.169,415,14.8,110,229,357,529,920,91.51[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:14: trailing whitespace.
+[32m+[m[32m01/03/2025,31/03/2025,1,Northland,36.707,40.161,1.256,1.256,446,14.4,116,247,387,571,978,91.46[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:15: trailing whitespace.
+[32m+[m[32m01/04/2025,30/04/2025,1,Northland,39.321,43.021,1.345,1.345,477,15.9,122,264,414,613,1049,91.94[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:16: trailing whitespace.
+[32m+[m[32m01/05/2025,31/05/2025,1,Northland,43.992,48.132,1.505,1.505,533,17.2,116,288,463,699,1186,92.01[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:17: trailing whitespace.
+[32m+[m[32m01/06/2025,30/06/2025,1,Northland,49.231,53.864,1.684,1.684,597,19.9,120,314,512,782,1357,92.09[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:18: trailing whitespace.
+[32m+[m[32m01/07/2025,31/07/2025,1,Northland,53.303,58.319,1.824,1.824,646,20.8,119,335,554,851,1480,92.08[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:19: trailing whitespace.
+[32m+[m[32m01/08/2025,31/08/2025,1,Northland,55.049,60.229,1.883,1.883,666,21.5,115,339,566,879,1553,92.12[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:20: trailing whitespace.
+[32m+[m[32m01/09/2025,30/09/2025,1,Northland,44.374,48.549,1.518,1.518,537,17.9,107,283,463,707,1219,92.17[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:21: trailing whitespace.
+[32m+[m[32m01/10/2025,31/10/2025,1,Northland,39.448,43.160,1.350,1.350,477,15.4,107,258,414,622,1065,91.98[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:22: trailing whitespace.
+[32m+[m[32m01/11/2025,30/11/2025,1,Northland,36.570,40.011,1.251,1.251,442,14.7,98,238,381,572,997,92.07[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:23: trailing whitespace.
+[32m+[m[32m01/12/2025,31/12/2025,1,Northland,38.048,41.628,1.302,1.302,459,14.8,115,252,394,588,1020,92.17[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:24: trailing whitespace.
+[32m+[m[32m01/01/2026,31/01/2026,1,Northland,39.922,43.678,1.366,1.366,482,15.5,137,268,412,610,1066,91.72[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:25: trailing whitespace.
+[32m+[m[32m01/02/2026,28/02/2026,1,Northland,34.159,37.374,1.169,1.169,412,14.7,113,227,354,527,910,91.35[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:26: trailing whitespace.
+[32m+[m[32m01/03/2026,31/03/2026,1,Northland,37.922,41.490,1.297,1.297,458,14.8,118,251,394,589,1012,91.46[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:27: trailing whitespace.
+[32m+[m[32m01/04/2026,30/04/2026,1,Northland,39.842,43.591,1.363,1.363,480,16.0,121,264,416,622,1057,91.95[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:28: trailing whitespace.
+[32m+[m[32m01/05/2026,31/05/2026,1,Northland,43.984,48.123,1.505,1.505,530,17.1,115,282,458,696,1188,92.03[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:29: trailing whitespace.
+[32m+[m[32m01/06/2026,30/06/2026,1,Northland,50.973,55.769,1.744,1.744,614,20.5,114,312,520,809,1430,91.88[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:30: trailing whitespace.
+[32m+[m[32m01/07/2026,31/07/2026,1,Northland,54.409,59.528,1.861,1.861,655,21.1,126,341,562,865,1497,92.25[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:31: trailing whitespace.
+[32m+[m[32m01/08/2026,31/08/2026,1,Northland,53.126,58.125,1.818,1.818,639,20.6,114,330,551,849,1467,91.80[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:32: trailing whitespace.
+[32m+[m[32m01/01/2025,31/01/2025,12,West Coast,6.311,6.789,0.212,0.212,403,13.0,124,233,352,514,847,91.20[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:33: trailing whitespace.
+[32m+[m[32m01/02/2025,28/02/2025,12,West Coast,5.612,6.037,0.189,0.189,358,12.8,106,207,311,455,758,91.09[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:34: trailing whitespace.
+[32m+[m[32m01/03/2025,31/03/2025,12,West Coast,6.714,7.223,0.226,0.226,428,13.8,114,232,362,543,970,91.73[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:35: trailing whitespace.
+[32m+[m[32m01/04/2025,30/04/2025,12,West Coast,7.158,7.699,0.241,0.241,456,15.2,123,251,389,584,1011,91.96[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:36: trailing whitespace.
+[32m+[m[32m01/05/2025,31/05/2025,12,West Coast,7.931,8.532,0.267,0.267,505,16.3,121,271,431,654,1136,92.00[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:37: trailing whitespace.
+[32m+[m[32m01/06/2025,30/06/2025,12,West Coast,8.799,9.465,0.296,0.296,560,18.7,121,285,468,737,1310,92.10[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:38: trailing whitespace.
+[32m+[m[32m01/07/2025,31/07/2025,12,West Coast,9.190,9.886,0.309,0.309,584,18.8,121,293,487,768,1372,92.21[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:39: trailing whitespace.
+[32m+[m[32m01/08/2025,31/08/2025,12,West Coast,9.197,9.893,0.309,0.309,584,18.8,116,292,485,771,1373,92.12[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:40: trailing whitespace.
+[32m+[m[32m01/09/2025,30/09/2025,12,West Coast,8.335,8.966,0.280,0.280,529,17.6,115,276,447,690,1207,92.26[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:41: trailing whitespace.
+[32m+[m[32m01/10/2025,31/10/2025,12,West Coast,8.126,8.741,0.273,0.273,516,16.6,122,273,438,664,1173,92.30[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:42: trailing whitespace.
+[32m+[m[32m01/11/2025,30/11/2025,12,West Coast,6.594,7.093,0.222,0.222,418,13.9,104,231,364,540,918,92.31[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:43: trailing whitespace.
+[32m+[m[32m01/12/2025,31/12/2025,12,West Coast,6.559,7.055,0.221,0.221,415,13.4,108,233,361,537,901,92.46[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:44: trailing whitespace.
+[32m+[m[32m01/01/2026,31/01/2026,12,West Coast,6.449,6.937,0.217,0.217,408,13.2,121,232,355,524,869,91.58[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:45: trailing whitespace.
+[32m+[m[32m01/02/2026,28/02/2026,12,West Coast,5.712,6.144,0.192,0.192,361,12.9,101,206,314,464,775,91.44[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:46: trailing whitespace.
+[32m+[m[32m01/03/2026,31/03/2026,12,West Coast,6.504,6.996,0.219,0.219,411,13.3,110,230,359,530,877,91.62[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:47: trailing whitespace.
+[32m+[m[32m01/04/2026,30/04/2026,12,West Coast,7.016,7.547,0.236,0.236,443,14.8,116,246,384,572,963,91.86[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:48: trailing whitespace.
+[32m+[m[32m01/05/2026,31/05/2026,12,West Coast,7.811,8.402,0.263,0.263,493,15.9,114,261,421,646,1106,92.14[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:49: trailing whitespace.
+[32m+[m[32m01/06/2026,30/06/2026,12,West Coast,8.218,8.841,0.276,0.276,519,17.3,109,268,438,681,1198,92.32[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:50: trailing whitespace.
+[32m+[m[32m01/07/2026,31/07/2026,12,West Coast,8.961,9.640,0.301,0.301,565,18.2,119,283,473,748,1314,92.29[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:51: trailing whitespace.
+[32m+[m[32m01/08/2026,31/08/2026,12,West Coast,9.023,9.706,0.303,0.303,569,18.4,114,289,477,752,1334,92.01[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:52: trailing whitespace.
+[32m+[m[32m01/01/2025,31/01/2025,13,Canterbury,137.241,145.471,4.549,4.549,497,16.0,141,287,432,630,1067,94.14[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:53: trailing whitespace.
+[32m+[m[32m01/02/2025,28/02/2025,13,Canterbury,124.783,132.266,4.136,4.136,451,16.1,132,259,389,569,972,94.45[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:54: trailing whitespace.
+[32m+[m[32m01/03/2025,31/03/2025,13,Canterbury,146.246,155.015,4.847,4.847,528,17.0,154,305,459,669,1129,94.71[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:55: trailing whitespace.
+[32m+[m[32m01/04/2025,30/04/2025,13,Canterbury,173.308,183.700,5.744,5.744,624,20.8,160,355,544,803,1359,95.07[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:56: trailing whitespace.
+[32m+[m[32m01/05/2025,31/05/2025,13,Canterbury,216.472,229.453,7.175,7.175,779,25.1,198,447,687,1010,1669,94.96[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:57: trailing whitespace.
+[32m+[m[32m01/06/2025,30/06/2025,13,Canterbury,261.764,277.461,8.676,8.676,940,31.3,220,536,836,1230,2013,95.18[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:58: trailing whitespace.
+[32m+[m[32m01/07/2025,31/07/2025,13,Canterbury,271.048,287.301,8.984,8.984,972,31.4,228,555,865,1271,2082,95.00[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:59: trailing whitespace.
+[32m+[m[32m01/08/2025,31/08/2025,13,Canterbury,260.629,276.258,8.638,8.638,933,30.1,213,529,828,1224,2009,93.94[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:60: trailing whitespace.
+[32m+[m[32m01/09/2025,30/09/2025,13,Canterbury,194.036,205.672,6.431,6.431,693,23.1,171,396,612,902,1488,94.70[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:61: trailing whitespace.
+[32m+[m[32m01/10/2025,31/10/2025,13,Canterbury,173.154,183.537,5.739,5.739,618,19.9,160,351,537,791,1337,94.67[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:62: trailing whitespace.
+[32m+[m[32m01/11/2025,30/11/2025,13,Canterbury,148.664,157.578,4.927,4.927,530,17.7,135,290,446,665,1197,94.83[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:63: trailing whitespace.
+[32m+[m[32m01/12/2025,31/12/2025,13,Canterbury,138.056,146.335,4.576,4.576,491,15.8,128,277,423,624,1076,93.99[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:64: trailing whitespace.
+[32m+[m[32m01/01/2026,31/01/2026,13,Canterbury,139.948,148.340,4.638,4.638,498,16.0,152,290,432,626,1063,94.39[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:65: trailing whitespace.
+[32m+[m[32m01/02/2026,28/02/2026,13,Canterbury,133.525,141.532,4.426,4.426,474,16.9,140,270,405,594,1027,94.56[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:66: trailing whitespace.
+[32m+[m[32m01/03/2026,31/03/2026,13,Canterbury,154.729,164.007,5.128,5.128,548,17.7,159,316,476,694,1177,94.93[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:67: trailing whitespace.
+[32m+[m[32m01/04/2026,30/04/2026,13,Canterbury,165.885,175.833,5.498,5.498,586,19.5,167,340,514,750,1252,94.94[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:68: trailing whitespace.
+[32m+[m[32m01/05/2026,31/05/2026,13,Canterbury,214.179,227.022,7.099,7.099,756,24.4,193,430,663,979,1629,95.01[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:69: trailing whitespace.
+[32m+[m[32m01/06/2026,30/06/2026,13,Canterbury,244.944,259.632,8.118,8.118,863,28.8,199,480,752,1123,1900,95.34[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:70: trailing whitespace.
+[32m+[m[32m01/07/2026,31/07/2026,13,Canterbury,273.228,289.612,9.056,9.056,960,31.0,227,545,850,1256,2066,95.39[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:71: trailing whitespace.
+[32m+[m[32m01/08/2026,31/08/2026,13,Canterbury,250.488,265.509,8.302,8.302,878,28.3,208,503,781,1149,1875,95.19[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:72: trailing whitespace.
+[32m+[m[32m01/01/2025,31/01/2025,14,Otago,50.625,54.177,1.694,1.694,471,15.2,133,265,410,603,1018,93.40[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:73: trailing whitespace.
+[32m+[m[32m01/02/2025,28/02/2025,14,Otago,44.523,47.646,1.490,1.490,413,14.7,117,237,358,526,891,93.87[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:74: trailing whitespace.
+[32m+[m[32m01/03/2025,31/03/2025,14,Otago,54.996,58.854,1.840,1.840,510,16.4,131,287,447,657,1101,94.43[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:75: trailing whitespace.
+[32m+[m[32m01/04/2025,30/04/2025,14,Otago,63.544,68.002,2.126,2.126,588,19.6,150,330,513,758,1283,94.85[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:76: trailing whitespace.
+[32m+[m[32m01/05/2025,31/05/2025,14,Otago,78.809,84.338,2.637,2.637,729,23.5,148,393,635,960,1629,95.02[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:77: trailing whitespace.
+[32m+[m[32m01/06/2025,30/06/2025,14,Otago,95.831,102.554,3.207,3.207,884,29.5,162,465,764,1171,2016,94.96[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:78: trailing whitespace.
+[32m+[m[32m01/07/2025,31/07/2025,14,Otago,103.674,110.947,3.469,3.469,956,30.8,181,501,822,1257,2189,94.91[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:79: trailing whitespace.
+[32m+[m[32m01/08/2025,31/08/2025,14,Otago,101.256,108.359,3.388,3.388,932,30.1,169,476,789,1218,2174,93.82[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:80: trailing whitespace.
+[32m+[m[32m01/09/2025,30/09/2025,14,Otago,80.162,85.786,2.682,2.682,736,24.5,149,394,637,969,1662,94.75[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:81: trailing whitespace.
+[32m+[m[32m01/10/2025,31/10/2025,14,Otago,70.799,75.766,2.369,2.369,649,20.9,134,349,561,854,1463,94.59[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:82: trailing whitespace.
+[32m+[m[32m01/11/2025,30/11/2025,14,Otago,54.439,58.258,1.822,1.822,499,16.6,110,271,432,649,1110,94.61[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:83: trailing whitespace.
+[32m+[m[32m01/12/2025,31/12/2025,14,Otago,53.634,57.397,1.795,1.795,491,15.8,113,269,425,637,1085,94.74[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:84: trailing whitespace.
+[32m+[m[32m01/01/2026,31/01/2026,14,Otago,54.211,58.014,1.814,1.814,497,16.0,140,280,429,633,1077,93.67[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:85: trailing whitespace.
+[32m+[m[32m01/02/2026,28/02/2026,14,Otago,49.485,52.956,1.656,1.656,451,16.1,120,253,391,578,983,93.92[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:86: trailing whitespace.
+[32m+[m[32m01/03/2026,31/03/2026,14,Otago,60.715,64.974,2.032,2.032,552,17.8,136,296,465,702,1267,94.30[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:87: trailing whitespace.
+[32m+[m[32m01/04/2026,30/04/2026,14,Otago,66.761,71.444,2.234,2.234,606,20.2,151,337,527,784,1330,94.66[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:88: trailing whitespace.
+[32m+[m[32m01/05/2026,31/05/2026,14,Otago,85.949,91.979,2.876,2.876,780,25.2,154,413,673,1026,1770,94.90[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:89: trailing whitespace.
+[32m+[m[32m01/06/2026,30/06/2026,14,Otago,102.830,110.044,3.441,3.441,932,31.1,156,458,767,1219,2303,94.74[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:90: trailing whitespace.
+[32m+[m[32m01/07/2026,31/07/2026,14,Otago,106.471,113.940,3.563,3.563,963,31.1,186,505,830,1268,2209,94.93[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:91: trailing whitespace.
+[32m+[m[32m01/08/2026,31/08/2026,14,Otago,98.156,105.042,3.285,3.285,887,28.6,169,472,769,1173,2013,94.65[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:92: trailing whitespace.
+[32m+[m[32m01/01/2025,31/01/2025,15,Southland,19.916,20.783,0.650,0.650,474,15.3,143,280,419,599,982,94.11[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:93: trailing whitespace.
+[32m+[m[32m01/02/2025,28/02/2025,15,Southland,18.137,18.927,0.592,0.592,432,15.4,131,256,383,548,892,94.13[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:94: trailing whitespace.
+[32m+[m[32m01/03/2025,31/03/2025,15,Southland,22.200,23.167,0.724,0.724,528,17.0,145,311,468,678,1107,94.49[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:95: trailing whitespace.
+[32m+[m[32m01/04/2025,30/04/2025,15,Southland,25.477,26.586,0.831,0.831,607,20.2,159,353,535,781,1283,94.87[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:96: trailing whitespace.
+[32m+[m[32m01/05/2025,31/05/2025,15,Southland,31.356,32.722,1.023,1.023,746,24.1,171,427,657,971,1608,95.05[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:97: trailing whitespace.
+[32m+[m[32m01/06/2025,30/06/2025,15,Southland,40.735,42.509,1.329,1.329,970,32.3,183,515,837,1266,2216,95.03[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:98: trailing whitespace.
+[32m+[m[32m01/07/2025,31/07/2025,15,Southland,38.261,39.928,1.249,1.249,911,29.4,184,507,808,1203,1990,95.10[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:99: trailing whitespace.
+[32m+[m[32m01/08/2025,31/08/2025,15,Southland,36.939,38.548,1.205,1.205,878,28.3,178,490,776,1163,1907,95.02[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:100: trailing whitespace.
+[32m+[m[32m01/09/2025,30/09/2025,15,Southland,33.113,34.555,1.081,1.081,787,26.2,171,446,695,1033,1704,95.09[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:101: trailing whitespace.
+[32m+[m[32m01/10/2025,31/10/2025,15,Southland,29.499,30.783,0.963,0.963,700,22.6,153,395,617,916,1521,95.00[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:102: trailing whitespace.
+[32m+[m[32m01/11/2025,30/11/2025,15,Southland,23.940,24.983,0.781,0.781,568,18.9,138,316,488,724,1258,95.18[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:103: trailing whitespace.
+[32m+[m[32m01/12/2025,31/12/2025,15,Southland,21.998,22.956,0.718,0.718,521,16.8,135,296,452,662,1126,95.21[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:104: trailing whitespace.
+[32m+[m[32m01/01/2026,31/01/2026,15,Southland,21.141,22.062,0.690,0.690,501,16.2,153,296,443,634,1042,94.29[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:105: trailing whitespace.
+[32m+[m[32m01/02/2026,28/02/2026,15,Southland,20.709,21.611,0.676,0.676,490,17.5,135,277,422,622,1067,94.36[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:106: trailing whitespace.
+[32m+[m[32m01/03/2026,31/03/2026,15,Southland,22.424,23.401,0.732,0.732,531,17.1,147,310,468,679,1113,94.57[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:107: trailing whitespace.
+[32m+[m[32m01/04/2026,30/04/2026,15,Southland,26.652,27.813,0.870,0.870,630,21.0,164,366,555,815,1330,94.81[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:108: trailing whitespace.
+[32m+[m[32m01/05/2026,31/05/2026,15,Southland,32.635,34.056,1.065,1.065,771,24.9,172,433,676,1008,1674,94.88[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:109: trailing whitespace.
+[32m+[m[32m01/06/2026,30/06/2026,15,Southland,35.241,36.776,1.150,1.150,832,27.7,163,459,728,1090,1842,94.86[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:110: trailing whitespace.
+[32m+[m[32m01/07/2026,31/07/2026,15,Southland,38.229,39.894,1.247,1.247,901,29.1,183,499,797,1187,1956,94.85[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:111: trailing whitespace.
+[32m+[m[32m01/08/2026,31/08/2026,15,Southland,37.532,39.167,1.225,1.225,883,28.5,163,487,783,1168,1941,94.68[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:112: trailing whitespace.
+[32m+[m[32m01/01/2025,31/01/2025,16,Tasman,11.855,12.780,0.400,0.400,513,16.6,159,303,447,645,1102,93.85[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:113: trailing whitespace.
+[32m+[m[32m01/02/2025,28/02/2025,16,Tasman,10.385,11.195,0.350,0.350,449,16.0,130,259,388,568,982,93.89[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:114: trailing whitespace.
+[32m+[m[32m01/03/2025,31/03/2025,16,Tasman,11.627,12.534,0.392,0.392,503,16.2,134,284,435,640,1109,94.04[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:115: trailing whitespace.
+[32m+[m[32m01/04/2025,30/04/2025,16,Tasman,12.705,13.696,0.428,0.428,549,18.3,144,311,476,699,1204,94.18[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:116: trailing whitespace.
+[32m+[m[32m01/05/2025,31/05/2025,16,Tasman,15.432,16.636,0.520,0.520,666,21.5,145,371,578,866,1489,94.25[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:117: trailing whitespace.
+[32m+[m[32m01/06/2025,30/06/2025,16,Tasman,17.599,18.971,0.593,0.593,759,25.3,145,409,656,995,1709,94.22[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:118: trailing whitespace.
+[32m+[m[32m01/07/2025,31/07/2025,16,Tasman,18.546,19.992,0.625,0.625,800,25.8,150,430,693,1052,1794,94.17[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:119: trailing whitespace.
+[32m+[m[32m01/08/2025,31/08/2025,16,Tasman,19.082,20.570,0.643,0.643,822,26.5,146,427,700,1076,1904,93.97[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:120: trailing whitespace.
+[32m+[m[32m01/09/2025,30/09/2025,16,Tasman,14.995,16.164,0.505,0.505,646,21.5,135,356,563,843,1436,94.12[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:121: trailing whitespace.
+[32m+[m[32m01/10/2025,31/10/2025,16,Tasman,13.426,14.473,0.453,0.453,578,18.6,132,322,501,751,1289,93.81[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:122: trailing whitespace.
+[32m+[m[32m01/11/2025,30/11/2025,16,Tasman,11.447,12.340,0.386,0.386,492,16.4,115,276,427,635,1085,93.58[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:123: trailing whitespace.
+[32m+[m[32m01/12/2025,31/12/2025,16,Tasman,11.667,12.577,0.393,0.393,501,16.2,133,286,435,640,1101,93.76[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:124: trailing whitespace.
+[32m+[m[32m01/01/2026,31/01/2026,16,Tasman,11.786,12.706,0.397,0.397,506,16.3,155,296,439,639,1094,93.89[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:125: trailing whitespace.
+[32m+[m[32m01/02/2026,28/02/2026,16,Tasman,10.599,11.425,0.357,0.357,455,16.2,130,256,388,574,1010,93.69[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:126: trailing whitespace.
+[32m+[m[32m01/03/2026,31/03/2026,16,Tasman,11.791,12.711,0.397,0.397,506,16.3,137,286,439,642,1115,94.04[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:127: trailing whitespace.
+[32m+[m[32m01/04/2026,30/04/2026,16,Tasman,13.355,14.397,0.450,0.450,573,19.1,155,322,490,729,1272,94.35[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:128: trailing whitespace.
+[32m+[m[32m01/05/2026,31/05/2026,16,Tasman,15.332,16.528,0.517,0.517,657,21.2,146,362,570,857,1464,94.35[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:129: trailing whitespace.
+[32m+[m[32m01/06/2026,30/06/2026,16,Tasman,17.072,18.403,0.575,0.575,732,24.4,140,393,633,958,1652,94.47[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:130: trailing whitespace.
+[32m+[m[32m01/07/2026,31/07/2026,16,Tasman,18.186,19.604,0.613,0.613,779,25.1,153,421,676,1025,1754,94.45[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:131: trailing whitespace.
+[32m+[m[32m01/08/2026,31/08/2026,16,Tasman,17.200,18.542,0.580,0.580,737,23.8,140,399,637,973,1660,94.18[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:132: trailing whitespace.
+[32m+[m[32m01/01/2025,31/01/2025,17,Nelson,9.749,10.393,0.325,0.325,450,14.5,156,275,398,562,932,96.14[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:133: trailing whitespace.
+[32m+[m[32m01/02/2025,28/02/2025,17,Nelson,8.538,9.103,0.285,0.285,394,14.1,132,238,345,490,817,96.33[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:134: trailing whitespace.
+[32m+[m[32m01/03/2025,31/03/2025,17,Nelson,9.635,10.272,0.321,0.321,444,14.3,146,268,390,559,917,96.46[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:135: trailing whitespace.
+[32m+[m[32m01/04/2025,30/04/2025,17,Nelson,10.720,11.429,0.357,0.357,494,16.5,157,294,432,622,1031,96.78[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:136: trailing whitespace.
+[32m+[m[32m01/05/2025,31/05/2025,17,Nelson,13.809,14.723,0.460,0.460,636,20.5,185,374,560,809,1349,96.95[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:137: trailing whitespace.
+[32m+[m[32m01/06/2025,30/06/2025,17,Nelson,16.467,17.556,0.549,0.549,758,25.3,199,439,666,974,1617,97.09[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:138: trailing whitespace.
+[32m+[m[32m01/07/2025,31/07/2025,17,Nelson,17.386,18.536,0.580,0.580,801,25.8,212,466,705,1033,1701,97.33[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:139: trailing whitespace.
+[32m+[m[32m01/08/2025,31/08/2025,17,Nelson,17.607,18.771,0.587,0.587,810,26.1,202,457,707,1049,1762,97.04[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:140: trailing whitespace.
+[32m+[m[32m01/09/2025,30/09/2025,17,Nelson,13.305,14.185,0.444,0.444,611,20.4,167,359,544,794,1306,97.08[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:141: trailing whitespace.
+[32m+[m[32m01/10/2025,31/10/2025,17,Nelson,11.530,12.292,0.384,0.384,529,17.1,152,312,469,683,1133,97.02[m[41m[m
+data/electricity/benchmarks/source/emi-2025-01-2026-08.csv:142: trailing whitespace.
+[32m+[m[32m01/11/202

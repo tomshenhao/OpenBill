@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "reviewId": "REPLACE_WITH_NEW_IMMUTABLE_REVIEW_ID",
+      "scope": {
+        "region": "REPLACE_WITH_REVIEWED_REGION",
+        "network": "REPLACE_WITH_REVIEWED_NETWORK",
+        "metering": "REPLACE_WITH_REVIEWED_CONFIGURATION",
+        "userCategory": "REPLACE_WITH_REVIEWED_CATEGORY",
+        "registers": ["REPLACE_WITH_REVIEWED_REGISTER"]
+      },
+      "reviewedAt": "REPLACE_WITH_ACTUAL_UTC_REVIEW_TIME",
+      "reviewedBy": "REPLACE_WITH_INDEPENDENT_PUBLIC_REVIEWER_HANDLE",
+      "rationale": "Explain why this limited catalogue supports a meaningful comparison, identify excluded suppliers and structures, and record evidence of coverage review.",
+      "adequateForLimitedCatalogueRating": false,
+      "records": [
+        { "recordId": "REPLACE_WITH_ACTUAL_RECORD_ID", "recordSha256": "REPLACE_WITH_ACTUAL_RECORD_SHA256" },
+        { "recordId": "REPLACE_WITH_OTHER_RETAILER_RECORD_ID", "recordSha256": "REPLACE_WITH_ACTUAL_RECORD_SHA256" }
+      ]
+    }
+  ]
+}

@@ -182,8 +182,9 @@ supplier evidence remains subject to its original source's rights.
    independent reviewers. Schema validation never verifies a price. No complete
    privacy-compatible rate card was obtained in the initial six-retailer research.
 4. Add permitted, reviewed official-source records and independently validate the
-   tested exact-money comparison engine on real coverage, then implement and review
-   consumer profile entry/results. Explain assumptions before showing any savings.
+   tested exact-money comparison engine on real coverage, then independently review
+   the prepared flat-plan consumer scope entry/results against those sources.
+   Explain assumptions before showing any savings.
 5. Introduce water, mortgage, insurance, broadband and mobile one category at a time,
    with their own evidence/calculations and community priorities. Keep wider plans
    separate from implemented functionality.
@@ -210,3 +211,39 @@ After changing category/roadmap configuration or translations, run
 `node scripts/roadmap.ts` to regenerate ROADMAP.md. `node scripts/roadmap.ts --check`
 and the unit suite detect drift. New product scope does not change the v0.2
 tariff schemas or allow a universal calculator for unrelated expenses.
+
+## Task 005: first real tariff readiness
+
+The [receipt runbook](docs/task005-tariff-workflow.md) gives the exact local
+check/import/evidence/review/rights/staging steps. [Six retailer drafts and verified
+general contact routes](docs/retailer-requests/README.md) are prepared and unsent.
+No official product file has been received and the production catalogue remains
+empty. Supplier offers need independent price and publication-rights reviews.
+
+```sh
+npm run data:eiep14a -- tests/fixtures/eiep14a-request.json --check
+```
+
+This dry run uses labelled synthetic test data and writes nothing. The bilingual
+consumer interface is ready for eligible single-register flat offers with explicit
+scope confirmation and equivalent-period costs. It makes no short-bill annual
+savings forecast and always discloses partial market coverage.
+
+## Task 005.1: separate usage and price ratings
+
+Electricity results now start with two independent, bilingual traffic-light cards.
+An exact region/month match uses published P75/P95 consumption thresholds from the
+existing official CSV, across all household sizes. Approximate periods stay neutral.
+Price ratings need verified comparable plans, a verified current baseline and an
+independent coverage receipt; with the empty tariff catalogue they remain neutral.
+Bill calculations remain available in an expandable section. See the
+[rating rules, data limits and review workflow](docs/task005-1-ratings.md).
+
+## Task 005.2: usage first, prices second
+
+The current electricity journey asks for kWh, region and either exact dates or a
+confirmed full month. Usage ratings update immediately without a bill total.
+A separate price step explains when supplier data is missing; extra fields cannot
+unlock unavailable offers. Original bill calculations and technical details remain
+under a clearly labelled advanced section. See the
+[input journey and regression report](docs/task005-2-input-journey.md).

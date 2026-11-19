@@ -1,5 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { validatePriceRatingCoverage } from "../../src/domain/electricity/ratings.ts";
+import { assertArchivedCoverageReviews } from "./coverage.ts";
 import { fileURLToPath } from "node:url";
 import { comparisonBundleSchema, entryIsCurrent, type ComparisonEntry } from "../../src/domain/electricity/comparison.ts";
 import { reviewSchema } from "../../src/domain/electricity/tariff.ts";
@@ -38,6 +40,8 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     console.log(`Staged ${bundle.entries.length} records locally for publication review.`);
   } else {
     const bundle = await validateComparisonPublication(await readJson(resolve(repository.dataRoot, "comparison-plans.json")), repository);
+    const coverage = validatePriceRatingCoverage(await readJson(resolve(repository.dataRoot, "price-rating-coverage.json")), bundle, repository.policy, new Date(), nzDate(new Date()));
+    await assertArchivedCoverageReviews(coverage, resolve(".local-data/coverage-reviews"));
     console.log(`Validated ${bundle.entries.length} published comparison records against evidence, reviews and rights.`);
   }
 }
