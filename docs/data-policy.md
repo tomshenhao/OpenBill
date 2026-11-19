@@ -2,6 +2,15 @@
 
 ## Household information
 
+Usage and price ratings are independent, browser-only assessments. A regional mean
+cannot create percentile thresholds: Task 005.1 extracts actual published P75/P95
+columns from the pinned official CSV. No household-size peers or personal ranks
+are inferred. Cross-month approximate references remain unclassified. The source
+is honestly labelled source-checked with independent review pending. Price ratings
+also require independently reviewed limited-catalogue coverage, immutable receipt
+bindings, and all existing tariff/evidence/rights gates; they are not whole-market
+assessments. See [the rating policy](task005-1-ratings.md).
+
 Do not collect, store, log, or transmit personal household bill information.
 The original homepage tool asks for kWh and billing days. The electricity analysis
 page adds the period total, separately labelled tax/rates and optional region,

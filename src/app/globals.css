@@ -120,11 +120,22 @@ html[lang="zh-Hans-NZ"] .eyebrow { letter-spacing: 1px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
 
 .analysis-hero { display: grid; grid-template-columns: 1fr 280px; align-items: center; gap: 64px; padding-block: 60px 44px; }
+.rating-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.rating-card { min-width: 0; padding: 28px; border: 1px solid #bcc9bd; border-radius: 12px; background: #fffefa; overflow-wrap: anywhere; }
+.rating-status { display: flex; align-items: center; gap: 10px; padding-block: 18px; font-size: 18px; font-weight: 600; color: #415148; }
+.rating-dot { flex: 0 0 18px; width: 18px; height: 18px; border: 2px solid currentColor; border-radius: 50%; background: #d5ddd6; }
+[data-rating="green"] .rating-status { color: #24543c; } [data-rating="green"] .rating-dot { background: #3a8054; }
+[data-rating="yellow"] .rating-status { color: #765000; } [data-rating="yellow"] .rating-dot { background: #eabd35; }
+[data-rating="red"] .rating-status { color: #982d29; } [data-rating="red"] .rating-dot { background: #c64a42; }
+@media (max-width: 767px) { .rating-grid { grid-template-columns: 1fr; }.rating-card { padding: 22px; } }
 .analysis-hero .hero-title { font-size: clamp(34px, 4vw, 50px); }
 .analysis-privacy { padding: 26px; border-radius: 12px; background: #eaf0e6; border: 1px solid #d4dece; color: #24543c; }
 .analysis-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-bottom: 44px; }
 .analysis-steps a { display: flex; align-items: center; gap: 14px; padding: 16px 20px; min-height: 56px; border-block: 1px solid #cad8c6; font-size: 14px; font-weight: 600; color: #24543c; }
 .analysis-steps a:hover { background: #eaf0e6; }
+.journey-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.journey-steps button { display: flex; align-items: center; gap: 14px; padding: 16px 20px; min-height: 56px; border-block: 1px solid #cad8c6; text-align: left; font-size: 14px; font-weight: 600; color: #24543c; cursor: pointer; }
+.journey-steps button:hover { background: #eaf0e6; }
 .analysis-steps span { font-size: 12px; color: #58665d; }
 .analysis-section { padding-block: 52px; }
 .analysis-bill-grid { display: grid; grid-template-columns: 1.12fr 1fr; gap: 28px; align-items: start; }

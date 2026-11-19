@@ -1,5 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { expect, test } from "@playwright/test";
+import { messages } from "../../src/i18n/index";
+import { openAdvancedBill } from "../e2e/journey-helpers";
 
 const lanHost = process.env.OPENBILL_TEST_LAN_HOST ?? "127.0.0.2";
 const hosts = ["127.0.0.1", lanHost];
@@ -21,8 +23,17 @@ test("explicit dev origins initialise both forms in both languages without submi
     page.on("request", (request) => requests.push(request.url()));
     page.on("framenavigated", (frame) => { if (frame === page.mainFrame()) navigation.push(frame.url()); });
     if (path.includes("electricity")) {
-      await page.locator("#bill-days").fill("30"); await page.locator("#bill-kwh").fill("987.654"); await page.locator("#bill-totalNzd").fill("120");
+      // Usage is live; bill arithmetic is an optional disclosure in step 2.
+      const copy = messages[path.startsWith("/zh/") ? "zh" : "en"].analysis;
+      await page.locator("#bill-kwh").fill("987.654");
+      await page.locator("#bill-region").selectOption("NZ-AUK");
+      await page.locator("#bill-start").fill("2026-06-01"); await page.locator("#bill-end").fill("2026-06-30");
+      await expect(page.getByTestId("usage-rating")).toHaveAttribute("data-rating", "yellow");
+      await openAdvancedBill(page, copy);
+      await expect(page.locator("#bill-days")).toHaveValue("30");
+      await page.locator("#bill-totalNzd").fill("120");
       await page.locator('button[type="submit"]').click();
+      await page.getByTestId("bill-details").locator(":scope > summary").click();
       await expect(page.getByTestId("bill-daily-kwh")).toContainText("32.92");
     } else {
       await page.locator("#usage-days").fill("30"); await page.locator("#usage-kwh").fill("987.654");
@@ -71,6 +82,10 @@ test("development form navigation stays blocked when JavaScript cannot initialis
       const url = `http://${lanHost}:3111${path}`;
       await page.goto(url); await page.waitForLoadState("networkidle");
       if (path.includes("electricity")) {
+        // As in the production CSP test, reveal the dormant form only in the
+        // harness: the step control cannot run without JS. CSP must still block it.
+        await page.locator("#price-step").evaluate((element) => element.removeAttribute("hidden"));
+        await page.getByTestId("advanced-bill").locator(":scope > summary").click();
         await page.locator("#bill-days").fill("30"); await page.locator("#bill-kwh").fill("987.654"); await page.locator("#bill-totalNzd").fill("120");
       } else {
         await page.locator("#usage-days").fill("30"); await page.locator("#usage-kwh").fill("987.654");

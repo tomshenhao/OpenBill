@@ -5,6 +5,10 @@ import { dateSchema } from "../../../src/domain/electricity/tariff.ts";
 // This validates product-file structure; it never verifies or publishes a price.
 const code = z.string().regex(/^[A-Za-z0-9_]{1,30}$/);
 const text = (length: number) => z.string().min(1).max(length);
+const upper = z.string().transform((value) => value.toUpperCase());
+const enumCode = <T extends readonly [string, ...string[]]>(values: T) => upper.pipe(z.enum(values));
+// ISO 8601 also permits the hour-only offsets shown in the official field table.
+const sourceTime = z.string().transform((value) => value.replace(/([+-]\d{2})$/, "$1:00")).pipe(z.iso.datetime({ offset: true }));
 const nullableList = <T extends z.ZodType>(schema: T) => z.array(schema).nullable().optional().transform((v) => v ?? []);
 const refs = nullableList(code);
 const nullableDate = dateSchema.nullable().optional().transform((v) => v ?? null);
@@ -13,24 +17,24 @@ const schedule = z.strictObject({
   scheduleid: code, daylightsavings: z.enum(["1", "2"]).nullable().optional(),
   starttime: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/).nullable().optional(),
   endtime: z.string().regex(/^(([01]\d|2[0-3]):[0-5]\d|24:00)$/).nullable().optional(),
-  daytype: text(50).nullable(), month: text(50).nullable(),
+  daytype: text(50).transform((v) => v.toUpperCase()).nullable(), month: text(50).transform((v) => v.toUpperCase()).nullable(),
 }).superRefine((s, c) => {
   if ((s.starttime || s.endtime) && (!s.starttime || !s.endtime || !s.daylightsavings || s.endtime <= s.starttime)) c.addIssue({ code: "custom", message: "Timed schedules need explicit daylight-savings treatment and must not span midnight" });
   if (s.month && s.month !== "ANY" && s.month.split(" ").some((m) => !"JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC".split(" ").includes(m))) c.addIssue({ code: "custom", message: "Invalid month selector" });
   if (s.daytype && !["ANY", "BD", "NBD", "WD", "WE", "LBD", "LNBD", "SBD", "SPNBD"].includes(s.daytype) && s.daytype.split(" ").some((d) => !"MON TUE WED THU FRI SAT SUN".split(" ").includes(d))) c.addIssue({ code: "custom", message: "Invalid day selector" });
 });
-const tariffType = z.strictObject({ tarifftypeid: code, description: text(50), fixedvariable: z.enum(["F", "V"]), unit: text(25).nullable().optional(), flowdirection: z.enum(["X", "I", "B"]).nullable().optional(), "rcc-poa": nullableList(z.tuple([text(20), z.number().int().min(0).max(24)])), scheduleids: refs, attributeids: refs });
+const tariffType = z.strictObject({ tarifftypeid: code, description: text(50), fixedvariable: enumCode(["F", "V"]), unit: text(25).nullable().optional(), flowdirection: enumCode(["X", "I", "B"]).nullable().optional(), "rcc-poa": nullableList(z.tuple([text(20), z.number().int().min(0).max(24)])), scheduleids: refs, attributeids: refs });
 const network = z.strictObject({ network: text(4).length(4).nullable().optional(), nsp: nullableList(text(100)), distributorpricecategory: nullableList(text(100)), distributorlosscategory: nullableList(text(100)) });
 const tariffRegion = z.strictObject({ tariffregionid: code, description: text(50).nullable().optional(), networks: nullableList(network) });
-const tariff = z.strictObject({ tariff: text(50).nullable().optional(), tariffregionid: code.nullable().optional(), tarifftypeid: code, rate: z.number().finite().nonnegative().max(999999.999999).refine((n) => Math.abs(n * 1e6 - Math.round(n * 1e6)) < 0.001, "At most six decimal places"), attributeids: refs });
-const plan = z.strictObject({ planid: text(32), description: text(50), startdate: nullableDate, enddate: nullableDate, closedate: nullableDate, lowfixedcharge: z.enum(["Y", "N"]), attributeids: refs, tariffs: z.array(tariff).min(1) }).superRefine((p, c) => {
+const tariff = z.strictObject({ tariff: text(50).nullable().optional(), tariffregionid: code.nullable().optional(), tarifftypeid: code, rate: z.number().finite().nonnegative().max(999999.999999).refine((n) => /^\d+(\.\d{1,6})?$/.test(String(n)), "At most six decimal places"), attributeids: refs });
+const plan = z.strictObject({ planid: text(32), description: text(50), startdate: nullableDate, enddate: nullableDate, closedate: nullableDate, lowfixedcharge: enumCode(["Y", "N"]), attributeids: refs, tariffs: z.array(tariff).min(1) }).superRefine((p, c) => {
   if (p.startdate && p.enddate && p.enddate < p.startdate) c.addIssue({ code: "custom", message: "Plan dates reversed" });
 });
 const retailer = z.strictObject({ traderid: text(4).length(4).nullable(), retailerid: text(4).length(4).nullable(), retailerbrandname: text(50), attributes: nullableList(attribute), schedules: nullableList(schedule), tarifftypes: z.array(tariffType).min(1), tariffregions: nullableList(tariffRegion), customergroups: z.array(z.strictObject({ customergroup: text(1000).nullable(), attributeids: refs, plans: z.array(plan).min(1) })).min(1) });
 export const eiep14aSchema = z.strictObject({
-  filetype: z.literal("PRCSCHD"), version: z.literal(1.1), sender: text(20).optional(), sentonbehalfof: text(4).length(4).nullable().optional(), recipient: z.string().max(4).optional(),
-  rundatetime: z.iso.datetime({ offset: true }), extractdatetime: z.iso.datetime({ offset: true }).nullable().optional(), uniquifier: z.uuid().optional(), recordcount: z.number().int().nonnegative().optional(),
-  utiltype: z.literal("E"), filestatus: z.literal("I"), retailers: z.array(retailer).min(1),
+  filetype: upper.pipe(z.literal("PRCSCHD")).optional(), version: z.literal(1.1).optional(), sender: text(20).optional(), sentonbehalfof: text(4).length(4).nullable().optional(), recipient: z.string().max(4).optional(),
+  rundatetime: sourceTime.optional(), extractdatetime: sourceTime.nullable().optional(), uniquifier: z.uuid().optional(), recordcount: z.number().int().nonnegative().optional(),
+  utiltype: upper.pipe(z.literal("E")).optional(), filestatus: upper.pipe(z.literal("I")).optional(), retailers: z.array(retailer).min(1),
 }).superRefine((data, context) => {
   const issue = (message: string) => context.addIssue({ code: "custom", message });
   const unique = (values: string[], what: string) => { if (new Set(values.map((v) => v.toUpperCase())).size !== values.length) issue(`Duplicate ${what}`); };
@@ -71,6 +75,7 @@ function foldKeys(value: unknown): unknown {
 }
 // Detect duplicate keys before JSON.parse can discard their earlier values.
 export function readProductJson(text: string): unknown {
+  text = text.replace(/^\uFEFF/, "");
   const value: unknown = JSON.parse(text);
   const tokens = text.match(/"(?:[^"\\]|\\.)*"|[{}[\]:,]|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?|true|false|null/g) ?? [];
   let position = 0;
@@ -82,7 +87,16 @@ export function readProductJson(text: string): unknown {
       while (tokens[position] !== "}") {
         const key = (JSON.parse(tokens[position++]) as string).toLowerCase();
         if (seen.has(key)) throw new Error("Duplicate JSON field");
-        seen.add(key); position++; walk(depth + 1);
+        seen.add(key); position++;
+        if (key === "rate" && /^-?\d/.test(tokens[position] ?? "")) {
+          // Inspect original numeric spelling before binary floating point can hide
+          // extra nonzero precision (e.g. 0.123456000000000001).
+          const [mantissa, exponent = "0"] = tokens[position].toLowerCase().split("e");
+          const fraction = mantissa.split(".")[1] ?? "";
+          const trailingZeros = (mantissa.replace(".", "").match(/0+$/)?.[0].length ?? 0);
+          if (fraction.length - Number(exponent) - trailingZeros > 6) throw new Error("Rate exceeds six decimal places");
+        }
+        walk(depth + 1);
         if (tokens[position] !== ",") break;
         position++;
       }

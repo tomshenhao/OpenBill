@@ -1,0 +1,1960 @@
+{
+  "schemaVersion": 1,
+  "dataKind": "official-aggregate",
+  "source": {
+    "reportUrl": "https://www.emi.ea.govt.nz/Retail/Reports/0YUCE0",
+    "downloadUrl": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/0YUCE0?DateFrom=20250101&DateTo=20260831&RegionType=REG_COUNCIL&Show=Avg&TempAdj=N",
+    "collectedAt": "2026-11-12T22:41:41.000Z",
+    "sourceSha256": "d2a434b10e164ab2679ee0791750c3f40a21eebb74987031e57ff1dd5e4fa347",
+    "sourceFile": "source/emi-2025-01-2026-08.csv",
+    "attribution": "Electricity Authority (New Zealand), EMI residential consumption trends. Mean and coverage columns extracted by OpenBill; original CSV retained.",
+    "licence": "CC-BY-4.0",
+    "licenceUrl": "https://www.ea.govt.nz/copyright-disclaimer-transparency/",
+    "verification": "source-checked-not-independently-reviewed",
+    "checkedAt": "2026-11-12T22:41:41.000Z",
+    "checkedBy": "openbill-task004-research",
+    "geography": "Regional council (2013 boundaries)",
+    "unit": "kWh/ICP/calendar-month",
+    "population": "Cleaned residential electricity connection (ICP) sample, including holiday homes; all household sizes. Not a census of occupied households.",
+    "caveats": [
+      "Monthly grid offtake, excluding self-consumed solar; no loss adjustment or temperature adjustment.",
+      "Source cleaning excludes annual usage below 1,000 or above 30,000 kWh and monthly usage above 5,000 kWh, with smoothing and residential classification exclusions.",
+      "Sample coverage varies by region and month. Household size, heating, climate and occupancy are not controlled.",
+      "Regional location uses ICP information, with NSP fallback where missing; means are rounded by the source.",
+      "No individual household percentile or assessment of necessary consumption can be inferred from a mean."
+    ],
+    "householdSizeStratified": false,
+    "temperatureAdjusted": false,
+    "from": "2025-01",
+    "through": "2026-08"
+  },
+  "derivation": {
+    "columns": [
+      "75th percentile (kWh)",
+      "95th percentile (kWh)"
+    ],
+    "method": "Exact source columns; no interpolation"
+  },
+  "rows": [
+    {
+      "region": "NZ-NTL",
+      "month": "2025-01",
+      "p75Kwh": 587,
+      "p95Kwh": 998
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-02",
+      "p75Kwh": 529,
+      "p95Kwh": 920
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-03",
+      "p75Kwh": 571,
+      "p95Kwh": 978
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-04",
+      "p75Kwh": 613,
+      "p95Kwh": 1049
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-05",
+      "p75Kwh": 699,
+      "p95Kwh": 1186
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-06",
+      "p75Kwh": 782,
+      "p95Kwh": 1357
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-07",
+      "p75Kwh": 851,
+      "p95Kwh": 1480
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-08",
+      "p75Kwh": 879,
+      "p95Kwh": 1553
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-09",
+      "p75Kwh": 707,
+      "p95Kwh": 1219
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-10",
+      "p75Kwh": 622,
+      "p95Kwh": 1065
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-11",
+      "p75Kwh": 572,
+      "p95Kwh": 997
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2025-12",
+      "p75Kwh": 588,
+      "p95Kwh": 1020
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-01",
+      "p75Kwh": 610,
+      "p95Kwh": 1066
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-02",
+      "p75Kwh": 527,
+      "p95Kwh": 910
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-03",
+      "p75Kwh": 589,
+      "p95Kwh": 1012
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-04",
+      "p75Kwh": 622,
+      "p95Kwh": 1057
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-05",
+      "p75Kwh": 696,
+      "p95Kwh": 1188
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-06",
+      "p75Kwh": 809,
+      "p95Kwh": 1430
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-07",
+      "p75Kwh": 865,
+      "p95Kwh": 1497
+    },
+    {
+      "region": "NZ-NTL",
+      "month": "2026-08",
+      "p75Kwh": 849,
+      "p95Kwh": 1467
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-01",
+      "p75Kwh": 514,
+      "p95Kwh": 847
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-02",
+      "p75Kwh": 455,
+      "p95Kwh": 758
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-03",
+      "p75Kwh": 543,
+      "p95Kwh": 970
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-04",
+      "p75Kwh": 584,
+      "p95Kwh": 1011
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-05",
+      "p75Kwh": 654,
+      "p95Kwh": 1136
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-06",
+      "p75Kwh": 737,
+      "p95Kwh": 1310
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-07",
+      "p75Kwh": 768,
+      "p95Kwh": 1372
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-08",
+      "p75Kwh": 771,
+      "p95Kwh": 1373
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-09",
+      "p75Kwh": 690,
+      "p95Kwh": 1207
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-10",
+      "p75Kwh": 664,
+      "p95Kwh": 1173
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-11",
+      "p75Kwh": 540,
+      "p95Kwh": 918
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2025-12",
+      "p75Kwh": 537,
+      "p95Kwh": 901
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-01",
+      "p75Kwh": 524,
+      "p95Kwh": 869
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-02",
+      "p75Kwh": 464,
+      "p95Kwh": 775
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-03",
+      "p75Kwh": 530,
+      "p95Kwh": 877
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-04",
+      "p75Kwh": 572,
+      "p95Kwh": 963
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-05",
+      "p75Kwh": 646,
+      "p95Kwh": 1106
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-06",
+      "p75Kwh": 681,
+      "p95Kwh": 1198
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-07",
+      "p75Kwh": 748,
+      "p95Kwh": 1314
+    },
+    {
+      "region": "NZ-WTC",
+      "month": "2026-08",
+      "p75Kwh": 752,
+      "p95Kwh": 1334
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-01",
+      "p75Kwh": 630,
+      "p95Kwh": 1067
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-02",
+      "p75Kwh": 569,
+      "p95Kwh": 972
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-03",
+      "p75Kwh": 669,
+      "p95Kwh": 1129
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-04",
+      "p75Kwh": 803,
+      "p95Kwh": 1359
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-05",
+      "p75Kwh": 1010,
+      "p95Kwh": 1669
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-06",
+      "p75Kwh": 1230,
+      "p95Kwh": 2013
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-07",
+      "p75Kwh": 1271,
+      "p95Kwh": 2082
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-08",
+      "p75Kwh": 1224,
+      "p95Kwh": 2009
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-09",
+      "p75Kwh": 902,
+      "p95Kwh": 1488
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-10",
+      "p75Kwh": 791,
+      "p95Kwh": 1337
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-11",
+      "p75Kwh": 665,
+      "p95Kwh": 1197
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2025-12",
+      "p75Kwh": 624,
+      "p95Kwh": 1076
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-01",
+      "p75Kwh": 626,
+      "p95Kwh": 1063
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-02",
+      "p75Kwh": 594,
+      "p95Kwh": 1027
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-03",
+      "p75Kwh": 694,
+      "p95Kwh": 1177
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-04",
+      "p75Kwh": 750,
+      "p95Kwh": 1252
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-05",
+      "p75Kwh": 979,
+      "p95Kwh": 1629
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-06",
+      "p75Kwh": 1123,
+      "p95Kwh": 1900
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-07",
+      "p75Kwh": 1256,
+      "p95Kwh": 2066
+    },
+    {
+      "region": "NZ-CAN",
+      "month": "2026-08",
+      "p75Kwh": 1149,
+      "p95Kwh": 1875
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-01",
+      "p75Kwh": 603,
+      "p95Kwh": 1018
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-02",
+      "p75Kwh": 526,
+      "p95Kwh": 891
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-03",
+      "p75Kwh": 657,
+      "p95Kwh": 1101
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-04",
+      "p75Kwh": 758,
+      "p95Kwh": 1283
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-05",
+      "p75Kwh": 960,
+      "p95Kwh": 1629
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-06",
+      "p75Kwh": 1171,
+      "p95Kwh": 2016
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-07",
+      "p75Kwh": 1257,
+      "p95Kwh": 2189
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-08",
+      "p75Kwh": 1218,
+      "p95Kwh": 2174
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-09",
+      "p75Kwh": 969,
+      "p95Kwh": 1662
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-10",
+      "p75Kwh": 854,
+      "p95Kwh": 1463
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-11",
+      "p75Kwh": 649,
+      "p95Kwh": 1110
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2025-12",
+      "p75Kwh": 637,
+      "p95Kwh": 1085
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-01",
+      "p75Kwh": 633,
+      "p95Kwh": 1077
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-02",
+      "p75Kwh": 578,
+      "p95Kwh": 983
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-03",
+      "p75Kwh": 702,
+      "p95Kwh": 1267
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-04",
+      "p75Kwh": 784,
+      "p95Kwh": 1330
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-05",
+      "p75Kwh": 1026,
+      "p95Kwh": 1770
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-06",
+      "p75Kwh": 1219,
+      "p95Kwh": 2303
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-07",
+      "p75Kwh": 1268,
+      "p95Kwh": 2209
+    },
+    {
+      "region": "NZ-OTA",
+      "month": "2026-08",
+      "p75Kwh": 1173,
+      "p95Kwh": 2013
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-01",
+      "p75Kwh": 599,
+      "p95Kwh": 982
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-02",
+      "p75Kwh": 548,
+      "p95Kwh": 892
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-03",
+      "p75Kwh": 678,
+      "p95Kwh": 1107
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-04",
+      "p75Kwh": 781,
+      "p95Kwh": 1283
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-05",
+      "p75Kwh": 971,
+      "p95Kwh": 1608
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-06",
+      "p75Kwh": 1266,
+      "p95Kwh": 2216
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-07",
+      "p75Kwh": 1203,
+      "p95Kwh": 1990
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-08",
+      "p75Kwh": 1163,
+      "p95Kwh": 1907
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-09",
+      "p75Kwh": 1033,
+      "p95Kwh": 1704
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-10",
+      "p75Kwh": 916,
+      "p95Kwh": 1521
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-11",
+      "p75Kwh": 724,
+      "p95Kwh": 1258
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2025-12",
+      "p75Kwh": 662,
+      "p95Kwh": 1126
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-01",
+      "p75Kwh": 634,
+      "p95Kwh": 1042
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-02",
+      "p75Kwh": 622,
+      "p95Kwh": 1067
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-03",
+      "p75Kwh": 679,
+      "p95Kwh": 1113
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-04",
+      "p75Kwh": 815,
+      "p95Kwh": 1330
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-05",
+      "p75Kwh": 1008,
+      "p95Kwh": 1674
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-06",
+      "p75Kwh": 1090,
+      "p95Kwh": 1842
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-07",
+      "p75Kwh": 1187,
+      "p95Kwh": 1956
+    },
+    {
+      "region": "NZ-STL",
+      "month": "2026-08",
+      "p75Kwh": 1168,
+      "p95Kwh": 1941
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-01",
+      "p75Kwh": 645,
+      "p95Kwh": 1102
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-02",
+      "p75Kwh": 568,
+      "p95Kwh": 982
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-03",
+      "p75Kwh": 640,
+      "p95Kwh": 1109
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-04",
+      "p75Kwh": 699,
+      "p95Kwh": 1204
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-05",
+      "p75Kwh": 866,
+      "p95Kwh": 1489
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-06",
+      "p75Kwh": 995,
+      "p95Kwh": 1709
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-07",
+      "p75Kwh": 1052,
+      "p95Kwh": 1794
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-08",
+      "p75Kwh": 1076,
+      "p95Kwh": 1904
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-09",
+      "p75Kwh": 843,
+      "p95Kwh": 1436
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-10",
+      "p75Kwh": 751,
+      "p95Kwh": 1289
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-11",
+      "p75Kwh": 635,
+      "p95Kwh": 1085
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2025-12",
+      "p75Kwh": 640,
+      "p95Kwh": 1101
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-01",
+      "p75Kwh": 639,
+      "p95Kwh": 1094
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-02",
+      "p75Kwh": 574,
+      "p95Kwh": 1010
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-03",
+      "p75Kwh": 642,
+      "p95Kwh": 1115
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-04",
+      "p75Kwh": 729,
+      "p95Kwh": 1272
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-05",
+      "p75Kwh": 857,
+      "p95Kwh": 1464
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-06",
+      "p75Kwh": 958,
+      "p95Kwh": 1652
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-07",
+      "p75Kwh": 1025,
+      "p95Kwh": 1754
+    },
+    {
+      "region": "NZ-TAS",
+      "month": "2026-08",
+      "p75Kwh": 973,
+      "p95Kwh": 1660
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-01",
+      "p75Kwh": 562,
+      "p95Kwh": 932
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-02",
+      "p75Kwh": 490,
+      "p95Kwh": 817
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-03",
+      "p75Kwh": 559,
+      "p95Kwh": 917
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-04",
+      "p75Kwh": 622,
+      "p95Kwh": 1031
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-05",
+      "p75Kwh": 809,
+      "p95Kwh": 1349
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-06",
+      "p75Kwh": 974,
+      "p95Kwh": 1617
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-07",
+      "p75Kwh": 1033,
+      "p95Kwh": 1701
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-08",
+      "p75Kwh": 1049,
+      "p95Kwh": 1762
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-09",
+      "p75Kwh": 794,
+      "p95Kwh": 1306
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-10",
+      "p75Kwh": 683,
+      "p95Kwh": 1133
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-11",
+      "p75Kwh": 566,
+      "p95Kwh": 935
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2025-12",
+      "p75Kwh": 556,
+      "p95Kwh": 921
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-01",
+      "p75Kwh": 547,
+      "p95Kwh": 911
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-02",
+      "p75Kwh": 493,
+      "p95Kwh": 837
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-03",
+      "p75Kwh": 582,
+      "p95Kwh": 957
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-04",
+      "p75Kwh": 648,
+      "p95Kwh": 1087
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-05",
+      "p75Kwh": 800,
+      "p95Kwh": 1312
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-06",
+      "p75Kwh": 944,
+      "p95Kwh": 1611
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-07",
+      "p75Kwh": 1002,
+      "p95Kwh": 1654
+    },
+    {
+      "region": "NZ-NSN",
+      "month": "2026-08",
+      "p75Kwh": 949,
+      "p95Kwh": 1550
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-01",
+      "p75Kwh": 591,
+      "p95Kwh": 1052
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-02",
+      "p75Kwh": 538,
+      "p95Kwh": 961
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-03",
+      "p75Kwh": 606,
+      "p95Kwh": 1062
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-04",
+      "p75Kwh": 653,
+      "p95Kwh": 1132
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-05",
+      "p75Kwh": 801,
+      "p95Kwh": 1394
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-06",
+      "p75Kwh": 971,
+      "p95Kwh": 1726
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-07",
+      "p75Kwh": 995,
+      "p95Kwh": 1722
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-08",
+      "p75Kwh": 1025,
+      "p95Kwh": 1880
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-09",
+      "p75Kwh": 742,
+      "p95Kwh": 1280
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-10",
+      "p75Kwh": 663,
+      "p95Kwh": 1145
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-11",
+      "p75Kwh": 583,
+      "p95Kwh": 1039
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2025-12",
+      "p75Kwh": 602,
+      "p95Kwh": 1062
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-01",
+      "p75Kwh": 605,
+      "p95Kwh": 1059
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-02",
+      "p75Kwh": 533,
+      "p95Kwh": 952
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-03",
+      "p75Kwh": 619,
+      "p95Kwh": 1091
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-04",
+      "p75Kwh": 669,
+      "p95Kwh": 1149
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-05",
+      "p75Kwh": 774,
+      "p95Kwh": 1344
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-06",
+      "p75Kwh": 864,
+      "p95Kwh": 1486
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-07",
+      "p75Kwh": 976,
+      "p95Kwh": 1706
+    },
+    {
+      "region": "NZ-MBH",
+      "month": "2026-08",
+      "p75Kwh": 895,
+      "p95Kwh": 1558
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-01",
+      "p75Kwh": 599,
+      "p95Kwh": 1052
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-02",
+      "p75Kwh": 561,
+      "p95Kwh": 1000
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-03",
+      "p75Kwh": 610,
+      "p95Kwh": 1074
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-04",
+      "p75Kwh": 629,
+      "p95Kwh": 1096
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-05",
+      "p75Kwh": 769,
+      "p95Kwh": 1318
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-06",
+      "p75Kwh": 898,
+      "p95Kwh": 1537
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-07",
+      "p75Kwh": 993,
+      "p95Kwh": 1690
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-08",
+      "p75Kwh": 1019,
+      "p95Kwh": 1759
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-09",
+      "p75Kwh": 804,
+      "p95Kwh": 1369
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-10",
+      "p75Kwh": 709,
+      "p95Kwh": 1219
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-11",
+      "p75Kwh": 616,
+      "p95Kwh": 1078
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2025-12",
+      "p75Kwh": 609,
+      "p95Kwh": 1085
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-01",
+      "p75Kwh": 625,
+      "p95Kwh": 1120
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-02",
+      "p75Kwh": 567,
+      "p95Kwh": 1013
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-03",
+      "p75Kwh": 627,
+      "p95Kwh": 1107
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-04",
+      "p75Kwh": 712,
+      "p95Kwh": 1311
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-05",
+      "p75Kwh": 779,
+      "p95Kwh": 1345
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-06",
+      "p75Kwh": 884,
+      "p95Kwh": 1529
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-07",
+      "p75Kwh": 1028,
+      "p95Kwh": 1770
+    },
+    {
+      "region": "NZ-AUK",
+      "month": "2026-08",
+      "p75Kwh": 977,
+      "p95Kwh": 1661
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-01",
+      "p75Kwh": 596,
+      "p95Kwh": 1046
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-02",
+      "p75Kwh": 550,
+      "p95Kwh": 982
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-03",
+      "p75Kwh": 596,
+      "p95Kwh": 1057
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-04",
+      "p75Kwh": 628,
+      "p95Kwh": 1097
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-05",
+      "p75Kwh": 794,
+      "p95Kwh": 1385
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-06",
+      "p75Kwh": 936,
+      "p95Kwh": 1666
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-07",
+      "p75Kwh": 1008,
+      "p95Kwh": 1753
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-08",
+      "p75Kwh": 1009,
+      "p95Kwh": 1782
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-09",
+      "p75Kwh": 802,
+      "p95Kwh": 1398
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-10",
+      "p75Kwh": 696,
+      "p95Kwh": 1223
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-11",
+      "p75Kwh": 584,
+      "p95Kwh": 1030
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2025-12",
+      "p75Kwh": 614,
+      "p95Kwh": 1117
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-01",
+      "p75Kwh": 620,
+      "p95Kwh": 1102
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-02",
+      "p75Kwh": 568,
+      "p95Kwh": 1036
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-03",
+      "p75Kwh": 601,
+      "p95Kwh": 1063
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-04",
+      "p75Kwh": 656,
+      "p95Kwh": 1150
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-05",
+      "p75Kwh": 801,
+      "p95Kwh": 1401
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-06",
+      "p75Kwh": 894,
+      "p95Kwh": 1578
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-07",
+      "p75Kwh": 1043,
+      "p95Kwh": 1828
+    },
+    {
+      "region": "NZ-WKO",
+      "month": "2026-08",
+      "p75Kwh": 960,
+      "p95Kwh": 1671
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-01",
+      "p75Kwh": 601,
+      "p95Kwh": 1016
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-02",
+      "p75Kwh": 549,
+      "p95Kwh": 936
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-03",
+      "p75Kwh": 603,
+      "p95Kwh": 1020
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-04",
+      "p75Kwh": 650,
+      "p95Kwh": 1111
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-05",
+      "p75Kwh": 779,
+      "p95Kwh": 1321
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-06",
+      "p75Kwh": 934,
+      "p95Kwh": 1651
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-07",
+      "p75Kwh": 964,
+      "p95Kwh": 1627
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-08",
+      "p75Kwh": 957,
+      "p95Kwh": 1625
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-09",
+      "p75Kwh": 791,
+      "p95Kwh": 1335
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-10",
+      "p75Kwh": 690,
+      "p95Kwh": 1174
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-11",
+      "p75Kwh": 598,
+      "p95Kwh": 1029
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2025-12",
+      "p75Kwh": 621,
+      "p95Kwh": 1089
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-01",
+      "p75Kwh": 630,
+      "p95Kwh": 1099
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-02",
+      "p75Kwh": 585,
+      "p95Kwh": 1058
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-03",
+      "p75Kwh": 612,
+      "p95Kwh": 1042
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-04",
+      "p75Kwh": 662,
+      "p95Kwh": 1127
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-05",
+      "p75Kwh": 776,
+      "p95Kwh": 1316
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-06",
+      "p75Kwh": 878,
+      "p95Kwh": 1529
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-07",
+      "p75Kwh": 980,
+      "p95Kwh": 1664
+    },
+    {
+      "region": "NZ-BOP",
+      "month": "2026-08",
+      "p75Kwh": 941,
+      "p95Kwh": 1576
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-01",
+      "p75Kwh": 608,
+      "p95Kwh": 1028
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-02",
+      "p75Kwh": 538,
+      "p95Kwh": 920
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-03",
+      "p75Kwh": 590,
+      "p95Kwh": 995
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-04",
+      "p75Kwh": 638,
+      "p95Kwh": 1089
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-05",
+      "p75Kwh": 764,
+      "p95Kwh": 1293
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-06",
+      "p75Kwh": 860,
+      "p95Kwh": 1497
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-07",
+      "p75Kwh": 955,
+      "p95Kwh": 1700
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-08",
+      "p75Kwh": 967,
+      "p95Kwh": 1682
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-09",
+      "p75Kwh": 740,
+      "p95Kwh": 1289
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-10",
+      "p75Kwh": 621,
+      "p95Kwh": 1066
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-11",
+      "p75Kwh": 555,
+      "p95Kwh": 938
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2025-12",
+      "p75Kwh": 575,
+      "p95Kwh": 968
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-01",
+      "p75Kwh": 599,
+      "p95Kwh": 1015
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-02",
+      "p75Kwh": 563,
+      "p95Kwh": 1007
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-03",
+      "p75Kwh": 604,
+      "p95Kwh": 1011
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-04",
+      "p75Kwh": 629,
+      "p95Kwh": 1060
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-05",
+      "p75Kwh": 771,
+      "p95Kwh": 1318
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-06",
+      "p75Kwh": 847,
+      "p95Kwh": 1468
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-07",
+      "p75Kwh": 983,
+      "p95Kwh": 1685
+    },
+    {
+      "region": "NZ-GIS",
+      "month": "2026-08",
+      "p75Kwh": 961,
+      "p95Kwh": 1627
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-01",
+      "p75Kwh": 620,
+      "p95Kwh": 1059
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-02",
+      "p75Kwh": 556,
+      "p95Kwh": 947
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-03",
+      "p75Kwh": 628,
+      "p95Kwh": 1069
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-04",
+      "p75Kwh": 670,
+      "p95Kwh": 1163
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-05",
+      "p75Kwh": 836,
+      "p95Kwh": 1419
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-06",
+      "p75Kwh": 957,
+      "p95Kwh": 1657
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-07",
+      "p75Kwh": 1051,
+      "p95Kwh": 1832
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-08",
+      "p75Kwh": 1084,
+      "p95Kwh": 1963
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-09",
+      "p75Kwh": 781,
+      "p95Kwh": 1332
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-10",
+      "p75Kwh": 668,
+      "p95Kwh": 1145
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-11",
+      "p75Kwh": 590,
+      "p95Kwh": 1010
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2025-12",
+      "p75Kwh": 610,
+      "p95Kwh": 1052
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-01",
+      "p75Kwh": 626,
+      "p95Kwh": 1070
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-02",
+      "p75Kwh": 579,
+      "p95Kwh": 1017
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-03",
+      "p75Kwh": 625,
+      "p95Kwh": 1063
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-04",
+      "p75Kwh": 685,
+      "p95Kwh": 1165
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-05",
+      "p75Kwh": 851,
+      "p95Kwh": 1449
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-06",
+      "p75Kwh": 913,
+      "p95Kwh": 1594
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-07",
+      "p75Kwh": 1070,
+      "p95Kwh": 1849
+    },
+    {
+      "region": "NZ-HKB",
+      "month": "2026-08",
+      "p75Kwh": 1002,
+      "p95Kwh": 1705
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-01",
+      "p75Kwh": 533,
+      "p95Kwh": 897
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-02",
+      "p75Kwh": 483,
+      "p95Kwh": 821
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-03",
+      "p75Kwh": 540,
+      "p95Kwh": 914
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-04",
+      "p75Kwh": 572,
+      "p95Kwh": 969
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-05",
+      "p75Kwh": 705,
+      "p95Kwh": 1229
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-06",
+      "p75Kwh": 891,
+      "p95Kwh": 1632
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-07",
+      "p75Kwh": 859,
+      "p95Kwh": 1499
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-08",
+      "p75Kwh": 858,
+      "p95Kwh": 1506
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-09",
+      "p75Kwh": 711,
+      "p95Kwh": 1240
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-10",
+      "p75Kwh": 668,
+      "p95Kwh": 1165
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-11",
+      "p75Kwh": 528,
+      "p95Kwh": 908
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2025-12",
+      "p75Kwh": 661,
+      "p95Kwh": 1240
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-01",
+      "p75Kwh": 590,
+      "p95Kwh": 1086
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-02",
+      "p75Kwh": 619,
+      "p95Kwh": 1161
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-03",
+      "p75Kwh": 537,
+      "p95Kwh": 921
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-04",
+      "p75Kwh": 587,
+      "p95Kwh": 1006
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-05",
+      "p75Kwh": 678,
+      "p95Kwh": 1185
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-06",
+      "p75Kwh": 845,
+      "p95Kwh": 1565
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-07",
+      "p75Kwh": 844,
+      "p95Kwh": 1461
+    },
+    {
+      "region": "NZ-TKI",
+      "month": "2026-08",
+      "p75Kwh": 804,
+      "p95Kwh": 1398
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-01",
+      "p75Kwh": 545,
+      "p95Kwh": 936
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-02",
+      "p75Kwh": 483,
+      "p95Kwh": 834
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-03",
+      "p75Kwh": 554,
+      "p95Kwh": 948
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-04",
+      "p75Kwh": 586,
+      "p95Kwh": 1006
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-05",
+      "p75Kwh": 766,
+      "p95Kwh": 1343
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-06",
+      "p75Kwh": 907,
+      "p95Kwh": 1643
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-07",
+      "p75Kwh": 937,
+      "p95Kwh": 1640
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-08",
+      "p75Kwh": 953,
+      "p95Kwh": 1677
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-09",
+      "p75Kwh": 751,
+      "p95Kwh": 1322
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-10",
+      "p75Kwh": 676,
+      "p95Kwh": 1197
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-11",
+      "p75Kwh": 531,
+      "p95Kwh": 934
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2025-12",
+      "p75Kwh": 605,
+      "p95Kwh": 1135
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-01",
+      "p75Kwh": 555,
+      "p95Kwh": 988
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-02",
+      "p75Kwh": 547,
+      "p95Kwh": 1021
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-03",
+      "p75Kwh": 553,
+      "p95Kwh": 959
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-04",
+      "p75Kwh": 611,
+      "p95Kwh": 1057
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-05",
+      "p75Kwh": 739,
+      "p95Kwh": 1288
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-06",
+      "p75Kwh": 829,
+      "p95Kwh": 1481
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-07",
+      "p75Kwh": 929,
+      "p95Kwh": 1623
+    },
+    {
+      "region": "NZ-MWT",
+      "month": "2026-08",
+      "p75Kwh": 881,
+      "p95Kwh": 1542
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-01",
+      "p75Kwh": 575,
+      "p95Kwh": 969
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-02",
+      "p75Kwh": 497,
+      "p95Kwh": 847
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-03",
+      "p75Kwh": 587,
+      "p95Kwh": 991
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-04",
+      "p75Kwh": 622,
+      "p95Kwh": 1051
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-05",
+      "p75Kwh": 850,
+      "p95Kwh": 1443
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-06",
+      "p75Kwh": 992,
+      "p95Kwh": 1691
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-07",
+      "p75Kwh": 1034,
+      "p95Kwh": 1754
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-08",
+      "p75Kwh": 1069,
+      "p95Kwh": 1812
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-09",
+      "p75Kwh": 822,
+      "p95Kwh": 1395
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-10",
+      "p75Kwh": 751,
+      "p95Kwh": 1276
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-11",
+      "p75Kwh": 566,
+      "p95Kwh": 966
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2025-12",
+      "p75Kwh": 565,
+      "p95Kwh": 978
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-01",
+      "p75Kwh": 553,
+      "p95Kwh": 945
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-02",
+      "p75Kwh": 530,
+      "p95Kwh": 928
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-03",
+      "p75Kwh": 615,
+      "p95Kwh": 1052
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-04",
+      "p75Kwh": 679,
+      "p95Kwh": 1143
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-05",
+      "p75Kwh": 829,
+      "p95Kwh": 1408
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-06",
+      "p75Kwh": 916,
+      "p95Kwh": 1553
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-07",
+      "p75Kwh": 1060,
+      "p95Kwh": 1801
+    },
+    {
+      "region": "NZ-WGN",
+      "month": "2026-08",
+      "p75Kwh": 999,
+      "p95Kwh": 1682
+    }
+  ]
+}

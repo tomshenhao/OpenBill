@@ -42,4 +42,11 @@ Ngā mihi,
 OpenBill: https://github.com/tomshenhao/OpenBill
 
 
-Additional geographic scope: all New Zealand distribution and embedded networks for which you offer generally available residential plans, with explicit exclusions and network/NSP/price-category/loss-category mappings. For the first pilot please identify Auckland/Vector and Canterbury/Orion applicability separately, without implying every plan is available there. No household ICP or address is requested.
+Additional geographic scope: all New Zealand distribution and embedded networks for which you offer generally available residential plans, with explicit exclusions and network/NSP/price-category/loss-category mappings. Initial validation focuses on all applicable Auckland distribution and embedded networks. Identify Vector and other relevant networks explicitly: Auckland must not be assumed to mean Vector alone. Retain Canterbury/Orion identification where available. No household ICP or address is requested.
+
+Routing rechecked 19 November 2026. See [six official routes](README.md).
+Please confirm EIEP14A v1.1 (30 October 2026 amendments), complete GST-exclusive
+regular components with discounts represented separately, source generation time,
+and whether delivery is an initial snapshot or a replacement. Please identify
+raw-file republication restrictions separately from normalised factual records
+and screenshot evidence. No paid alternatives are authorised.

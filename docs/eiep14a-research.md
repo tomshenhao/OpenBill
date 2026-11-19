@@ -60,11 +60,12 @@ dates have different meanings. Rates are GST-exclusive dollars per stated unit
 Omitted network restrictions do not justify guessing a consumer region or meter.
 
 OpenBill implements a **limited normative JSON v1.1 subset**, not full EIEP
-certification. It requires an explicit PRCSCHD/electricity/initial-file header
-and timestamp, although the protocol permits some JSON header omissions. CSV,
+certification. Task 005 accepts optional JSON headers without inventing missing values.
+Explicit headers must identify PRCSCHD/electricity/initial data and version 1.1;
+missing metadata requires sender confirmation before manual mapping. CSV,
 full/partial replacement files (R/X), legacy example aliases and other versions are
 rejected for manual handling. Unknown field names (including ICP/consumption fields)
-are rejected. Field names and reference comparisons are case insensitive; colliding
+are rejected. Field names, supported code values and reference comparisons are case insensitive; colliding
 or duplicate JSON keys are rejected before values can be discarded.
 
 Validation checks lengths, rates/units' structure, real dates, references, unique
@@ -143,3 +144,17 @@ for month-to-month benchmarking. Neither aggregate series can verify a retail ta
 更新需约定合法方式，按版本归档、处理有效期及被替代记录，不能自动沿用旧复核结果。
 ICP 仅标识供电连接，不能揭示完整账单或用量；未启用查询。官方地区价格及年度报告是汇总数据，
 不能作为具体供应商报价。本次基准采用同月份的官方用电量报告。
+
+
+## Task 005 recheck (19 November 2026)
+
+The official index and amendment notice still link v1.1, effective 30 October 2026.
+The [Code amendment replacing 11.32G](https://www.ea.govt.nz/documents/9378/EIPC_Improving_Access_to_Product_Information_Amendment_2026.pdf)
+corroborates the product-information procedure. EIEP13 concerns consumption;
+EIEP14B concerns an individual consumer's plan and requires appropriate authority.
+Neither personal-data route is part of OpenBill. JSON is the primary protocol
+structure; alternative formats must be agreed. Dedicated EIE/transfer access is
+not a prerequisite to making a direct request. Redistribution permission remains
+unestablished. See [six checked routes and unsent drafts](retailer-requests/README.md)
+and the [receipt runbook](task005-tariff-workflow.md). The importer is still a
+bounded subset: CSV, R/X and ambiguous example aliases are not certified.

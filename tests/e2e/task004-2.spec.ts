@@ -1,15 +1,20 @@
 import { expect, test } from "@playwright/test";
 import { messages } from "../../src/i18n/index";
 import { readFileSync } from "node:fs";
+import { openAdvancedBill, openRegionalDetails } from "./journey-helpers";
 const mean = JSON.parse(readFileSync("data/electricity/benchmarks/regional-monthly.json", "utf8")) as { rows: { region: string; month: string; meanKwh: number }[] };
 for (const locale of ["en", "zh"] as const) test(`${locale}: Auckland June regression is visible with automatic dates`, async ({ page }) => {
   const t = messages[locale].analysis;
   await page.goto(locale === "en" ? "/electricity/" : "/zh/electricity/");
-  await page.locator("#bill-kwh").fill("223"); await page.locator("#bill-totalNzd").fill("132");
+  await page.locator("#bill-kwh").fill("223");
   await page.locator("#bill-region").selectOption("NZ-AUK");
   await page.locator("#bill-start").fill("2026-06-01"); await page.locator("#bill-end").fill("2026-06-30");
-  await expect(page.locator("#bill-days")).toHaveValue("30");
+  await expect(page.getByTestId("usage-days")).toHaveText("30");
+  await expect(page.getByTestId("usage-rating")).toHaveAttribute("data-rating", "green");
+  await openAdvancedBill(page, t); await page.locator("#bill-totalNzd").fill("132");
   await page.getByRole("button", { name: t.calculate, exact: true }).click();
+  await page.getByTestId("bill-details").locator("summary").click();
+  await openRegionalDetails(page);
   await expect(page.getByTestId("bill-daily-kwh")).toContainText("7.43");
   await expect(page.getByTestId("regional-range")).toBeVisible();
   const row = mean.rows.find((r) => r.region === "NZ-AUK" && r.month === "2026-06")!;
