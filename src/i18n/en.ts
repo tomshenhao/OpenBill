@@ -1,10 +1,12 @@
 import { productEn } from "./product-en.ts";
 import { waterEn } from "./water-en.ts";
 import { electricityEn } from "./electricity-en.ts";
+import { mortgageEn } from "./mortgage-en.ts";
 
 export const en = {
   analysis: electricityEn,
   water: waterEn,
+  mortgage: mortgageEn,
   product: productEn,
   language: "English",
   otherLanguage: "简体中文",
@@ -15,7 +17,7 @@ export const en = {
   start: "Quick electricity usage check",
   eyebrow: "FOR HOUSEHOLDS IN AOTEAROA NEW ZEALAND",
   heroTitle: "Less on bills.\nMore for life.",
-  heroDescription: "OpenBill is a free, independent, open-source project for New Zealand households. Start with electricity or Auckland water to understand your bill and find practical ways to use less.",
+  heroDescription: "OpenBill is a free, independent, open-source project for New Zealand households. Explore electricity and Auckland water use or estimate your mortgage repayments.",
   heroNote: "Your entries stay in your browser. OpenBill has no ads or supplier commissions.",
   illustrationLabel: "A home with a sun above it and a small garden",
   stage: "QUICK ELECTRICITY CHECK",
@@ -71,7 +73,7 @@ export const en = {
   footerMission: "Open source. Independent. Made for New Zealand households.",
   noScript: "JavaScript is needed for the local usage calculator. Your inputs are never submitted to a server.",
   metaTitle: "OpenBill — Less on bills. More for life.",
-  metaDescription: "Understand electricity and Auckland water bills privately with OpenBill, a free, independent project in English and Simplified Chinese.",
+  metaDescription: "Understand electricity, Auckland water and mortgage costs privately with OpenBill, a free, independent project in English and Simplified Chinese.",
 };
 
 export type Messages = typeof en;

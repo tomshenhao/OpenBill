@@ -2,10 +2,12 @@ import type { Messages } from "./en";
 import { productZh } from "./product-zh.ts";
 import { waterZh } from "./water-zh.ts";
 import { electricityZh } from "./electricity-zh.ts";
+import { mortgageZh } from "./mortgage-zh.ts";
 
 export const zh: Messages = {
   analysis: electricityZh,
   water: waterZh,
+  mortgage: mortgageZh,
   product: productZh,
   language: "简体中文",
   otherLanguage: "English",
@@ -16,7 +18,7 @@ export const zh: Messages = {
   start: "快速查看日均用电量",
   eyebrow: "为新西兰普通家庭而建",
   heroTitle: "让账单更轻，\n让生活更自由。",
-  heroDescription: "OpenBill 是面向新西兰家庭的免费、独立、开源项目。您可以先从电费或奥克兰水费入手，看懂账单，找到实用的节能节水方法。",
+  heroDescription: "OpenBill 是面向新西兰家庭的免费、独立、开源项目。您可以了解用电量、奥克兰用水量，或估算房贷还款。",
   heroNote: "输入仅保留在您的浏览器中。OpenBill 没有广告，也不收取供应商佣金。",
   illustrationLabel: "阳光下的房屋和一座小花园",
   stage: "快速查询用电量",
@@ -72,5 +74,5 @@ export const zh: Messages = {
   footerMission: "开源、独立，为新西兰家庭而建。",
   noScript: "本地用电量计算需要启用 JavaScript。输入内容绝不会提交至服务器。",
   metaTitle: "OpenBill — 让账单更轻，让生活更自由。",
-  metaDescription: "OpenBill 是面向新西兰家庭的免费独立项目。使用英文或简体中文，在浏览器内查看电费和奥克兰水费。",
+  metaDescription: "OpenBill 是面向新西兰家庭的免费独立项目。使用英文或简体中文，在浏览器内了解电费、奥克兰水费和房贷成本。",
 };
