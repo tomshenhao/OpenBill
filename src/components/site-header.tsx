@@ -1,12 +1,11 @@
 import type { coreCategories } from "@/config/categories";
+import { homeRoutes } from "@/config/routes";
 import { languageTags, messages, type Locale } from "@/i18n";
 import { Icon } from "./icon";
 
 type Tool = Extract<(typeof coreCategories)[number], { status: "available" }>;
 
-const homeRoutes = { en: "/", zh: "/zh/" } as const;
-
-export function SiteHeader({ locale, tool }: { locale: Locale; tool?: Pick<Tool, "id" | "route"> }) {
+export function SiteHeader({ locale, tool }: { locale: Locale; tool?: { id: Tool["id"]; route: Record<Locale, string> } }) {
   const t = messages[locale];
   const alternate = locale === "en" ? "zh" : "en";
   const skipMain = { target: "#main", label: t.skip };
@@ -14,6 +13,7 @@ export function SiteHeader({ locale, tool }: { locale: Locale; tool?: Pick<Tool,
     electricity: skipMain,
     water: { target: "#water-main", label: t.water.skip },
     mortgage: { target: "#mortgage-calculator", label: t.mortgage.skip },
+    insurance: skipMain,
   };
   const skip = tool ? skipLinks[tool.id] : skipMain;
 

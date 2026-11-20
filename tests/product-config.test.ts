@@ -15,10 +15,10 @@ describe("household product scope and truthful availability", () => {
     expect(categoryCatalog).toHaveLength(15);
     expect(new Set(categoryCatalog.map((entry) => entry.id))).toEqual(new Set(categoryIds));
   });
-  it("exposes the implemented electricity, Auckland water and mortgage tools", () => {
+  it("exposes the implemented tools and the insurance guides", () => {
     const available = categoryCatalog.filter((entry) => entry.status === "available");
-    expect(available.map((entry) => entry.id)).toEqual(["electricity", "water", "mortgage"]);
-    const [electricity, water, mortgage] = available;
+    expect(available.map((entry) => entry.id)).toEqual(["electricity", "water", "mortgage", "insurance"]);
+    const [electricity, water, mortgage, insurance] = available;
     expect(electricity.route).toEqual({ en: "/electricity/", zh: "/zh/electricity/" });
     expect(electricity.supportedFeatures).toEqual(["daily-usage-average", "bill-analysis", "regional-monthly-benchmark", "regional-usage-rating", "progressive-usage-inputs", "contextual-saving-tips"]);
     expect(water.route).toEqual({ en: "/water/", zh: "/zh/water/" });
@@ -26,7 +26,12 @@ describe("household product scope and truthful availability", () => {
     expect(mortgage.route).toEqual({ en: "/mortgage/", zh: "/zh/mortgage/" });
     expect(mortgage.supportedFeatures).toContain("repayment-estimates");
     expect(mortgage.futureFeatures).toContain("independently-reviewed-bank-rates");
-    for (const category of available) expect(existsSync(resolve(category.calculation.module))).toBe(true);
+    expect(insurance.route).toEqual({ en: "/insurance/", zh: "/zh/insurance/" });
+    expect(insurance.calculation).toBeNull();
+    expect(insurance.supportedFeatures).toContain("six-insurance-guides");
+    for (const category of available) {
+      if (category.id !== "insurance") expect(existsSync(resolve(category.calculation.module))).toBe(true);
+    }
     for (const category of categoryCatalog.filter((entry) => entry.status !== "available")) {
       expect(category.route).toBeNull(); expect(category.calculation).toBeNull(); expect(category.supportedFeatures).toHaveLength(0);
       expect(category.dataSources.every((source) => source.readiness === "planned")).toBe(true);

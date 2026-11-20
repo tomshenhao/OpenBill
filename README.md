@@ -27,18 +27,19 @@ and permission to redistribute source material each have their own approval step
 | Electricity | Available in this build | Understand what you use, find ways to use less and eventually compare suitable retail plans. | Start with usage, region and billing period. Get bill calculations, tips and an Electricity Authority usage reference for an exact full month, with all household sizes combined. | Find reliable household-size data, starting with BRANZ HEEP2. Plan comparisons need official rates from retailers such as Genesis, Mercury and Contact, independent review and permission to publish. |
 | Water | Available in this build | Understand water use, look for leaks and check how charges add up. | Auckland Watercare only. See daily household and per-person use, a general reference of 140–170 litres per person per day, leak checks and saving tips. Estimate water and wastewater charges with rates you enter. | Independently review seven archived schedules and seek Auckland usage statistics by household size. The general reference gives no household-size percentiles. Other regions are planned. |
 | Mortgage | Available in this build | Compare interest rates, repayment costs, refinancing options and fees. | Estimate repayments and interest locally, compare payment frequencies and explore practical ways to reduce interest. The bank-source directory has no independently reviewed rates yet. | Confirm lender conditions, obtain publication permission and independently review mortgage rate records before displaying them. |
-| Insurance | Planned | Compare premiums alongside cover, excesses, exclusions and eligibility. | — | Identify reliable policy documents and decide which cover details can be compared. |
+| Insurance | Available in this build | Understand your cover and review the terms of your policy. | Six insurance guides, plus manual house policy review and a comparison of quotes you enter. | Check evidence and reuse rights for house benchmarks. Build the other tools independently. |
 | Broadband | Planned | Compare speed, cost, service availability and contract conditions. | — | Identify official sources for plan terms, typical speeds and service availability. |
 | Mobile | Planned | Find plans that suit your data and calling needs at a reasonable cost. | — | Identify official sources and define a comparison based on data, calls and recurring cost. |
 
 <!-- END GENERATED MODULE STATUS -->
 
 The [English homepage](http://127.0.0.1:3000/) and
-[简体中文首页](http://127.0.0.1:3000/zh/) link to both tools in a local preview.
+[简体中文首页](http://127.0.0.1:3000/zh/) link to the available tools and guides in a local preview.
 Electricity analysis uses `/electricity/` and `/zh/electricity/`. Auckland water
 analysis uses `/water/` and `/zh/water/`. Mortgage uses `/mortgage/` and
-`/zh/mortgage/`. The homepages retain the original
-two-number daily electricity check.
+`/zh/mortgage/`. The insurance directory uses `/insurance/` and `/zh/insurance/`.
+See the [insurance module roadmap](ROADMAP.md)
+for the separate guides and planned work.
 
 ### Evidence and limits
 

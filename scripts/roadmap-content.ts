@@ -1,5 +1,6 @@
 import { coreCategories, futureCategories } from "../src/config/categories.ts";
-import { roadmapMilestones } from "../src/config/roadmap.ts";
+import { insuranceFollowUps, roadmapMilestones } from "../src/config/roadmap.ts";
+import { insuranceModules } from "../src/config/insurance.ts";
 import { communityFeedbackUrl } from "../src/config/community.ts";
 import { en } from "../src/i18n/en.ts";
 import { zh } from "../src/i18n/zh.ts";
@@ -49,6 +50,13 @@ export function renderRoadmap(): string {
     const chinese = zh.product.categories[category.id];
     return `| ${english.name} / ${chinese.name} | ${en.product.categoryStatus[category.status]} / ${zh.product.categoryStatus[category.status]} | ${english.description}<br>${chinese.description} |`;
   }).join("\n");
+  const insurance = insuranceModules.map(({ id, status }) => {
+    const english = en.insurance.modules[id];
+    const chinese = zh.insurance.modules[id];
+    const followUp = insuranceFollowUps[id];
+    const scope = id === "house" ? `${en.houseInsurance.roadmap}<br>${zh.houseInsurance.roadmap}` : `${english.planned}<br>${chinese.planned}`;
+    return `| ${english.title} / ${chinese.title} | ${en.product.categoryStatus[status]} / ${zh.product.categoryStatus[status]} | ${followUp.task} · ${en.product.milestoneStatus[followUp.status]} / ${zh.product.milestoneStatus[followUp.status]} | ${scope} |`;
+  }).join("\n");
   return `# OpenBill roadmap / 开发路线图
 
 **Less on bills. More for life.**
@@ -76,6 +84,12 @@ ${en.product.coreDescription}
 ${zh.product.coreDescription}
 
 ${renderCoreTable(true)}
+
+## Independent insurance modules / 独立保险模块
+
+| Module / 模块 | Guide / 指南 | Follow-up / 后续任务 | Follow-up scope / 任务范围 |
+| --- | --- | --- | --- |
+${insurance}
 
 ## Longer-term ideas / 长期规划
 
