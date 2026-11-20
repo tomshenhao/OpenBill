@@ -76,11 +76,6 @@ export function ElectricityAnalysis({ locale }: { locale: Locale }) {
   );
   return (
     <>
-      <a className="skip-link" href="#main">{common.skip}</a>
-      <header className="site-header"><div className="page-width flex min-h-22 flex-wrap items-center justify-between gap-4 py-4">
-        <a className="brand" href={locale === "en" ? "/" : "/zh/"} aria-label="OpenBill"><span className="brand-mark"><Icon name="leaf" /></span>OpenBill<span className="brand-period">.</span></a>
-        <nav aria-label={common.navigation} className="flex items-center gap-5"><a className="nav-link hidden sm:inline-flex" href={locale === "en" ? "/" : "/zh/"}>{t.home}</a><a className="language-link" lang={locale === "en" ? "zh-Hans" : "en-NZ"} hrefLang={locale === "en" ? "zh-Hans" : "en-NZ"} href={locale === "en" ? "/zh/electricity/" : "/electricity/"}><Icon name="globe" className="size-4" />{common.otherLanguage}</a></nav>
-      </div></header>
       <main id="main" tabIndex={-1}>
         <section className="page-width analysis-hero">
           <div><p className="eyebrow">{t.eyebrow}</p><h1 className="hero-title">{t.title}</h1><p className="mt-5 max-w-2xl text-lg leading-8 text-muted">{t.intro}</p></div>
@@ -183,7 +178,8 @@ export function ElectricityAnalysis({ locale }: { locale: Locale }) {
           {!input.kwh && <p className="field-hint mt-3">{t.tipsNeed}</p>}
           <div className="analysis-tips-grid mt-8">{tips.map((id) => <article className="analysis-card" key={id} data-tip={id}><span className="icon-box"><Icon name="leaf" className="size-5" /></span><h3 className="mt-5 text-lg font-semibold">{t.advice[id].title}</h3><p className="mt-3 text-sm leading-7">{t.advice[id].action}</p><p className="mt-4 text-sm leading-7 text-muted"><strong>{t.why}: </strong>{t.advice[id].why}</p><p className="mt-3 text-sm leading-7 text-muted"><strong>{t.condition}: </strong>{t.advice[id].condition}</p><a className="text-action mt-4" href={tipSources[id]} rel="noreferrer">{t.officialAdvice}<Icon name="arrow" className="size-4" /></a></article>)}</div>
         </div></section>
-      </main><footer className="border-t border-line py-8"><div className="page-width flex flex-wrap justify-between gap-4 text-sm text-muted"><span>OpenBill · {common.heroNote}</span><a className="source-link" href={locale === "en" ? "/" : "/zh/"}>{t.home}</a></div></footer>
+      </main>
+      <footer className="border-t border-line py-8"><p className="page-width text-sm text-muted">OpenBill · {common.heroNote}</p></footer>
     </>
   );
 }

@@ -35,7 +35,7 @@ export const electricityEn = {
   externalBilly: "Visit Billy · external comparison service",
   metaTitle: "Electricity bill analysis | OpenBill",
   metaDescription: "Understand your electricity bill, compare matching official regional usage averages and find practical tips. Private calculations in English and Simplified Chinese.",
-  home: "All household bills", eyebrow: "ELECTRICITY · YOUR NUMBERS, YOUR CONTROL",
+  eyebrow: "ELECTRICITY · YOUR NUMBERS, YOUR CONTROL",
   title: "Make sense of your\nelectricity bill.",
   intro: "First, put your electricity use in context. Then check whether verified plans are available to compare. Each step tells you exactly what is needed.",
   privacy: "Private in this tab. No uploads, accounts or saved inputs. Reloading or changing language clears your entries.",

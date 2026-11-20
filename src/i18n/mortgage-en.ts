@@ -1,8 +1,6 @@
 export const mortgageEn = {
   metaTitle: "NZ mortgage calculator and bank rates | OpenBill",
   metaDescription: "Estimate weekly, fortnightly or monthly NZ mortgage repayments privately and learn how loan structure affects costs.",
-  home: "OpenBill home",
-  language: "简体中文",
   skip: "Skip to mortgage calculator",
   title: "Understand your mortgage costs",
   intro: "Estimate repayments, check New Zealand bank rate sources and explore ways to reduce interest.",

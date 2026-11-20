@@ -1,13 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { categoryCatalog } from "@/config/categories";
 import { watercare } from "@/data/water/watercare";
 import { assessWaterUsage, estimateWaterCharges, findWaterSchedule, type Connection, type Reading, type WaterRates, type WaterUsage } from "@/domain/water/analysis";
 import { languageTags, messages, type Locale } from "@/i18n";
 import { Icon } from "./icon";
 
-const route = categoryCatalog.find((category) => category.id === "water")!.route;
 const emptyUsage: WaterUsage = { occupants: "", volume: "", unit: "kL", days: "" };
 const emptyRates: WaterRates = { water: "", wastewater: "", annual: "" };
 type ErrorKey = keyof typeof messages.en.water.errors;
@@ -117,13 +115,7 @@ export function WaterAnalysis({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <a href="#water-main" className="skip-link">{t.skip}</a>
-      <header className="page-width flex items-center justify-between gap-4 border-b border-line py-5">
-        <a href={locale === "en" ? "/" : "/zh/"} className="text-action" aria-label={t.home}>OpenBill</a>
-        <a href={route[locale === "en" ? "zh" : "en"]} hrefLang={languageTags[locale === "en" ? "zh" : "en"]}
-          lang={languageTags[locale === "en" ? "zh" : "en"]} className="text-action">{t.language}</a>
-      </header>
-      <main id="water-main" className="page-width pb-16">
+      <main id="water-main" tabIndex={-1} className="page-width pb-16">
         <div className="analysis-hero">
           <div>
             <p className="eyebrow">{t.region}</p>

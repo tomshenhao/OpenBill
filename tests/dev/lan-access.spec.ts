@@ -7,7 +7,7 @@ const lanHost = process.env.OPENBILL_TEST_LAN_HOST ?? "127.0.0.2";
 const hosts = ["127.0.0.1", lanHost];
 const paths = ["/", "/zh/", "/electricity/", "/zh/electricity/"];
 
-test("explicit dev origins initialise both forms in both languages without submission or input transport", async ({ browser }) => {
+test("explicit dev origins serve both homepages and keep electricity inputs local", async ({ browser }) => {
   for (const host of hosts) for (const path of paths) {
     const page = await browser.newPage();
     const errors: string[] = [], submittedFrames: string[] = [], sockets: string[] = [];
@@ -36,9 +36,9 @@ test("explicit dev origins initialise both forms in both languages without submi
       await page.getByTestId("bill-details").locator(":scope > summary").click();
       await expect(page.getByTestId("bill-daily-kwh")).toContainText("32.92");
     } else {
-      await page.locator("#usage-days").fill("30"); await page.locator("#usage-kwh").fill("987.654");
-      await page.locator('button[type="submit"]').click();
-      await expect(page.getByTestId("daily-average")).toHaveText("32.92");
+      const locale = path === "/zh/" ? "zh" : "en";
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(messages[locale].heroTitle);
+      await expect(page.locator("form")).toHaveCount(0);
     }
     expect(errors).toEqual([]); expect(navigation).toEqual([]); expect(requests).toEqual([]);
     expect(sockets.some((url) => url.startsWith(`ws://${host}:3111/_next/hmr`))).toBe(true);
@@ -88,7 +88,9 @@ test("development form navigation stays blocked when JavaScript cannot initialis
         await page.getByTestId("advanced-bill").locator(":scope > summary").click();
         await page.locator("#bill-days").fill("30"); await page.locator("#bill-kwh").fill("987.654"); await page.locator("#bill-totalNzd").fill("120");
       } else {
-        await page.locator("#usage-days").fill("30"); await page.locator("#usage-kwh").fill("987.654");
+        await expect(page.locator("form")).toHaveCount(0);
+        await page.close();
+        continue;
       }
       const requests: string[] = []; page.on("request", (request) => requests.push(request.url()));
       const blocked = page.waitForEvent("console", (message) => message.text().includes("form-action"));
