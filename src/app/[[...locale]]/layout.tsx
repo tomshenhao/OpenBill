@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { languageTags, localeFromPath, messages } from "@/i18n";
+import { resolvePage } from "@/config/routes";
 import "../globals.css";
 
 type Props = { children: React.ReactNode; params: Promise<{ locale?: string[] }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const segments = (await params).locale;
-  const locale = localeFromPath(segments);
-  if (!locale) notFound();
-  const page = segments?.at(-1);
-  const copy = messages[locale];
-  const t = page === "mortgage" ? copy.mortgage : page === "water" ? copy.water : page === "electricity" ? copy.analysis : copy;
+  const page = resolvePage((await params).locale);
+  if (!page) notFound();
+  const copy = messages[page.locale];
+  const tool = page.kind === "tool" ? page.category.id : undefined;
+  const insurance = page.kind === "insurance-guide" ? copy.insurance.modules[page.guide.id] : undefined;
+  const t = insurance ? { metaTitle: `${insurance.title} | OpenBill`, metaDescription: insurance.summary }
+    : tool === "insurance" ? { metaTitle: `${copy.insurance.title} | OpenBill`, metaDescription: copy.insurance.intro }
+    : tool === "mortgage" ? copy.mortgage : tool === "water" ? copy.water : tool === "electricity" ? copy.analysis : copy;
   return { title: t.metaTitle, description: t.metaDescription, robots: { index: false, follow: false } };
 }
 

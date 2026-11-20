@@ -2,11 +2,15 @@ import { productEn } from "./product-en.ts";
 import { waterEn } from "./water-en.ts";
 import { electricityEn } from "./electricity-en.ts";
 import { mortgageEn } from "./mortgage-en.ts";
+import { insuranceEn } from "./insurance-en.ts";
+import { houseEn } from "./house-insurance-en.ts";
 
 export const en = {
   analysis: electricityEn,
   water: waterEn,
   mortgage: mortgageEn,
+  insurance: insuranceEn,
+  houseInsurance: houseEn,
   product: productEn,
   language: "English",
   otherLanguage: "简体中文",

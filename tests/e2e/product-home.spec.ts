@@ -8,12 +8,12 @@ for (const locale of ["en", "zh"] as const) {
   const copy = messages[locale];
   const t = copy.product;
 
-  test(`${locale}: six cards show honest status and open all three tools`, async ({ page }) => {
+  test(`${locale}: six cards show honest status and open the three tools and insurance directory`, async ({ page }) => {
     await page.goto(path);
     const modules = page.getByRole("region", { name: t.coreTitle });
     await expect(modules.getByRole("listitem")).toHaveCount(6);
-    await expect(modules.getByRole("link")).toHaveCount(3);
-    const toolHeadings = { electricity: copy.analysis.title, water: copy.water.title, mortgage: copy.mortgage.title };
+    await expect(modules.getByRole("link")).toHaveCount(4);
+    const toolHeadings = { electricity: copy.analysis.title, water: copy.water.title, mortgage: copy.mortgage.title, insurance: copy.insurance.title };
 
     for (const category of coreCategories) {
       const name = t.categories[category.id].name;

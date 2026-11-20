@@ -36,12 +36,13 @@ Roadmap completion describes the scope implemented and tested in this repository
 | Electricity | Verified supplier comparisons and measured time-of-use profile entry remain planned. Local bill analysis, monthly regional usage benchmarks and contextual tips are available. |
 | Water | Auckland Watercare usage and bill analysis are available. Household-size distributions, independently reviewed tariffs and other regional authorities are planned. |
 | Mortgage | Repayment estimates and saving tips are implemented. Independently reviewed bank rates and fee-aware refinancing comparisons are planned. |
-| Insurance | Home, contents, vehicle, health and other household cover; premiums, excesses, coverage differences, exclusions, eligibility and cost-versus-cover analysis. |
+| Insurance | Independent guides for house, car, contents, health, life and travel are available. Each has a separate roadmap for its own calculators, evidence and comparisons. |
 | Broadband | Monthly costs, connection/speed, contracts, introductory/standard rates, installation and total cost over time. |
 | Mobile | Prepaid/monthly plans, data/calls/messages, family/group plans, coverage and total recurring costs. |
 
-Electricity, water and mortgage have calculators. Insurance, broadband and mobile
-are marked “Planned / 计划中”. Each category has its own evidence and calculation rules.
+Electricity, water and mortgage have calculators. Insurance offers guides and a
+manual house policy review and quote comparison.
+Broadband and mobile are planned. Each category has its own evidence and calculation rules.
 
 ## Nine longer-term categories
 

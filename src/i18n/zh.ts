@@ -3,11 +3,15 @@ import { productZh } from "./product-zh.ts";
 import { waterZh } from "./water-zh.ts";
 import { electricityZh } from "./electricity-zh.ts";
 import { mortgageZh } from "./mortgage-zh.ts";
+import { insuranceZh } from "./insurance-zh.ts";
+import { houseZh } from "./house-insurance-zh.ts";
 
 export const zh: Messages = {
   analysis: electricityZh,
   water: waterZh,
   mortgage: mortgageZh,
+  insurance: insuranceZh,
+  houseInsurance: houseZh,
   product: productZh,
   language: "简体中文",
   otherLanguage: "English",
