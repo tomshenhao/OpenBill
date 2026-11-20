@@ -22,7 +22,6 @@ export function MortgageCalculator({ locale }: { locale: Locale }) {
   const [error, setError] = useState<InputField | null>(null);
   const [extra, setExtra] = useState("");
   const [selectedRate, setSelectedRate] = useState<MortgageRate | null>(null);
-  const opposite = locale === "en" ? "zh" : "en";
   const language = languageTags[locale];
   const currency = new Intl.NumberFormat(language, { style: "currency", currency: "NZD", currencyDisplay: "code", useGrouping: true });
   const number = new Intl.NumberFormat(languageTags[locale]);
@@ -96,11 +95,6 @@ export function MortgageCalculator({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <a className="skip-link" href="#mortgage-calculator">{t.skip}</a>
-      <header className="page-width flex items-center justify-between gap-4 border-b border-line py-5">
-        <a href={locale === "en" ? "/" : "/zh/"} className="text-action" aria-label={t.home}>OpenBill</a>
-        <a href={locale === "en" ? "/zh/mortgage/" : "/mortgage/"} lang={languageTags[opposite]} hrefLang={languageTags[opposite]} className="text-action">{t.language}</a>
-      </header>
       <main className="page-width pb-16">
         <div className="analysis-hero">
           <div>
@@ -111,7 +105,7 @@ export function MortgageCalculator({ locale }: { locale: Locale }) {
             <Icon name="shield" className="mt-1 size-5 shrink-0" />{t.privacy}
           </p>
         </div>
-        <nav className="analysis-steps" aria-label={messages[locale].navigation}>
+        <nav className="analysis-steps" aria-label={t.title}>
           <a href="#mortgage-calculator">{t.calculator}</a>
           <a href="#mortgage-rates">{t.rates}</a>
           <a href="#mortgage-tips">{t.tips}</a>

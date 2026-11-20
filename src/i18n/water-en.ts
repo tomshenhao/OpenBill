@@ -1,9 +1,7 @@
 export const waterEn = {
   metaTitle: "Auckland water usage and bill check | OpenBill",
   metaDescription: "Check Watercare usage per person, find ways to save water and estimate your current charges privately.",
-  home: "OpenBill home",
   skip: "Skip to water analysis",
-  language: "简体中文",
   region: "Auckland · Watercare residential",
   title: "Understand your water use",
   intro: "See how much water your household uses each day, put it in context and find practical ways to use less.",

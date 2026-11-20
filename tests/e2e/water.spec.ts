@@ -35,7 +35,7 @@ for (const locale of ["en", "zh"] as const) {
     const home = locale === "en" ? "/" : "/zh/";
     const t = messages[locale].water;
     await page.goto(home);
-    await page.getByRole("link", { name: messages[locale].product.checkWater }).click();
+    await page.getByRole("link", { name: messages[locale].product.categories.water.name, exact: true }).click();
     await expect(page).toHaveURL(`${home}water/`);
     await expect(page.locator("html")).toHaveAttribute("lang", languageTags[locale]);
     await expect(page).toHaveTitle(t.metaTitle);
@@ -98,7 +98,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByLabel(t.occupants)).toHaveValue("");
     await expect(page.getByText(t.estimatedNote, { exact: true })).toHaveCount(0);
     await expect(page.getByLabel(t.date)).toBeHidden();
-    await page.getByRole("link", { name: t.language }).click();
+    await page.getByRole("link", { name: messages[locale].otherLanguage }).click();
     await expect(page.locator("html")).toHaveAttribute("lang", languageTags[locale === "en" ? "zh" : "en"]);
   });
 }

@@ -3,9 +3,13 @@ import { HomePage } from "@/components/home-page";
 import { ElectricityAnalysis } from "@/components/electricity-analysis";
 import { WaterAnalysis } from "@/components/water-analysis";
 import { MortgageCalculator } from "@/components/mortgage-calculator";
+import { SiteHeader } from "@/components/site-header";
+import { coreCategories } from "@/config/categories";
 import { localeFromPath } from "@/i18n";
 
 export const dynamicParams = false;
+
+const toolPages = { electricity: ElectricityAnalysis, water: WaterAnalysis, mortgage: MortgageCalculator };
 
 export function generateStaticParams() {
   return [
@@ -20,8 +24,15 @@ export default async function Page({ params }: { params: Promise<{ locale?: stri
   const segments = (await params).locale;
   const locale = localeFromPath(segments);
   if (!locale) notFound();
-  if (segments?.at(-1) === "mortgage") return <MortgageCalculator locale={locale} />;
-  if (segments?.at(-1) === "water") return <WaterAnalysis locale={locale} />;
-  if (segments?.at(-1) === "electricity") return <ElectricityAnalysis locale={locale} />;
-  return <HomePage locale={locale} />;
+
+  const slug = segments?.at(-1);
+  const category = coreCategories.find(({ id }) => id === slug);
+  const tool = category?.status === "available" ? category : undefined;
+  const Content = tool ? toolPages[tool.id] : HomePage;
+  return (
+    <>
+      <SiteHeader locale={locale} tool={tool} />
+      <Content locale={locale} />
+    </>
+  );
 }

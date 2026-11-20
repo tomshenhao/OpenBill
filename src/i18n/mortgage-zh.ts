@@ -3,8 +3,6 @@ import type { MortgageMessages } from "./mortgage-en.ts";
 export const mortgageZh: MortgageMessages = {
   metaTitle: "新西兰房贷计算器与银行利率 | OpenBill",
   metaDescription: "在浏览器内估算新西兰房贷的每周、每两周或每月还款额，了解贷款结构如何影响费用。",
-  home: "OpenBill 首页",
-  language: "English",
   skip: "跳转到房贷计算器",
   title: "了解您的房贷成本",
   intro: "估算还款额，查看新西兰银行的利率来源，并了解减少利息开支的方法。",

@@ -18,7 +18,9 @@ test("production keeps strict connection/form policies, including before JavaScr
         await page.getByTestId("advanced-bill").locator(":scope > summary").click();
         await page.locator("#bill-days").fill("30"); await page.locator("#bill-kwh").fill("987.654"); await page.locator("#bill-totalNzd").fill("120");
       } else {
-        await page.locator("#usage-days").fill("30"); await page.locator("#usage-kwh").fill("987.654");
+        await expect(page.locator("form")).toHaveCount(0);
+        await page.close();
+        continue;
       }
       const requests: string[] = []; page.on("request", (request) => requests.push(request.url()));
       const blocked = page.waitForEvent("console", (message) => message.text().includes("form-action"));

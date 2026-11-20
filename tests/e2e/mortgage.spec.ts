@@ -40,7 +40,7 @@ for (const locale of ["en", "zh"] as const) {
     const home = locale === "en" ? "/" : "/zh/";
     const t = messages[locale].mortgage;
     await page.goto(home);
-    await page.getByRole("link", { name: messages[locale].product.mortgageTool, exact: true }).click();
+    await page.getByRole("link", { name: messages[locale].product.categories.mortgage.name, exact: true }).click();
     await expect(page).toHaveURL(`${home}mortgage/`);
     await expect(page).toHaveTitle(t.metaTitle);
     await expect(page.locator("html")).toHaveAttribute("lang", languageTags[locale]);
