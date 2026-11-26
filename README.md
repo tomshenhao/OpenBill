@@ -131,6 +131,18 @@ submissions. It is a local preview server, not a production hosting service.
 The exported HTML also includes a connection-blocking policy. Development mode
 allows Next.js live-reload traffic; household inputs still never leave component state.
 
+## Google Search indexing
+
+Set `OPENBILL_SITE_URL` to the public site's origin (for example,
+`https://example.com`) before running `npm run build` for the public site. The
+static export includes canonical URLs, English and Simplified Chinese language
+links, and a `/sitemap.xml` advertised in `/robots.txt`. Builds with the variable
+unset retain `noindex` for preview use.
+
+Once the public build is live, verify the site in Google Search Console and submit
+the public `/sitemap.xml` in the Sitemaps report. See
+[Google's sitemap submission guide](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#submit-your-sitemap-to-google).
+
 ## Checks
 
 ```sh
