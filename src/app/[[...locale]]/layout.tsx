@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { languageTags, localeFromPath, messages } from "@/i18n";
-import { resolvePage } from "@/config/routes";
+import { homeRoutes, resolvePage } from "@/config/routes";
+import { getPublicSiteUrl } from "@/config/site-url";
 import "../globals.css";
 
 type Props = { children: React.ReactNode; params: Promise<{ locale?: string[] }> };
@@ -15,7 +16,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = insurance ? { metaTitle: `${insurance.title} | OpenBill`, metaDescription: insurance.summary }
     : tool === "insurance" ? { metaTitle: `${copy.insurance.title} | OpenBill`, metaDescription: copy.insurance.intro }
     : tool === "mortgage" ? copy.mortgage : tool === "water" ? copy.water : tool === "electricity" ? copy.analysis : copy;
-  return { title: t.metaTitle, description: t.metaDescription, robots: { index: false, follow: false } };
+  const metadata = { title: t.metaTitle, description: t.metaDescription };
+  const siteUrl = getPublicSiteUrl();
+  if (!siteUrl) return { ...metadata, robots: { index: false, follow: false } };
+
+  const routes = page.kind === "home" ? homeRoutes : page.kind === "tool" ? page.category.route : page.guide.route;
+  const en = new URL(routes.en, siteUrl).href;
+  const zh = new URL(routes.zh, siteUrl).href;
+  return {
+    ...metadata,
+    robots: { index: true, follow: true },
+    alternates: {
+      canonical: page.locale === "en" ? en : zh,
+      languages: { [languageTags.en]: en, [languageTags.zh]: zh, "x-default": en },
+    },
+  };
 }
 
 export default async function RootLayout({ children, params }: Props) {
