@@ -1,7 +1,7 @@
 import type { ElectricityMessages } from "./electricity-en";
 export const electricityZh: ElectricityMessages = {
   journey: {
-    usageStep: "1. 评估用电量", priceStep: "2. 比较电价", usageIntro: "填写用电量、地区及对应账期，系统立即更新用电评级，无需账单金额或电价明细。",
+    usageStep: "地区用电参考", priceStep: "官方供应商比价", usageIntro: "使用上方的计费用电量，并选择地区和账期。修改输入后，参考结果会更新。",
     periodChoice: "您希望如何填写账期？", datesMode: "准确的账单日期", monthMode: "按完整自然月填写", datesHint: "填写电表读数覆盖的首日及末日，包含首尾两天，系统自动计算天数。",
     monthHint: "选择月份，并确认用电量覆盖该月每一天，无需再填日期或天数。", daysCalculated: "根据账期自动计算的天数", next: "下一步：比较电价", back: "返回用电量输入", context: "选填：家庭情况与实用建议",
     householdHint: "家庭人数仅供选填参考。现有基准涵盖所有家庭人数，此答案不会改变用电评级。",
@@ -34,8 +34,8 @@ export const electricityZh: ElectricityMessages = {
   approximateHint: "各月均值 × 覆盖天数 ÷ 当月天数，再跨月相加。假设月内每日用量均匀，天气、居住情况及样本变化会造成误差。这不是同账期分布，不提供分位范围分类或个人排名；涉及的每个月均须有归档数据。",
   externalNotice: "外部服务：Billy 由电力管理局运营，其比较不属于 OpenBill 结果。打开链接不会附带您的 OpenBill 输入；在该服务填写的信息受其隐私政策约束。",
   externalBilly: "访问 Billy · 外部比价服务",
-  metaTitle: "电费账单分析 | OpenBill", metaDescription: "了解电费账单，与同期官方地区用电均值对照，并查看实用省电建议。中英双语，数据仅在浏览器中计算。",
-  eyebrow: "电费 · 您的数据由您掌控", title: "看懂电费账单，\n用电更有数。", intro: "先了解用电量所处水平，再查看是否有已核实的套餐可供比较。每一步都会说明需要哪些信息。", privacy: "仅在本标签页处理。无需上传、注册或保存输入。刷新页面或切换语言会清除输入。",
+  metaTitle: "电费账单分析 | OpenBill", metaDescription: "核对电费账单，了解节省电费的方法。可在浏览器中读取受支持的 PDF 或手动输入，提供中英双语。",
+  eyebrow: "电费 · 您的数据由您掌控", title: "看懂电费账单，\n用电更有数。", intro: "了解电费由哪些项目组成，核对账单计算，并看看有哪些方法可以降低费用。", privacy: "仅在本标签页处理。无需上传、注册或保存输入。刷新页面或切换语言会清除输入。",
   bill: "您的电费账单", usage: "您的用电水平", tips: "省电建议", local: "在您的浏览器中计算",
   formTitle: "从账单上找到这些信息", formIntro: "请使用同一账期的电力费用，不含燃气、宽带、历史欠款及还款。估算读数得到的结果也只是估算。",
   days: "账期天数", kwh: "用电量（kWh）", total: "本期电费总额（新西兰元）", daysHint: "按账单填写，范围为 1–366 天。", kwhHint: "kWh 是用电量单位，不是金额。最多三位小数。", totalHint: "填写本期电力总额，已包含其中的固定费、其他收费及折扣。不加千位逗号，最多两位小数。",

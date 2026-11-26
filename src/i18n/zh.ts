@@ -2,12 +2,14 @@ import type { Messages } from "./en";
 import { productZh } from "./product-zh.ts";
 import { waterZh } from "./water-zh.ts";
 import { electricityZh } from "./electricity-zh.ts";
+import { electricityReviewZh } from "./electricity-review-zh.ts";
 import { mortgageZh } from "./mortgage-zh.ts";
 import { insuranceZh } from "./insurance-zh.ts";
 import { houseZh } from "./house-insurance-zh.ts";
 
 export const zh: Messages = {
   analysis: electricityZh,
+  electricityReview: electricityReviewZh,
   water: waterZh,
   mortgage: mortgageZh,
   insurance: insuranceZh,

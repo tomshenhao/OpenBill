@@ -20,7 +20,7 @@ describe("household product scope and truthful availability", () => {
     expect(available.map((entry) => entry.id)).toEqual(["electricity", "water", "mortgage", "insurance"]);
     const [electricity, water, mortgage, insurance] = available;
     expect(electricity.route).toEqual({ en: "/electricity/", zh: "/zh/electricity/" });
-    expect(electricity.supportedFeatures).toEqual(["daily-usage-average", "bill-analysis", "regional-monthly-benchmark", "regional-usage-rating", "progressive-usage-inputs", "contextual-saving-tips"]);
+    expect(electricity.supportedFeatures).toEqual(["daily-usage-average", "bill-analysis", "contextual-saving-tips", "local-pdf-bill-review", "current-charge-reconciliation", "usage-savings-scenarios", "manual-rate-comparison"]);
     expect(water.route).toEqual({ en: "/water/", zh: "/zh/water/" });
     expect(water.supportedFeatures).toContain("manual-rate-bill-check");
     expect(mortgage.route).toEqual({ en: "/mortgage/", zh: "/zh/mortgage/" });

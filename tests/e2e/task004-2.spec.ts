@@ -1,38 +1,39 @@
 import { expect, test } from "@playwright/test";
 import { messages } from "../../src/i18n/index";
-import { readFileSync } from "node:fs";
-import { openAdvancedBill, openRegionalDetails } from "./journey-helpers";
-const mean = JSON.parse(readFileSync("data/electricity/benchmarks/regional-monthly.json", "utf8")) as { rows: { region: string; month: string; meanKwh: number }[] };
-for (const locale of ["en", "zh"] as const) test(`${locale}: Auckland June regression is visible with automatic dates`, async ({ page }) => {
-  const t = messages[locale].analysis;
+import { positionedGenesis, syntheticPdf } from "../fixtures/electricity-bills";
+
+for (const locale of ["en", "zh"] as const) test(`${locale}: PDF dates and parsing concerns are independent of arithmetic`, async ({ page }) => {
+  const t = messages[locale].electricityReview;
   await page.goto(locale === "en" ? "/electricity/" : "/zh/electricity/");
-  await page.locator("#bill-kwh").fill("223");
-  await page.locator("#bill-region").selectOption("NZ-AUK");
-  await page.locator("#bill-start").fill("2026-06-01"); await page.locator("#bill-end").fill("2026-06-30");
-  await expect(page.getByTestId("usage-days")).toHaveText("30");
-  await expect(page.getByTestId("usage-rating")).toHaveAttribute("data-rating", "green");
-  await openAdvancedBill(page, t); await page.locator("#bill-totalNzd").fill("132");
-  await page.getByRole("button", { name: t.calculate, exact: true }).click();
-  await page.getByTestId("bill-details").locator("summary").click();
-  await openRegionalDetails(page);
-  await expect(page.getByTestId("bill-daily-kwh")).toContainText("7.43");
-  await expect(page.getByTestId("regional-range")).toBeVisible();
-  const row = mean.rows.find((r) => r.region === "NZ-AUK" && r.month === "2026-06")!;
-  await expect(page.locator("#your-usage")).toContainText(String(row.meanKwh));
-  await expect(page.getByRole("link", { name: t.externalBilly })).toHaveAttribute("href", "https://www.billy.govt.nz/");
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.waitForLoadState("networkidle");
-  const requests: string[] = []; page.on("request", (request) => requests.push(request.url()));
-  await page.locator("#bill-start").fill("2026-05-16"); await page.locator("#bill-end").fill("2026-06-15");
-  await page.getByRole("button", { name: t.calculate, exact: true }).click();
-  await expect(page.getByTestId("approximate-comparison")).toHaveCount(0);
-  await page.locator("summary").filter({ hasText: t.approximateTitle }).click();
-  await page.getByLabel(t.allowApproximate, { exact: true }).check();
-  await page.getByRole("button", { name: t.calculate, exact: true }).click();
-  await expect(page.getByTestId("approximate-comparison")).toContainText(t.approximateTitle);
-  await expect(page.getByTestId("regional-range")).toHaveCount(0);
-  await page.locator("#bill-end").fill("2026-09-01");
-  await page.getByRole("button", { name: t.calculate, exact: true }).click();
-  await expect(page.getByTestId("benchmark-requirement")).toHaveText(t.benchmarkMissing);
-  expect(requests).toEqual([]);
+  await page.getByRole("button", { name: t.choosePdf }).click();
+  const pdf = page.getByLabel(t.file, { exact: true });
+  const summary = page.getByTestId("current-electricity-review");
+  const verification = page.getByTestId("electricity-verification");
+  const withConcern = positionedGenesis.filter((row) => typeof row !== "string" || !row.startsWith("Billing period:"))
+    .flatMap((row) => typeof row === "string" || row[0][1] !== "115.37" ? [row] : ["Unclassified line $1.00", row]);
+  await pdf.setInputFiles({ name: "synthetic.pdf", mimeType: "application/pdf", buffer: syntheticPdf([withConcern]) });
+  await expect(summary.getByText(t.issues.period)).toBeVisible();
+  await expect(summary.getByText(t.issues.unclassifiedAmount)).toHaveCount(0);
+  await expect(summary.getByText(t.unresolved)).toHaveCount(0);
+  await expect(verification).toHaveText(t.verification.matches);
+
+  const incomplete = positionedGenesis.filter((row) => typeof row === "string" || row[0][1] !== "42.63");
+  await pdf.setInputFiles({ name: "synthetic.pdf", mimeType: "application/pdf", buffer: syntheticPdf([incomplete]) });
+  await expect(verification).toHaveText(t.verification.review);
+  await expect(summary.getByText(t.issues.dailyRate)).toBeVisible();
+  await expect(summary.getByText(t.reviewAffectsVerification)).toBeVisible();
+  await expect(summary.getByTestId("electricity-total")).toContainText("115.37");
+  await expect(page.getByTestId("electricity-edit")).not.toHaveAttribute("open", "");
+
+  const conflicting = positionedGenesis.flatMap<(typeof positionedGenesis)[number]>((row) => {
+    if (typeof row !== "string") return [row.map(([x, text]) => [x, text === "57.69" ? "57.00" : text] as const)];
+    // An explicit GST basis keeps the test focused on the printed usage discrepancy.
+    return row.startsWith("Billing period:") ? [row, "Rates exclude GST"] : [row];
+  });
+  await pdf.setInputFiles({ name: "synthetic.pdf", mimeType: "application/pdf", buffer: syntheticPdf([conflicting]) });
+  await expect(verification).toHaveText(t.verification.review);
+  await expect(summary.getByText(t.issues.usageAmount)).toBeVisible();
+  await expect(summary.getByText(t.issues.fixedAmount)).toHaveCount(0);
+  await expect(summary.getByText(t.reviewAffectsVerification)).toBeVisible();
+  await expect(page.getByRole("heading", { name: t.scenarios })).toHaveCount(0);
 });

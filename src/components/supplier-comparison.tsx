@@ -2,23 +2,26 @@
 
 import { useState } from "react";
 import { messages, type Locale } from "@/i18n";
-import { comparisonPlans, comparisonPolicy, priceRatingCoverage } from "@/data/electricity/analysis-data";
+import { comparisonPlans, comparisonPolicy, priceRatingCoverage } from "@/data/electricity/comparison-data";
 import { comparePeriodPlans, entryIsCurrent, type ComparisonScope } from "@/domain/electricity/comparison";
 import { assessPrice } from "@/domain/electricity/ratings";
 
-export function SupplierComparison({ locale, bill }: { locale: Locale; bill: { days: string; kwh: string; region: string } | null }) {
-  const t = messages[locale].analysis;
+export function SupplierComparison({ locale, bill }: { locale: Locale; bill: { days: string; kwh: string } | null }) {
+  const { analysis: t, electricityReview: review } = messages[locale];
   const [selected, setSelected] = useState(""), [baseline, setBaseline] = useState("");
+  const [region, setRegion] = useState("");
   const now = new Date();
   const asOf = new Intl.DateTimeFormat("en-CA", { timeZone: "Pacific/Auckland", year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
-  const scopes = new Map<string, ComparisonScope>();
   const currentEntries = comparisonPlans.entries.filter((entry) => entryIsCurrent(entry, comparisonPolicy, now, asOf));
+  if (!currentEntries.length) return <p className="field-hint mt-5" data-testid="supplier-data-limitation">{review.official}</p>;
+
+  const scopes = new Map<string, ComparisonScope>();
   const supportedEntries = currentEntries.filter(({ record }) => record.metering.registers.length === 1 && record.charges.usage.every((band) => band.kind === "flat"));
   for (const { record } of supportedEntries) {
     // This simple form has one total, not register or interval measurements.
-    for (const region of record.coverage.regionCodes) for (const network of record.coverage.networkIds) for (const userCategory of ["low", "standard"] as const) {
-      if (region !== bill?.region || (record.eligibility.userCategory !== "unrestricted" && record.eligibility.userCategory !== userCategory)) continue;
-      const scope = { region, network, metering: record.metering.configuration, userCategory, registers: record.metering.registers };
+    for (const regionCode of record.coverage.regionCodes) for (const network of record.coverage.networkIds) for (const userCategory of ["low", "standard"] as const) {
+      if (regionCode !== region || (record.eligibility.userCategory !== "unrestricted" && record.eligibility.userCategory !== userCategory)) continue;
+      const scope = { region: regionCode, network, metering: record.metering.configuration, userCategory, registers: record.metering.registers };
       scopes.set(JSON.stringify(scope), scope);
     }
   }
@@ -31,10 +34,15 @@ export function SupplierComparison({ locale, bill }: { locale: Locale; bill: { d
     <p className="rating-status"><span className="rating-dot" aria-hidden="true" />{t.ratings.priceLabels[rating.rating]}</p>
     {rating.rating === "unknown" ? <p className="mb-4 text-sm leading-7">{t.ratings.priceUnknown}</p> : "premiumPercent" in rating && <div className="mb-5 space-y-2 text-sm leading-7"><p>{t.ratings.premium}: ≈ {new Intl.NumberFormat(locale === "en" ? "en-NZ" : "zh-Hans-NZ", { maximumFractionDigits: 6 }).format(rating.premiumPercent)}%</p><p>{t.ratings.savings}: {money(rating.savingsCents)}</p></div>}
     <p className="field-hint mb-5">{t.ratings.priceCoverage}</p>
-    <h4 className="font-semibold">{currentEntries.length ? t.offersHeading : t.comparisonTitle}</h4>
-    {currentEntries.length === 0 ? <><p className="mt-4 text-sm leading-7">{t.comparisonBody}</p><p className="result-panel mt-4 text-sm leading-7" data-testid="supplier-data-limitation">{t.journey.noPriceInputs}</p></> : supportedEntries.length === 0 ? <p className="mt-4 text-sm leading-7">{t.journey.unsupportedOffers}</p> : !bill ? <p className="mt-4 text-sm leading-7" data-testid="price-input-requirement">{t.journey.priceInputs}</p> : <>
+    <h4 className="font-semibold">{t.offersHeading}</h4>
+    {supportedEntries.length === 0 ? <p className="mt-4 text-sm leading-7">{t.journey.unsupportedOffers}</p> : !bill ? <p className="mt-4 text-sm leading-7" data-testid="price-input-requirement">{review.officialNeedsBill}</p> : <>
       <p className="field-hint">{t.offersCoverage}</p>
-      {scopes.size ? <details className="analysis-disclosure mt-4"><summary>{t.journey.matchAdvanced}</summary><label className="field-label mt-4" htmlFor="offer-scope">{t.offersScope}</label><select id="offer-scope" className="analysis-input" value={selected} onChange={(e) => { setSelected(e.target.value); setBaseline(""); }}><option value="">{t.offersChoose}</option>{[...scopes].map(([key, s]) => <option key={key} value={key}>{s.network} · {t.offerMeters[s.metering]} · {t.offerCategories[s.userCategory]} · {s.registers[0]}</option>)}</select></details> : <p className="mt-4">{t.offersNoMatch}</p>}
+      <label className="field-label mt-4" htmlFor="offer-region">{t.region}</label>
+      <select id="offer-region" className="analysis-input" value={region} onChange={(event) => { setRegion(event.target.value); setSelected(""); setBaseline(""); }}>
+        <option value="">{t.chooseRegion}</option>
+        {Object.entries(t.regions).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+      </select>
+      {scopes.size ? <details className="analysis-disclosure mt-4"><summary>{t.journey.matchAdvanced}</summary><label className="field-label mt-4" htmlFor="offer-scope">{t.offersScope}</label><select id="offer-scope" className="analysis-input" value={selected} onChange={(e) => { setSelected(e.target.value); setBaseline(""); }}><option value="">{t.offersChoose}</option>{[...scopes].map(([key, s]) => <option key={key} value={key}>{s.network} · {t.offerMeters[s.metering]} · {t.offerCategories[s.userCategory]} · {s.registers[0]}</option>)}</select></details> : region && <p className="mt-4">{t.offersNoMatch}</p>}
       {result && result.rows.length === 0 && <p className="mt-4">{t.offersNoMatch}</p>}
       {!!result?.rows.length && <>
         <label className="field-label mt-4" htmlFor="offer-baseline">{t.offersBaseline}</label><select id="offer-baseline" className="analysis-input" value={baseline} onChange={(e) => setBaseline(e.target.value)}><option value="">{t.offersNoBaseline}</option>{result.rows.map(({ entry: { record } }) => <option key={record.recordId} value={record.recordId}>{record.retailerId} · {record.plan.name}</option>)}</select>

@@ -6,4 +6,6 @@ export default defineConfig([
   ...nextVitals,
   ...nextTypescript,
   globalIgnores([".next/**", "out/**", ".npm-cache/**", ".playwright/**", "playwright-report/**", "test-results/**", "next-env.d.ts"]),
+  // Copied verbatim from the pinned dependency during build and development.
+  globalIgnores(["public/_openbill/pdf.worker.mjs"]),
 ]);

@@ -1,6 +1,6 @@
 export const electricityEn = {
   journey: {
-    usageStep: "1. Assess your electricity usage", priceStep: "2. Compare electricity prices", usageIntro: "Enter kWh, your region and the period it covers. Your usage rating updates automatically. No bill total or tariff details are needed.",
+    usageStep: "Regional usage reference", priceStep: "Official supplier comparison", usageIntro: "Use the billed kWh above and choose your region and billing period. The reference updates as you edit.",
     periodChoice: "How would you like to enter the period?", datesMode: "Exact billing dates", monthMode: "A full calendar month", datesHint: "Use the first and last days covered by the meter readings, including both days. We calculate the days for you.",
     monthHint: "Choose a month and confirm that the kWh covers every day of it. No dates or billing-day count are needed.", daysCalculated: "Days calculated from your period", next: "Next: compare electricity prices", back: "Back to usage inputs", context: "Optional: household context and practical tips",
     householdHint: "Household size is optional context only. Current benchmarks combine all sizes; this answer does not change your usage rating.",
@@ -34,10 +34,10 @@ export const electricityEn = {
   externalNotice: "External service: Billy is run by the Electricity Authority. Its comparisons are not OpenBill results. Opening it sends none of your OpenBill entries; anything you enter there is governed by that service’s privacy policy.",
   externalBilly: "Visit Billy · external comparison service",
   metaTitle: "Electricity bill analysis | OpenBill",
-  metaDescription: "Understand your electricity bill, compare matching official regional usage averages and find practical tips. Private calculations in English and Simplified Chinese.",
+  metaDescription: "Review your electricity bill and find ways to save. Read supported PDFs or enter charges yourself in English and Simplified Chinese.",
   eyebrow: "ELECTRICITY · YOUR NUMBERS, YOUR CONTROL",
   title: "Make sense of your\nelectricity bill.",
-  intro: "First, put your electricity use in context. Then check whether verified plans are available to compare. Each step tells you exactly what is needed.",
+  intro: "See what makes up your electricity bill, check the arithmetic and explore ways to reduce your costs.",
   privacy: "Private in this tab. No uploads, accounts or saved inputs. Reloading or changing language clears your entries.",
   bill: "Your Bill", usage: "Your Usage", tips: "Saving Tips", local: "Calculated in your browser",
   formTitle: "A few details from your bill", formIntro: "Use electricity charges for the same period. Exclude gas, broadband, previous balances and debt repayments. An estimated reading gives estimated results.",

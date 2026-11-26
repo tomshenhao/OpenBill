@@ -2,7 +2,9 @@
 
 ## Household information
 
-Usage and price ratings are independent, browser-only assessments. A regional mean
+The electricity tool currently focuses on bill arithmetic and savings scenarios.
+Regional household ratings are paused in the interface while their data and
+validation are preserved. A regional mean
 cannot create percentile thresholds: Task 005.1 extracts actual published P75/P95
 columns from the pinned official CSV. No household-size peers or personal ranks
 are inferred. Cross-month approximate references remain unclassified. The source
@@ -13,19 +15,26 @@ assessments. See [the rating policy](task005-1-ratings.md).
 
 Do not collect, store, log, or transmit personal household bill information.
 The original homepage tool asks for kWh and billing days. The electricity analysis
-page adds the period total, separately labelled tax/rates and optional region,
-calendar month, household size, heating/hot-water context and plan labels. All
+page adds the period total, separately labelled taxes and rates, and optional
+property context and user-entered alternative rates. All
 values stay in temporary browser memory for calculations and advice. They are not
 saved or sent anywhere by OpenBill. No household inputs enter data archives.
 
-Do not add bill uploads, names, addresses, ICP numbers, account numbers, meter
+The electricity tool can open supported digital PDFs locally. PDF.js reads
+text in a same-origin worker with file and processing limits. The browser
+discards the raw text and keeps only allowlisted bill facts in temporary memory
+for review. It clears the file chooser after selection and discards pending
+reads on reset or navigation. Neither the file nor its text is uploaded.
+
+Do not add network bill uploads, names, addresses, ICP numbers, account numbers, meter
 identifiers, contact details, supplier login credentials, or personalised quote
 requests. Do not copy household inputs into URLs, cookies, web storage, IndexedDB,
 service-worker caches, error reports, session replay, telemetry, screenshots, issue
 reports, server logs, analytics, or external comparison services.
 
-There is no input submission endpoint. Form submission is handled in the browser;
-production policy also blocks form navigation and browser connections. Clear,
+There is no input submission endpoint. The electricity inputs update the
+calculations in browser memory. Production policy also blocks form navigation and
+browser connections. Clear,
 reload, and language change reset the form. No account or consent dialog is needed
 because there is no optional collection flow.
 
