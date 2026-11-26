@@ -9,8 +9,11 @@
     "node": ">=24.14.0 <25"
   },
   "scripts": {
+    "predev": "node scripts/pdf-worker.mjs",
     "dev": "next dev --hostname 127.0.0.1",
+    "predev:lan": "node scripts/pdf-worker.mjs",
     "dev:lan": "next dev --hostname 0.0.0.0",
+    "prebuild": "node scripts/pdf-worker.mjs",
     "build": "next build",
     "start": "node scripts/serve.mjs",
     "lint": "eslint . --max-warnings=0",
@@ -18,6 +21,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "pretest:dev": "node scripts/pdf-worker.mjs",
     "test:dev": "playwright test --config playwright.dev.config.ts",
     "check": "npm run lint && npm run typecheck && npm test && npm run data:validate && npm run benchmark:validate && npm run comparison:validate && npm run water:validate && npm run mortgage:validate",
     "mortgage:validate": "node tools/mortgage/catalogue.ts check",
@@ -38,6 +42,7 @@
   },
   "dependencies": {
     "next": "16.4.6",
+    "pdfjs-dist": "6.5.438",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "zod": "4.6.7"

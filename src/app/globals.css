@@ -34,6 +34,8 @@ main:focus { outline: none; }
 .hero-title { margin-top: 22px; font-size: clamp(37px, 4.4vw, 56px); line-height: 1.13; letter-spacing: -2.1px; font-weight: 650; white-space: pre-line; }
 .button-primary { display: inline-flex; align-items: center; gap: 18px; min-height: 50px; border: 1px solid #245c49; border-radius: 7px; padding: 13px 21px; color: #fff; background: #245c49; font-size: 14px; font-weight: 600; transition: background 120ms; }
 .button-primary:hover { background: #193f33; }
+.bill-method-manual { color: #245c49; background: #fff; }
+.bill-method-manual:hover { background: #edf4ef; }
 .section-anchor { scroll-margin-top: 24px; }
 .section-title { font-size: clamp(28px, 3vw, 37px); line-height: 1.25; font-weight: 600; letter-spacing: -1.1px; }
 .icon-box { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 8px; background: #eaf0e6; color: var(--color-green); }
@@ -93,6 +95,8 @@ html[lang="zh-Hans-NZ"] .eyebrow { letter-spacing: 1px; }
 .analysis-steps a { display: flex; align-items: center; gap: 14px; padding: 16px 20px; min-height: 56px; border-block: 1px solid #cad8c6; font-size: 14px; font-weight: 600; color: #24543c; }
 .analysis-steps a:hover { background: #eaf0e6; }
 .journey-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.electricity-section-links { padding-bottom: 0; }
+.analysis-card.electricity-bill-summary { background: #f4f8f2; border-color: #aebfb0; }
 .journey-steps button { display: flex; align-items: center; gap: 14px; padding: 16px 20px; min-height: 56px; border-block: 1px solid #cad8c6; text-align: left; font-size: 14px; font-weight: 600; color: #24543c; cursor: pointer; }
 .journey-steps button:hover { background: #eaf0e6; }
 .analysis-steps span { font-size: 12px; color: #58665d; }

@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { addSyntheticSubmissionProbe } from "./journey-helpers";
 
 test("production keeps strict connection/form policies, including before JavaScript initialises", async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
@@ -12,11 +13,8 @@ test("production keeps strict connection/form policies, including before JavaScr
         expect(csp).not.toMatch(/unsafe-eval|ws:|wss:|\*/);
       }
       if (path.includes("electricity")) {
-        // Reveal the dormant advanced form in the test harness, independently of
-        // the JS-only step control, to keep exercising the pre-hydration CSP.
-        await page.locator("#price-step").evaluate((element) => element.removeAttribute("hidden"));
-        await page.getByTestId("advanced-bill").locator(":scope > summary").click();
-        await page.locator("#bill-days").fill("30"); await page.locator("#bill-kwh").fill("987.654"); await page.locator("#bill-totalNzd").fill("120");
+        await expect(page.locator("form")).toHaveCount(0);
+        await addSyntheticSubmissionProbe(page);
       } else {
         await expect(page.locator("form")).toHaveCount(0);
         await page.close();

@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { expect, test } from "@playwright/test";
 import { messages } from "../../src/i18n/index";
-import { openAdvancedBill } from "../e2e/journey-helpers";
+import { addSyntheticSubmissionProbe } from "../e2e/journey-helpers";
 
 const lanHost = process.env.OPENBILL_TEST_LAN_HOST ?? "127.0.0.2";
 const hosts = ["127.0.0.1", lanHost];
@@ -23,18 +23,12 @@ test("explicit dev origins serve both homepages and keep electricity inputs loca
     page.on("request", (request) => requests.push(request.url()));
     page.on("framenavigated", (frame) => { if (frame === page.mainFrame()) navigation.push(frame.url()); });
     if (path.includes("electricity")) {
-      // Usage is live; bill arithmetic is an optional disclosure in step 2.
-      const copy = messages[path.startsWith("/zh/") ? "zh" : "en"].analysis;
+      const copy = messages[path.startsWith("/zh/") ? "zh" : "en"].electricityReview;
+      await page.getByRole("button", { name: copy.manual }).click();
       await page.locator("#bill-kwh").fill("987.654");
-      await page.locator("#bill-region").selectOption("NZ-AUK");
-      await page.locator("#bill-start").fill("2026-06-01"); await page.locator("#bill-end").fill("2026-06-30");
-      await expect(page.getByTestId("usage-rating")).toHaveAttribute("data-rating", "yellow");
-      await openAdvancedBill(page, copy);
-      await expect(page.locator("#bill-days")).toHaveValue("30");
+      await page.locator("#bill-days").fill("30");
       await page.locator("#bill-totalNzd").fill("120");
-      await page.locator('button[type="submit"]').click();
-      await page.getByTestId("bill-details").locator(":scope > summary").click();
-      await expect(page.getByTestId("bill-daily-kwh")).toContainText("32.92");
+      await expect(page.getByText(copy.dailyUsage, { exact: true }).locator("..")).toContainText("32.92");
     } else {
       const locale = path === "/zh/" ? "zh" : "en";
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(messages[locale].heroTitle);
@@ -50,6 +44,7 @@ test("explicit dev origins serve both homepages and keep electricity inputs loca
 test("HMR applies a real stylesheet edit without page navigation or losing form state", async ({ page }) => {
   const connected = page.waitForEvent("console", (message) => message.text().includes("[HMR] connected"));
   await page.goto(`http://${lanHost}:3111/electricity/`); await connected;
+  await page.getByRole("button", { name: messages.en.electricityReview.manual }).click();
   await page.locator("#bill-kwh").fill("987.654");
   const stylesheet = "src/app/globals.css", original = await readFile(stylesheet, "utf8");
   const updated = `${original}\n:root { --openbill-hmr-regression: confirmed; }\n`;
@@ -82,11 +77,8 @@ test("development form navigation stays blocked when JavaScript cannot initialis
       const url = `http://${lanHost}:3111${path}`;
       await page.goto(url); await page.waitForLoadState("networkidle");
       if (path.includes("electricity")) {
-        // As in the production CSP test, reveal the dormant form only in the
-        // harness: the step control cannot run without JS. CSP must still block it.
-        await page.locator("#price-step").evaluate((element) => element.removeAttribute("hidden"));
-        await page.getByTestId("advanced-bill").locator(":scope > summary").click();
-        await page.locator("#bill-days").fill("30"); await page.locator("#bill-kwh").fill("987.654"); await page.locator("#bill-totalNzd").fill("120");
+        await expect(page.locator("form")).toHaveCount(0);
+        await addSyntheticSubmissionProbe(page);
       } else {
         await expect(page.locator("form")).toHaveCount(0);
         await page.close();

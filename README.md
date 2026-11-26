@@ -24,7 +24,7 @@ and permission to redistribute source material each have their own approval step
 
 | Module | Status | Purpose | What works | Next milestone |
 | --- | --- | --- | --- | --- |
-| Electricity | Available in this build | Understand what you use, find ways to use less and eventually compare suitable retail plans. | Start with usage, region and billing period. Get bill calculations, tips and an Electricity Authority usage reference for an exact full month, with all household sizes combined. | Find reliable household-size data, starting with BRANZ HEEP2. Plan comparisons need official rates from retailers such as Genesis, Mercury and Contact, independent review and permission to publish. |
+| Electricity | Available in this build | Understand what you use, find ways to use less and eventually compare suitable retail plans. | Check charges manually or read recognised digital PDF bills in the browser. Explore ways to save and compare rates you enter. | Find reliable household-size data, starting with BRANZ HEEP2. Plan comparisons need official rates from retailers such as Genesis, Mercury and Contact, independent review and permission to publish. |
 | Water | Available in this build | Understand water use, look for leaks and check how charges add up. | Auckland Watercare only. See daily household and per-person use, a general reference of 140–170 litres per person per day, leak checks and saving tips. Estimate water and wastewater charges with rates you enter. | Independently review seven archived schedules and seek Auckland usage statistics by household size. The general reference gives no household-size percentiles. Other regions are planned. |
 | Mortgage | Available in this build | Compare interest rates, repayment costs, refinancing options and fees. | Estimate repayments and interest locally, compare payment frequencies and explore practical ways to reduce interest. The bank-source directory has no independently reviewed rates yet. | Confirm lender conditions, obtain publication permission and independently review mortgage rate records before displaying them. |
 | Insurance | Available in this build | Understand your cover and review the terms of your policy. | Six insurance guides, plus manual house policy review and a comparison of quotes you enter. | Check evidence and reuse rights for house benchmarks. Build the other tools independently. |
@@ -43,11 +43,11 @@ for the separate guides and planned work.
 
 ### Evidence and limits
 
-- **Electricity usage.** Published P75 and P95 thresholds come from the archived
-  Electricity Authority EMI dataset. A rating requires an exact full calendar
-  month and a matching region. The thresholds combine all household sizes and
-  independent source review is pending. See the [rating rules](docs/task005-1-ratings.md)
-  and [simplified inputs](docs/task005-2-input-journey.md).
+- **Electricity usage.** Regional household comparisons are paused on the
+  electricity page. The Electricity Authority EMI datasets and published P75
+  and P95 thresholds remain archived for research and independent review.
+  See the [archived rating rules](docs/task005-1-ratings.md) and
+  [results-first electricity review](docs/task010-3-electricity-results.md).
 - **Electricity prices.** The local comparison framework is tested with synthetic
   data. The production catalogue is empty. The repository records the Genesis,
   Mercury and Contact EIEP14A requests as drafts and has no verified tariff

@@ -8,7 +8,7 @@ export const productEn = {
   communityRepository: "OpenBill on GitHub",
   coreTitle: "Household bill tools",
   homeModuleStatus: {
-    electricity: "Usage analysis available. Supplier price comparison pending.",
+    electricity: "Review bill charges and savings scenarios. Verified supplier rates are pending.",
     water: "Auckland usage analysis available. Official rates are awaiting verification.",
     mortgage: "Repayment calculator available. Verified bank rate comparison pending.",
     insurance: "Six insurance guides. Review house cover and compare your own quotes.",
@@ -34,7 +34,7 @@ export const productEn = {
   } satisfies Record<BillCategory, { name: string; description: string }>,
   coreProgress: {
     electricity: {
-      current: "Start with usage, region and billing period. Get bill calculations, tips and an Electricity Authority usage reference for an exact full month, with all household sizes combined.",
+      current: "Check charges manually or read recognised digital PDF bills in the browser. Explore ways to save and compare rates you enter.",
       next: "Find reliable household-size data, starting with BRANZ HEEP2. Plan comparisons need official rates from retailers such as Genesis, Mercury and Contact, independent review and permission to publish.",
     },
     water: {
@@ -51,7 +51,8 @@ export const productEn = {
   milestones: {
     v01: { title: "v0.1 · Bilingual website & usage calculator", description: "English and Simplified Chinese pages, plus a local electricity usage check with no bill uploads." },
     v02: { title: "v0.2 · Official electricity data foundation", description: "Evidence archiving, validation and review tools are built and tested. No verified supplier tariffs or comparisons are available yet." },
-    "electricity-analysis": { title: "Electricity usage & bill analysis", description: "Simpler usage-first inputs, practical tips and regional ratings using published Electricity Authority P75 and P95 thresholds for exact full months. The thresholds combine all household sizes. The archived source has been checked and awaits independent review." },
+    "electricity-analysis": { title: "Electricity usage & bill analysis", description: "Implemented usage and bill calculations and archived published regional thresholds. Household comparisons are paused while more representative evidence is sought." },
+    "electricity-bill-review": { title: "Electricity bill review and savings scenarios", description: "Read recognised digital bill layouts locally, check electricity charges and compare user-entered rates. Savings scenarios account for fixed charges and property use." },
     "electricity-comparison-framework": { title: "Electricity comparison framework", description: "The local EIEP14A importer and comparison framework are built and tested with synthetic data. The production offer catalogue is empty." },
     "water-analysis": { title: "Auckland Watercare usage analysis", description: "Daily usage, a general Auckland reference, practical tips and a bill estimate using manually entered rates." },
     "mortgage-calculator": { title: "NZ mortgage calculator", description: "Bilingual repayment estimates, three payment frequencies, interest-only modelling, balance over time and saving tips. Eight bank sources have been researched." },

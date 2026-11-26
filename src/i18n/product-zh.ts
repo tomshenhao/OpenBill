@@ -7,7 +7,7 @@ export const productZh: ProductMessages = {
   communityRepository: "OpenBill 的 GitHub 仓库",
   coreTitle: "家庭账单工具",
   homeModuleStatus: {
-    electricity: "可分析用电量。供应商电价比较暂未开放。",
+    electricity: "核对账单费用并试算节省情景。经核实的供应商费率仍待提供。",
     water: "可分析奥克兰用水量。官方费率仍待核实。",
     mortgage: "可估算房贷还款。经核实的银行利率比较暂未开放。",
     insurance: "可查看六类保险指南、核对房屋保障并比较自己的报价。",
@@ -33,7 +33,7 @@ export const productZh: ProductMessages = {
   },
   coreProgress: {
     electricity: {
-      current: "输入用电量、地区和计费周期即可开始。提供账单计算和节电建议。完整自然月的用量可对照新西兰电力管理局的地区数据评估，数据汇总了不同人数的家庭。",
+      current: "手动核对费用，或在浏览器读取受支持的 PDF 账单。探索省电方法并比较自行输入的费率。",
       next: "从 BRANZ HEEP2 研究着手寻找可靠的分家庭人数数据。套餐比价需要 Genesis、Mercury、Contact 等零售商的官方费率，并须经过独立审核及取得发布许可。",
     },
     water: {
@@ -50,7 +50,8 @@ export const productZh: ProductMessages = {
   milestones: {
     v01: { title: "v0.1 · 双语网站与用电量计算", description: "提供英文和简体中文页面，以及无需上传账单、在本地运行的用电量计算。" },
     v02: { title: "v0.2 · 官方电价数据基础设施", description: "证据归档、数据校验和审核工具已实现并经过测试。目前仍无已核实的供应商电价，也未提供比价。" },
-    "electricity-analysis": { title: "用电量与电费分析", description: "简化输入，先评估用电量，并提供实用建议。完整自然月的地区评估采用新西兰电力管理局发布的 P75 和 P95 阈值，统计合并了不同人数的家庭。归档来源已核对，仍待独立审核。" },
+    "electricity-analysis": { title: "用电量与电费分析", description: "已实现用电与电费计算，并归档已公布的地区阈值。家庭用电对照暂时停用，等待更具代表性的数据。" },
+    "electricity-bill-review": { title: "电费账单核对与节省情景", description: "在本地读取能够识别版式的电子账单，核对电费并比较自行输入的费率。节省情景考虑固定费用和房屋使用情况。" },
     "electricity-comparison-framework": { title: "电力套餐比较框架", description: "本地 EIEP14A 导入和比较框架已实现，并用合成数据测试。生产版的供应商报价目录为空。" },
     "water-analysis": { title: "奥克兰 Watercare 用水分析", description: "提供日均用水量、奥克兰一般参考范围、实用节水建议，并可按手动输入的费率估算水费。" },
     "mortgage-calculator": { title: "新西兰房贷计算器", description: "双语还款估算、三种还款频率、只付息测算、本金走势和省钱方法。已调研八家银行的官方来源。" },
