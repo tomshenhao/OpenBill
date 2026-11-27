@@ -3,7 +3,6 @@ import type { WaterMessages } from "./water-en.ts";
 export const waterZh: WaterMessages = {
   metaTitle: "奥克兰用水量与水费核算 | OpenBill",
   metaDescription: "在浏览器内查看 Watercare 每人用水量、了解节水方法并估算本期水费。",
-  skip: "跳转到用水分析",
   region: "奥克兰 · Watercare 住宅用户",
   title: "了解您家的用水量",
   intro: "查看全家每天用多少水，对照参考范围，并了解实用的节水方法。",

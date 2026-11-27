@@ -4,7 +4,7 @@ import { languageTags, messages } from "../../src/i18n/index";
 
 const tools = [
   { module: "electricity", skipTarget: "#main" },
-  { module: "water", skipTarget: "#water-main" },
+  { module: "water", skipTarget: null },
   { module: "mortgage", skipTarget: "#mortgage-calculator" },
 ] as const;
 
@@ -43,14 +43,17 @@ for (const locale of ["en", "zh"] as const) {
         .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();
       expect(accessibility.violations).toEqual([]);
 
-      await page.keyboard.press("Tab");
-      const skip = page.locator(`a.skip-link[href="${skipTarget}"]`);
-      await expect(skip).toBeFocused();
-      await page.keyboard.press("Enter");
-      await expect(page.locator(skipTarget)).toBeFocused();
-      await page.goto(path);
-
-      await page.keyboard.press("Tab");
+      if (skipTarget) {
+        await page.keyboard.press("Tab");
+        await expect(page.locator(`a.skip-link[href="${skipTarget}"]`)).toBeFocused();
+        await page.keyboard.press("Enter");
+        await expect(page.locator(skipTarget)).toBeFocused();
+        await page.goto(path);
+        await page.keyboard.press("Tab");
+      } else {
+        await expect(page.locator("a.skip-link")).toHaveCount(0);
+        await expect(page.getByRole("main")).toHaveCount(1);
+      }
       await page.keyboard.press("Tab");
       await expect(logo).toBeFocused();
       await expect(logo).toHaveCSS("outline-style", "solid");

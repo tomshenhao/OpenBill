@@ -38,7 +38,7 @@ export const productEn = {
       next: "Find reliable household-size data, starting with BRANZ HEEP2. Plan comparisons need official rates from retailers such as Genesis, Mercury and Contact, independent review and permission to publish.",
     },
     water: {
-      current: "Auckland Watercare only. See daily household and per-person use, a general reference of 140–170 litres per person per day, leak checks and saving tips. Estimate water and wastewater charges with rates you enter.",
+      current: "Auckland Watercare only. Review supported PDF bills locally or enter usage and rates manually. See daily household and per-person use, Watercare guidance, and water-saving tips.",
       next: "Independently review seven archived schedules and seek Auckland usage statistics by household size. The general reference gives no household-size percentiles. Other regions are planned.",
     },
     mortgage: { current: "Estimate repayments and interest locally, compare payment frequencies and explore practical ways to reduce interest. The bank-source directory has no independently reviewed rates yet.", next: "Confirm lender conditions, obtain publication permission and independently review mortgage rate records before displaying them." },
@@ -54,7 +54,7 @@ export const productEn = {
     "electricity-analysis": { title: "Electricity usage & bill analysis", description: "Implemented usage and bill calculations and archived published regional thresholds. Household comparisons are paused while more representative evidence is sought." },
     "electricity-bill-review": { title: "Electricity bill review and savings scenarios", description: "Read recognised digital bill layouts locally, check electricity charges and compare user-entered rates. Savings scenarios account for fixed charges and property use." },
     "electricity-comparison-framework": { title: "Electricity comparison framework", description: "The local EIEP14A importer and comparison framework are built and tested with synthetic data. The production offer catalogue is empty." },
-    "water-analysis": { title: "Auckland Watercare usage analysis", description: "Daily usage, a general Auckland reference, practical tips and a bill estimate using manually entered rates." },
+    "water-analysis": { title: "Auckland Watercare usage and bill analysis", description: "Browser-only PDF review, manual usage and rate entry, daily usage guidance, and checks of water and wastewater charges." },
     "mortgage-calculator": { title: "NZ mortgage calculator", description: "Bilingual repayment estimates, three payment frequencies, interest-only modelling, balance over time and saving tips. Eight bank sources have been researched." },
     "insurance-guides": { title: "Six independent insurance guides", description: "Bilingual guides explain cover, policy terms and practical checks, with New Zealand sources. Calculators and policy comparisons are planned separately." },
     "verified-electricity": { title: "Verified electricity comparisons", description: "Official EIEP14A product data is outstanding. The Genesis, Mercury and Contact requests are recorded as drafts. Confirm outreach, then review coverage, prices and publication rights before enabling comparisons." },

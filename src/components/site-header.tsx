@@ -11,7 +11,7 @@ export function SiteHeader({ locale, tool }: { locale: Locale; tool?: { id: Tool
   const skipMain = { target: "#main", label: t.skip };
   const skipLinks = {
     electricity: skipMain,
-    water: { target: "#water-main", label: t.water.skip },
+    water: null,
     mortgage: { target: "#mortgage-calculator", label: t.mortgage.skip },
     insurance: skipMain,
   };
@@ -19,7 +19,7 @@ export function SiteHeader({ locale, tool }: { locale: Locale; tool?: { id: Tool
 
   return (
     <>
-      <a className="skip-link" href={skip.target}>{skip.label}</a>
+      {skip && <a className="skip-link" href={skip.target}>{skip.label}</a>}
       <header className="site-header">
         <div className="page-width flex min-h-22 flex-wrap items-center justify-between gap-4 py-4 max-[374px]:gap-x-2">
           <a href={homeRoutes[locale]} className="brand" aria-label="OpenBill">

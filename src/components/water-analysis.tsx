@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { watercare } from "@/data/water/watercare";
 import { assessWaterUsage, estimateWaterCharges, findWaterSchedule, type Connection, type Reading, type WaterRates, type WaterUsage } from "@/domain/water/analysis";
 import { languageTags, messages, type Locale } from "@/i18n";
 import { Icon } from "./icon";
+import { WaterPdfReview } from "./water-pdf-review";
+import { waterPdfCopy } from "@/i18n/water-pdf";
 
 const emptyUsage: WaterUsage = { occupants: "", volume: "", unit: "kL", days: "" };
 const emptyRates: WaterRates = { water: "", wastewater: "", annual: "" };
@@ -31,6 +33,9 @@ function WaterField({ id, label, value, update, error, hint, mode = "decimal" }:
 
 export function WaterAnalysis({ locale }: { locale: Locale }) {
   const t = messages[locale].water;
+  const pdf = waterPdfCopy[locale];
+  const [mode, setMode] = useState<"pdf" | "manual">("pdf");
+  useEffect(() => { if (mode === "manual") document.getElementById("water-occupants")?.focus(); }, [mode]);
   const [usage, setUsage] = useState(emptyUsage);
   const [assessed, setAssessed] = useState(false);
   const [usageIssue, setUsageIssue] = useState<Issue | null>(null);
@@ -126,6 +131,11 @@ export function WaterAnalysis({ locale }: { locale: Locale }) {
             <Icon name="shield" className="mt-1 size-5 shrink-0" />{t.privacy}
           </p>
         </div>
+        <div role="group" aria-label={pdf.entryMode} className="mb-4 flex flex-wrap gap-3">
+          <button type="button" aria-pressed={mode === "pdf"} className={mode === "pdf" ? "button-primary" : "button-primary bill-method-manual"} onClick={() => setMode("pdf")}>{pdf.start}</button>
+          <button type="button" aria-pressed={mode === "manual"} className={mode === "manual" ? "button-primary" : "button-primary bill-method-manual"} onClick={() => setMode("manual")}>{pdf.manualMode}</button>
+        </div>
+        {mode === "pdf" ? <WaterPdfReview locale={locale} onManual={() => setMode("manual")} /> : <>
         <section aria-labelledby="water-assessment" className="analysis-card">
           <h2 id="water-assessment" className="section-title">{t.assessment}</h2>
           <p id="water-instructions" className="mt-3 text-sm leading-6 text-muted">{t.inputIntro}</p>
@@ -261,6 +271,7 @@ export function WaterAnalysis({ locale }: { locale: Locale }) {
             </div>
           </details>
         </section>
+        </>}
       </main>
     </>
   );
