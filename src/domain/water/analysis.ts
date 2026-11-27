@@ -60,11 +60,12 @@ function roundRatio(numerator: bigint, denominator: bigint) {
 
 export function estimateWaterCharges(input: {
   millilitres: number; days: number; scheduleDays: number; rates: WaterRates;
-  wastewaterPercent: number; gstPercent: number; billTotal: string;
+  wastewaterPercent: number; billedWastewaterKl?: string; gstPercent: number; billTotal: string;
 }) {
   const { rates, millilitres, days, scheduleDays, wastewaterPercent, gstPercent, billTotal } = input;
   const invalidRate = (Object.keys(rates) as (keyof WaterRates)[]).find((key) => !decimal.test(rates[key]));
   if (invalidRate) return { ok: false as const, invalid: invalidRate };
+  if (input.billedWastewaterKl !== undefined && !decimal.test(input.billedWastewaterKl)) return { ok: false as const, invalid: "wastewater" as const };
   if (billTotal !== "" && !/^\d{1,8}(?:\.\d{1,2})?$/.test(billTotal)) {
     return { ok: false as const, invalid: "billTotal" as const };
   }
@@ -72,7 +73,9 @@ export function estimateWaterCharges(input: {
   const volume = BigInt(millilitres);
   const factor = BigInt(Math.round(wastewaterPercent * 10));
   const waterCents = roundRatio(volume * BigInt(thousandths(rates.water)), 10_000_000n);
-  const wastewaterCents = roundRatio(volume * BigInt(thousandths(rates.wastewater)) * factor, 10_000_000_000n);
+  const wastewaterCents = input.billedWastewaterKl === undefined
+    ? roundRatio(volume * BigInt(thousandths(rates.wastewater)) * factor, 10_000_000_000n)
+    : roundRatio(BigInt(thousandths(input.billedWastewaterKl)) * BigInt(thousandths(rates.wastewater)), 10_000n);
   const fixedCents = roundRatio(BigInt(days) * BigInt(thousandths(rates.annual)), 10n * BigInt(scheduleDays));
   const totalCents = waterCents + wastewaterCents + fixedCents;
   const gstCents = roundRatio(totalCents * BigInt(gstPercent), BigInt(100 + gstPercent));
@@ -81,6 +84,6 @@ export function estimateWaterCharges(input: {
     ok: true as const,
     water: Number(waterCents) / 100, wastewater: Number(wastewaterCents) / 100,
     fixed: Number(fixedCents) / 100, total: Number(totalCents) / 100, gst: Number(gstCents) / 100,
-    wastewaterKl: millilitres / 1_000_000 * wastewaterPercent / 100, difference,
+    wastewaterKl: input.billedWastewaterKl === undefined ? millilitres / 1_000_000 * wastewaterPercent / 100 : Number(input.billedWastewaterKl), difference,
   };
 }

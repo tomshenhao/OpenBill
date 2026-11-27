@@ -1,11 +1,13 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 import { languageTags, messages } from "../../src/i18n/index";
+import { waterPdfCopy } from "../../src/i18n/water-pdf";
 
 for (const locale of ["en", "zh"] as const) {
   test(`${locale}: only water use above 170 L per person per day is red`, async ({ page }) => {
     const t = messages[locale].water;
     await page.goto(locale === "en" ? "/water/" : "/zh/water/");
+    await page.getByRole("button", { name: waterPdfCopy[locale].manualMode }).click();
     await page.getByLabel(t.occupants).fill("1");
     await page.getByLabel(t.days).fill("1");
     await page.getByLabel(t.unit).selectOption("L");
@@ -40,6 +42,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("html")).toHaveAttribute("lang", languageTags[locale]);
     await expect(page).toHaveTitle(t.metaTitle);
     await expect(page.getByRole("heading", { name: t.title })).toBeVisible();
+    await page.getByRole("button", { name: waterPdfCopy[locale].manualMode }).click();
     await page.waitForLoadState("networkidle");
     const outgoing: string[] = [];
     page.on("request", (request) => outgoing.push(request.url()));

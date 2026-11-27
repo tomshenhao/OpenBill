@@ -37,7 +37,7 @@ export const productZh: ProductMessages = {
       next: "从 BRANZ HEEP2 研究着手寻找可靠的分家庭人数数据。套餐比价需要 Genesis、Mercury、Contact 等零售商的官方费率，并须经过独立审核及取得发布许可。",
     },
     water: {
-      current: "仅适用于奥克兰 Watercare。查看全家和人均日用水量、每人每天 140–170 升的一般参考范围、漏水检查和节水建议。输入费率后可估算供水与污水费用。",
+      current: "仅适用于奥克兰 Watercare。可在浏览器中核对支持的 PDF 账单，也可手动输入用水量和费率。查看家庭和人均日用水量、Watercare 指南与节水建议。",
       next: "独立审核七份已归档的价目表，并寻找按家庭人数划分的奥克兰用水统计。一般参考范围无法提供分家庭人数的百分位数据。其他地区仍在规划中。",
     },
     mortgage: { current: "在浏览器内估算还款和利息，比较还款频率，并了解减少利息的方法。银行来源目录暂未提供经独立审核的利率。", next: "确认银行的适用条件和发布许可，经独立审核后再展示房贷利率。" },
@@ -53,7 +53,7 @@ export const productZh: ProductMessages = {
     "electricity-analysis": { title: "用电量与电费分析", description: "已实现用电与电费计算，并归档已公布的地区阈值。家庭用电对照暂时停用，等待更具代表性的数据。" },
     "electricity-bill-review": { title: "电费账单核对与节省情景", description: "在本地读取能够识别版式的电子账单，核对电费并比较自行输入的费率。节省情景考虑固定费用和房屋使用情况。" },
     "electricity-comparison-framework": { title: "电力套餐比较框架", description: "本地 EIEP14A 导入和比较框架已实现，并用合成数据测试。生产版的供应商报价目录为空。" },
-    "water-analysis": { title: "奥克兰 Watercare 用水分析", description: "提供日均用水量、奥克兰一般参考范围、实用节水建议，并可按手动输入的费率估算水费。" },
+    "water-analysis": { title: "奥克兰 Watercare 用水和账单分析", description: "仅在浏览器中核对 PDF 账单，支持手动输入用水量和费率，并提供日用水量指南及供水与污水费用核算。" },
     "mortgage-calculator": { title: "新西兰房贷计算器", description: "双语还款估算、三种还款频率、只付息测算、本金走势和省钱方法。已调研八家银行的官方来源。" },
     "insurance-guides": { title: "六类独立保险指南", description: "双语指南介绍保障范围、保单条款和核查要点，并提供新西兰资料来源。计算器和保单比较按险种分别规划。" },
     "verified-electricity": { title: "经过核实的电力套餐比较", description: "仍需取得官方 EIEP14A 产品数据。Genesis、Mercury 和 Contact 的请求在仓库中记录为草稿。先确认联系情况，审核覆盖范围、价格和发布权，再开放比价。" },
